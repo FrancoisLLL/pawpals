@@ -14,6 +14,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 const petsRouter = require('./routes/pets')
+const playdatesRouter = require('./routes/playdates')
+const authRouter = require('./routes/auth')
 
 const app = express();
 
@@ -28,7 +30,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+hbs.registerPartials(path.join(__dirname, "views/partials")); 
 
 
 app.use('/', indexRouter);
@@ -38,7 +41,6 @@ app.use('/', playdatesRouter);
 
 app.use('/', petsRouter)
 app.use('/signin', authRouter);
-app.use('/signout', authRouter);
 app.use('/signout', authRouter);
 
 app.set('trust proxy', 1);
