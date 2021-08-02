@@ -34,6 +34,24 @@ app.use('/users', usersRouter);
 app.use('/', playdatessRouter);
 
 app.use('/', petsRouter)
+app.use('/signin', authRouter);
+app.use('/signout', authRouter);
+app.use('/signout', authRouter);
+
+
+//app.use(
+//    session({
+//      secret: process.env.SESSION_SECRET,
+//      resave: true,
+//      saveUnitialized: true,
+//      store: MongoStore.create({ mongoURL: process.env.MONGO_URI }),
+//      cookie: { secure: true },
+//    })
+//);
+
+app.use(require("./middlewares/auth")); 
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
