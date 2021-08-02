@@ -5,10 +5,11 @@ const hbs = require("hbs")
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const hbs = require("hbs")
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const playdatesRouter = require('./routes/playdates');
+
 const petsRouter = require('./routes/pets')
 
 const app = express();
@@ -24,14 +25,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-hbs.registerPartials(path.join(__dirname, "views/partials")); 
+// app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // app.use('/', petsRouter);
-app.use('/', playdatessRouter);
+app.use('/', playdatesRouter);
 
 app.use('/', petsRouter)
 app.use('/signin', authRouter);
