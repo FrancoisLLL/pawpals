@@ -8,14 +8,12 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const playdatesRouter = require('./routes/playdates');
 const authRouter = require('./routes/auth');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 const petsRouter = require('./routes/pets')
 const playdatesRouter = require('./routes/playdates')
-const authRouter = require('./routes/auth')
 
 const app = express();
 
