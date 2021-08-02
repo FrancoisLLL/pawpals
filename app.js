@@ -8,6 +8,11 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const playdatesRouter = require('./routes/playdates');
+const authRouter = require('./routes/auth');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
 const petsRouter = require('./routes/pets')
 const playdatesRouter = require('./routes/playdates')
 const authRouter = require('./routes/auth')
@@ -37,6 +42,31 @@ app.use('/', playdatesRouter);
 app.use('/', petsRouter)
 app.use('/signin', authRouter);
 app.use('/signout', authRouter);
+
+app.set('trust proxy', 1);
+
+app.use(
+  session({
+    secret: process.env.SESS_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      secure: process.env.NODE_ENV === 'production',
+      httpOnly: true,
+      maxAge: 60000
+    }, // ADDED code below !!!
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI || 'mongodb://localhost/basic-auth'
+
+      // ttl => time to live
+      // ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
+    })
+  })
+)
+
+app.use(require("./middlewares/auth")); 
+
 
 
 // catch 404 and forward to error handler
