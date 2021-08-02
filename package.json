@@ -7,7 +7,10 @@
     "dev": "nodemon .bin/www -e hbs,js"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cloudinary": "^1.26.3",
+    "connect-mongo": "^4.4.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
