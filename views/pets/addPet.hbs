@@ -1,0 +1,80 @@
+<h2>ADD A PET</h2>
+
+<form id="add-pet-form" method="POST" action="/add-pet"> 
+
+    <div class="question">
+        <label for="name">NAME OF THE PET</label>
+        <input type="text" name="name" placeholder="Snowflake" required>
+    </div>
+
+    <div>
+        <label for="type">TYPE OF PET</label>
+        <select name="type" required>
+            {{#each petType}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div>
+        <label for="breed">Breed</label>
+        <input type="" name="" placeholder="">
+    </div>
+
+    <div>
+        <label for="gender">GENDER</label>
+        <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Male">Female</option>
+            <option value="Male">Not specified</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="size">SIZE</label>
+        <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan">
+    </div>
+
+    <div>
+        <label for="size">PHYSICAL CONDITION</label>
+        <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind">
+    </div>
+
+    <div>
+        <label for="dateOfBirth">DATE OF BIRTH</label>
+        <input type="date" name="dateOfBirth">
+    </div>
+
+    <div>
+        <label for="size">DESCRIPTION</label>
+        <input type="text" name="description" placeholder="timid at first then sociable af">
+    </div>
+
+    {{!-- <div>
+        <fieldset>
+            <p>PET PREFERS TO PLAY</p>
+
+            {{#each}}
+            <div class="select-environment-option">
+            <input type="checkbox" name="preferredEnvironment" value="{{this}}">
+            <label>{{this}}</label>
+            </div>
+            {{/each}}
+
+        </fieldset>
+    </div> --}}
+
+    <div>
+        <label for="size">LOCATION</label>
+        <input name="picture" type="text" name="location" placeholder="City, Country">
+    </div>
+
+    <div>
+        <label for="size">ADD A PICTURE OF MY PET</label>
+        <input name="picture" type="file">
+    </div>
+
+    <button type='submit'>ADD MY PET !</button>
+
+
+</form>

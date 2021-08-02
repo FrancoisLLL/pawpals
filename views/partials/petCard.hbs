@@ -1,0 +1,28 @@
+<div class="pet-list-card">
+    <img src="{{this.picture}}" alt="photo {{this.name}}">
+    <h2>{{this.name}}</h2>
+    <p>{{this.type}}<p>
+
+        <p>{{this.breef}}</p>
+        <p>{{this.gender}}</p>
+        <p>{{this.size}}</p>
+        <p>{{this.dateOfBirth}}</p>
+        <p>{{this.physicalCondition}}</p>
+
+        <ul>
+            {{#each this.preferredEnvironment}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+
+        <p>{{this.location}}</p>
+
+        <p>
+            {{#each this.tags}}<span>{{this}} </span>{{/each}}
+
+        </p>
+        <p>{{this.owner}}</p>
+        
+    </ul>
+
+</div>

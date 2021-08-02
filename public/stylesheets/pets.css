@@ -1,0 +1,16 @@
+body {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.pet-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.pet-list-card {
+  background-color: white;
+  width: 200px;
+  padding: 1em;
+}

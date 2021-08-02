@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('pawpals:server');
 var http = require('http');
+require('../seeds/pets')
 
 /**
  * Get port from environment and store in Express.
