@@ -50,19 +50,17 @@
         <input type="text" name="description" placeholder="timid at first then sociable af">
     </div>
 
-    <div>
+    {{!-- <div>
         <fieldset>
-            <p>WHERE DOES YOUR PET PREFER TO PLAY ? </p>
-
+            <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
             {{#each environment}}
             <div class="select-environment-option">
-            <input type="checkbox" name="preferredEnvironment" value="{{this}}">
-            <label>{{this}}</label>
+            <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
+            <label for="{{this}}">{{this}}</label>
             </div>
             {{/each}}
-            
         </fieldset>
-    </div>
+    </div> --}}
 
     <div>
         <label for="size">LOCATION</label>
