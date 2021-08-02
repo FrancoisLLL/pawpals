@@ -1,0 +1,19 @@
+<h1>Playdates</h1>
+<h2>Received</h2>
+<ol>
+    {{#each playdatesConfirmed}}
+    <li>Invite: {{this.description}}</br>Date: {{this.proposedDate}}</li>
+    {{/each}}
+</ol>
+<h2>Confirmed</h2>
+<ol>
+    {{#each playdatesPending}}
+    <li>Invite: {{this.description}}</br>Date: {{this.proposedDate}}</li>
+    {{/each}}
+</ol>
+<h2>Sent</h2>
+<ol>
+    {{#each playdatesSent}}
+    <li>Invite: {{this.description}}</br>Date: {{this.proposedDate}}</li>
+    {{/each}}
+</ol>
