@@ -10,23 +10,23 @@
     <div>
         <label for="type">TYPE OF PET</label>
         <select name="type" required>
-            {{#each petType}}
+            {{#each type}}
             <option value="{{this}}">{{this}}</option>
             {{/each}}
         </select>
     </div>
 
     <div>
-        <label for="breed">Breed</label>
+        <label for="breed">BREED</label>
         <input type="" name="" placeholder="">
     </div>
 
     <div>
         <label for="gender">GENDER</label>
         <select name="gender">
-            <option value="Male">Male</option>
-            <option value="Male">Female</option>
-            <option value="Male">Not specified</option>
+            {{#each gender}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
         </select>
     </div>
 
@@ -50,11 +50,11 @@
         <input type="text" name="description" placeholder="timid at first then sociable af">
     </div>
 
-    {{!-- <div>
+    <div>
         <fieldset>
-            <p>PET PREFERS TO PLAY</p>
+            <p>WHERE DOES YOUR PET PREFER TO PLAY ? </p>
 
-            {{#each}}
+            {{#each environment}}
             <div class="select-environment-option">
             <input type="checkbox" name="preferredEnvironment" value="{{this}}">
             <label>{{this}}</label>
@@ -62,7 +62,7 @@
             {{/each}}
 
         </fieldset>
-    </div> --}}
+    </div>
 
     <div>
         <label for="size">LOCATION</label>

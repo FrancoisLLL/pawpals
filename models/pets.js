@@ -1,33 +1,31 @@
 const mongoose = require("mongoose")
 
-const petType = [
-    "Dog", 
-    "Cat", 
-    "Ferret", 
-    "Horse", 
-    "Donkey", 
-    "Pig", 
-    "Goat",
-    "Sheep",
-    "Mouse",
-    "Rat",
-    "Hamster",
-    "Gerbil",
-    "Chinchilla",
-    "Guinea pig",
-    "Rabbit",
-    "Bird",
-    "Frog",
-    "Fish",
-    "Snake",
-    "Other"
-]
-
-const petSchema = {
+const Pet = mongoose.model("Pet", {
     name: String,
     type: {
         type: String,
-        enum: petType
+        enum: [
+            "Dog", 
+            "Cat", 
+            "Ferret", 
+            "Horse", 
+            "Donkey", 
+            "Pig", 
+            "Goat",
+            "Sheep",
+            "Mouse",
+            "Rat",
+            "Hamster",
+            "Gerbil",
+            "Chinchilla",
+            "Guinea pig",
+            "Rabbit",
+            "Bird",
+            "Frog",
+            "Fish",
+            "Snake",
+            "Other"
+        ]
     },
     breed: String,
     gender: {
@@ -49,8 +47,6 @@ const petSchema = {
         ref: "User"
     },
     picture: String
-}
+})
 
-const Pet = mongoose.model("Pet", petSchema)
-
-module.exports = Pet, petType
+module.exports = Pet

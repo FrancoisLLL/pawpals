@@ -5,11 +5,11 @@ const hbs = require("hbs")
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const hbs = require("hbs")
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const petsRouter = require('./routes/pets')
+const playdatesRouter = require('./routes/playdates')
 
 const app = express();
 
@@ -30,9 +30,7 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/', petsRouter);
-app.use('/', playdatessRouter);
-
+app.use('/', playdatesRouter);
 app.use('/', petsRouter)
 
 // catch 404 and forward to error handler
