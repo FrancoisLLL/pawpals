@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const petsRouter = require('./routes/pets')
 const playdatesRouter = require('./routes/playdates')
+const authRouter = require('./routes/auth')
 
 const app = express();
 
@@ -30,8 +31,13 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+// app.use('/', petsRouter);
 app.use('/', playdatesRouter);
+
 app.use('/', petsRouter)
+app.use('/signin', authRouter);
+app.use('/signout', authRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

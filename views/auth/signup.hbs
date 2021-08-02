@@ -1,0 +1,41 @@
+<h1> Sign up and find a playmate for your pet now! </h1>
+
+
+<form method="POST" action="/views/auth/signup.hbs">
+
+<div>
+
+<label for="username"> Username </label>
+<input type="text" id="username" name="username" value="jigglypuff">
+
+</div>
+
+<div>
+
+<label for="email"> Email </label>
+<input type="email" id="email" name="email" value="jigglypuff@catchme.com">
+
+</div>
+
+
+
+<!--- 
+username: String,
+	email: String,
+	password: String,
+	name: String,
+	dateJoined: {
+		type: String,
+		default: Date.now, 
+	},
+	membership: {
+		type: Boolean,
+		default: false,
+	},
+	phoneNumber: Number, 
+
+--->
+
+
+
+</form>
