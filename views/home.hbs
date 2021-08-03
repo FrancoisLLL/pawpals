@@ -1,21 +1,18 @@
-<h1>WELCOME BACK {{user.name}}</h1>
+<h1>WELCOME BACK {{currentUser.name}}</h1>
+{{> navbar}}
 
-
-<<<<<<< HEAD
 You have XXX pets. 
-=======
 <body>
 	<div class="container-home">
-	{{> navbar}}
-	{{currentUser.username}}
+	
+	
 	{{{body}}}
->>>>>>> 52fc86406e2ae9a43bd30193434c35105ab521c0
 
+<h1>WELCOME BACK</h1>
+
+
+<p>You have XXX pets.</p>
 
 {{#each pet}}
-<div>
-	{{> petCard}}
-
-	</div>
-
-{{/each}}
+	{{> myPetCard}}
+{{/each}} 

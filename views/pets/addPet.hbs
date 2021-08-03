@@ -19,7 +19,7 @@
 
     <div>
         <label for="breed">BREED</label>
-        <input type="" name="" placeholder="">
+        <input type="text" name="breed" placeholder="breed, race, scientific name">
     </div>
 
     <div>
@@ -59,6 +59,20 @@
             {{/each}}
         </select>
     </div> --}}
+
+        <div>
+        <fieldset>
+            <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
+            {{#each environment}}
+            <div class="select-environment-option">
+            <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
+            <label for="{{this}}">{{this}}</label>
+            </div>
+            {{/each}}
+        </fieldset>
+    </div>
+
+
 
     {{!-- <div>
         <label for="size">LOCATION</label>

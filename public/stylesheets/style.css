@@ -50,6 +50,8 @@ h1 {
   background-color: white;
   width: 200px;
   padding: 1em;
+  border: 1px solid rgba(128, 128, 128, 0.509);
+  border-radius: 5px;
 }
 
 .pet-list-card a {

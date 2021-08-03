@@ -81,7 +81,7 @@ router.post("/signin", async (req, res, next) => {
 
 			console.log("after req session" + foundUser._id);
 
-			res.redirect("/");
+			res.redirect("/home");
 
 		} else {
 			console.log("else")
