@@ -35,6 +35,7 @@ router.post("/signup", async (req, res, next) => {
 			return;
 		}
 
+		console.log(user.password, SALT);
 		const hashedPassword = bcrypt.hashSync(user.password, SALT);
 		user.password = hashedPassword;
 
