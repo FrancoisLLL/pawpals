@@ -7,16 +7,7 @@ const Pet = require("../models/Pet")
 
 console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
 
-router.get('/homepage', (req,res,next) => {
-    res.render("home.hbs")
-    // Pet.find
-    // .then((myPetsData) => {
-    //   res.render('home.hbs', {
-    //     pet: myPetsData
-    //   })
-    // })
-    // .catch(error => next(error))
-  })
+
 
 router.get("/add-pet", (req, res, next) => {
     res.render("pets/addPet.hbs", {
@@ -60,7 +51,7 @@ router.post("/add-my-pet", (req, res, next) => {
     })
 }) 
 
-router.get("my-pet/:id", (req,res,next) => {
+router.get("/pet/:id", (req,res,next) => {
     Pet.findById(req.params.id)
     .then((petData)=>{
         console.log(pet);
@@ -70,7 +61,7 @@ router.get("my-pet/:id", (req,res,next) => {
     })
 })
 
-router.get("/my-pet/:id/update", (req, res, next) => {
+router.get("/pet/:id/edit", (req, res, next) => {
     Pet.findById(req.params.id)
     .then((catData) => {
         res.render("pets/updatePet.hbs", {
