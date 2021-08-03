@@ -1,0 +1,55 @@
+
+<form method="POST" action="/account/edit"></form>
+
+<h1>Editing {{currentUser.name}}'s account </h1>
+
+
+
+	<div>
+
+		<label for="username"> Username </label>
+		<input type="text" id="username" name="username" value="jigglypuff" />
+
+	</div>
+
+	<div>
+
+		<label for="email"> Email </label>
+		<input type="email" id="email" name="email" value="jigglypuff@catchme.com" />
+
+	</div>
+
+	<div>
+
+		<label for="name"> Name </label>
+		<input type="text" id="name" name="name" value="charizard" />
+
+	</div>
+
+	<div>
+		<!-- code in js to set default date to today 
+document.getElementById('date-field').value = new Date().toISOString().slice(0, 10);
+-->
+
+		<label for="date"> Date Joined </label>
+		<input type="date" id="date" value="2021-08-02" />
+	</div>
+
+
+	<div>
+		<label for="membership"> Membership Access </label>
+		<input type="checkbox" name="membership" value="member" />
+	</div>
+
+	<div>
+		<label for="phoneNumber"> Phone Number </label>
+		<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" />
+
+	</div>
+
+	<div>
+		<label for="password"> Password </label>
+		<input type="password" name="password" id="password" value="1111" />
+	</div>
+
+	<button> Submit Changes !</button>

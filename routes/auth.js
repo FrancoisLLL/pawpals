@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt");
 const SALT = 10;
 
 
+
+
 router.get("/signin", (req, res, next) => {
 	res.render("auth/signin.hbs")
 });
@@ -80,7 +82,7 @@ router.post("/signin", async (req, res, next) => {
 
 			console.log("after req session" + foundUser._id);
 
-			res.redirect("/");
+			res.redirect("/home");
 
 		} else {
 			console.log("else")
@@ -96,7 +98,7 @@ router.post("/signin", async (req, res, next) => {
 	}
 });
 
-router.get("/signout", (req, res, next) => {
+router.get("/logout", (req, res, next) => {
 	req.session.destroy((error) => {
 		if (error) {
 			next(error);

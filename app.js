@@ -95,7 +95,8 @@ app.use('/', playdatesRouter);
 app.use('/', petsRouter)
 //app.use('/signin', authRouter);
 app.use('/', authRouter);
-app.use('/', myPetRouter)
+app.use('/', myPetRouter);
+
 
 
 // catch 404 and forward to error handler
