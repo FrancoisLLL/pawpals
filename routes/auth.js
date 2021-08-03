@@ -36,15 +36,11 @@ router.post("/signup", async (req, res, next) => {
 			return;
 		}
 
-		console.log(user.password, SALT);
+		// console.log(user.password, SALT);
 		const hashedPassword = await bcrypt.hashSync(user.password, SALT);
 		user.password = hashedPassword;
 
 		const createdUser = await User.create(user);
-
-		req.session.currentUser = createdUser;
-
-		console.log(req.session.currentUser);
 
 		res.redirect("/signin");
 
@@ -54,8 +50,6 @@ router.post("/signup", async (req, res, next) => {
 });
 
 router.post("/signin", async (req, res, next) => {
-
-	console.log(req.body);
 
 	try {
 		const foundUser = await User.findOne({
@@ -69,26 +63,37 @@ router.post("/signin", async (req, res, next) => {
 			return;
 		}
 
-		console.log(req.body.password, foundUser.password);
-
 		const isValidPassword = bcrypt.compareSync(
 			req.body.password,
 			foundUser.password
 		);
 
+		console.log("isValid" + isValidPassword)
 		if (isValidPassword) {
+			console.log("before req session" + foundUser._id);
+
+			console.log(req.session);
+
 			req.session.currentUser = {
 				_id: foundUser._id,
 			};
 
+			console.log("after req session" + foundUser._id);
+
 			res.redirect("/");
+
 		} else {
+			console.log("else")
 			res.render("auth/signin.hbs", {
 				errorMessage: "try again",
 			});
 			return;
 		}	
-	} catch (error) {}
+
+	} catch (error) {
+		console.log(error)
+		next(error)
+	}
 });
 
 router.get("/signout", (req, res, next) => {
