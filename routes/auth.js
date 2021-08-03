@@ -18,7 +18,7 @@ router.post("/signup", async (req, res, next) => {
 	try {
 		const user = req.body;
 
-		if (!user.usernamename || !user.email) {
+		if (!user.username || !user.email) {
 			res.render("auth/signup.hbs", {
 				errorMessage: 
 				"Please provide your username and email",
