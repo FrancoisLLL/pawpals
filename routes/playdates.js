@@ -69,6 +69,8 @@ router.get('/playdates/invite/:id', function (req, res, next) {
     Playdate.findOne({
             _id: req.params.id
         })
+        .populate("senderId")
+        .populate("receiverId")
         .then(data => {
             console.log(data);
             res.render("playdates/inviteDetails", {
