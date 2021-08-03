@@ -4,6 +4,7 @@ const router = express.Router();
 const Pet = require("../models/Pet");
 const User = require("../models/User");
 
+const fileUploader = require('../config/cloudinary');
 
 router.get("/pet/:id", async (req, res, next) => {
     try {
@@ -32,10 +33,10 @@ router.get("/add-pet", (req, res, next) => {
 
 
 // ADD PET FORM WITHOUT PICTURE
-router.post("/add-pet", (req, res, next) => {
+router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
     let pet = req.body
     pet.owner = req.session.currentUser._id
-
+    pet.picture = req.file.path;
     Pet.create(pet)
     .then((petData) => {
         console.log(petData)

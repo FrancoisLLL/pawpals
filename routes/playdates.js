@@ -6,7 +6,8 @@ const Playdate = require("../models/Playdate")
 
 async function getPlayDates(currentPetId) {
     const confirmed = await Playdate.find({
-        status: "confirmed"
+        status: "confirmed",
+        $or: [{ receiverId: currentPetId}, { senderId: currentPetId}] 
     }).populate("senderId").populate("receiverId").exec();
     const pending = await Playdate.find({
         status: "pending",
@@ -64,7 +65,7 @@ router.post('/playdates/invite', function (req, res, next) {
 });
 
 router.get('/playdates/invite/:id', function (req, res, next) {
-    console.log(req.params.id);
+    // console.log(req.params.id);
 
     Playdate.findOne({
             _id: req.params.id
@@ -72,10 +73,11 @@ router.get('/playdates/invite/:id', function (req, res, next) {
         .populate("senderId")
         .populate("receiverId")
         .then(data => {
-            console.log(data);
+            // console.log(data);
+            console.log("pet id " + req.session.currentPet._id + " sender: " + data.senderId._id )
             res.render("playdates/inviteDetails", {
                 invite: data,
-                isOwner: req.session.currentPet._id.toString() === data.senderId.toString() ? true: false
+                isOwner: req.session.currentPet._id.toString() === data.senderId._id.toString() ? true: false
             })
         })
         .catch(e => console.log(e))
@@ -83,7 +85,7 @@ router.get('/playdates/invite/:id', function (req, res, next) {
 
 
 router.get('/playdates/invite/:id/accept', function (req, res, next) {
-    console.log("accept playdate id" + req.params.id);
+    // console.log("accept playdate id" + req.params.id);
     Playdate.findOneAndUpdate(
             {_id: req.params.id}, {
                 status: "confirmed"
@@ -109,7 +111,7 @@ router.get('/playdates/invite/:id/reject', function (req, res, next) {
             }
         )
         .then(async data => {
-            console.log(data);
+            // console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
             res.render("./playdates/index.hbs", {
