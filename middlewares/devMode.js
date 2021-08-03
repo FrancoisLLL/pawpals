@@ -6,6 +6,7 @@ module.exports = (req, res, next) => {
 			req.session.currentUser = {
 				_id: oneUser._id,
 				username: oneUser.username,
+				//password: oneUser.password,
 			};
 			next();
 		})

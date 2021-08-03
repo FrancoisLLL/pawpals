@@ -12,6 +12,8 @@ const authRouter = require('./routes/auth');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
+const dev_mode = false;
+
 
 const petsRouter = require('./routes/pets')
 const playdatesRouter = require('./routes/playdates');
@@ -32,6 +34,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//uncommented duplicate lines
 //app.use(express.static(path.join(__dirname, 'public')));
 //hbs.registerPartials(path.join(__dirname, "views/partials")); 
 
@@ -73,7 +76,7 @@ app.use((req, res, next) => {
   if (req.session.currentUser) {
     User.findById(req.session.currentUser._id)
       .then((userFromDb) => {
-        res.locals.currentUser = userFromDB;
+        res.locals.currentUser = userFromDb;
         res.locals.isLoggedIn = true;
         next();
       })
@@ -94,7 +97,11 @@ app.use((req, res, next) => {
 //})
 
 app.use(require("./middlewares/auth")); 
+
+if (dev_mode === true) {
 app.use(require("./middlewares/devMode"));
+}
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
