@@ -1,19 +1,29 @@
 <h1>Playdates</h1>
 <h2>Received</h2>
 <ol>
-    {{#each playdatesConfirmed}}
-    <li>Invite: {{this.description}}</br>Date: {{this.proposedDate}}</li>
+    {{#each playdatesPending}}
+    <li>Sender:{{this.senderId.name}} 
+        
+    </br>Receiver: {{this.receiverId.name}} 
+    </br>Description: {{this.description}}
+    </br>Date: {{this.proposedDate}}</br></li>
+    <a href="/playdates/invite/{{this.id}}/accept">Accept</a></br>
+    <a href="/playdates/invite/{{this.id}}/reject">Reject</a></br>
+    <a href="/playdates/invite/{{this.id}}">Details</a></br>
     {{/each}}
 </ol>
 <h2>Confirmed</h2>
 <ol>
-    {{#each playdatesPending}}
-    <li>Invite: {{this.description}}</br>Date: {{this.proposedDate}}</li>
+    {{#each playdatesConfirmed}}
+    <li>Sender:{{this.senderId.name}} </br>Receiver: {{this.receiverId.name}}</br>Description: {{this.description}}</br>Date: {{this.proposedDate}}</br></li>
+    <a href="/playdates/invite/{{this.id}}">Details</a></br>
     {{/each}}
 </ol>
 <h2>Sent</h2>
 <ol>
     {{#each playdatesSent}}
-    <li>Invite: {{this.description}}</br>Date: {{this.proposedDate}}</li>
+    <li>Sender:{{this.senderId.name}} </br>Receiver: {{this.receiverId.name}}</br>Description: {{this.description}}</br>Date: {{this.proposedDate}} </br></li>
+    <a href="/playdates/invite/{{this.id}}">Details</a></br>
+    <a href="/playdates/invite/{{this.id}}/reject">Cancel</a></br>
     {{/each}}
 </ol>

@@ -84,6 +84,10 @@ if (dev_mode === true) {
 app.use(require("./middlewares/devMode"));
 }
 
+if(process.env.MODE === "DEBUG") {
+  app.use(require("./middlewares/fakePets"));
+}
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // app.use('/', petsRouter);

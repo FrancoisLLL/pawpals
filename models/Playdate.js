@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const playdateSchema = new Schema({
     senderId: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: "Pet",
         require: true
     },
     receiverId: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: "Pet",
         require: true
     },
     description: String,
