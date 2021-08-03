@@ -4,9 +4,8 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
-
 
 .container {
   display: flex;
@@ -14,12 +13,10 @@ a {
   justify-content: center;
 }
 
-
 .signup-form-container {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .container-home {
@@ -29,8 +26,33 @@ a {
 h1 {
   text-align: center;
   top: 20px;
-    left: 20px;
-    background-color: rgba(129, 120, 120, 0.767);
-    padding: 20px;
-    color: blue;
+  left: 20px;
+  background-color: rgba(129, 120, 120, 0.767);
+  padding: 20px;
+  color: blue;
+}
+
+.signup-form-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pet-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.pet-list-card {
+  background-color: white;
+  width: 200px;
+  padding: 1em;
+}
+
+.pet-list-card a {
+  text-decoration: none;
+  color: black;
 }
