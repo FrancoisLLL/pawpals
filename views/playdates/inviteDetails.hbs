@@ -2,24 +2,25 @@
     Invite details
 </h1>
 <div>
-    <p>
-        Sender:{{invite.senderId.name}}
-    <p>
-        Receiver:{{invite.receiverId.name}}
-    </p>
-    <p>
-        Description: {{invite.description}}
-    </p>
-    <p>
-        Date: {{invite.proposedDate}}
-    </p>
+        <p>Host:{{invite.senderId.name}}</p>
+        <p><img src={{invite.senderId.picture}}></p>
 
-    {{#unless isOwner}}
-    <a href="/playdates/invite/{{invite.id}}/accept">Accept</a></br>
-    <a href="/playdates/invite/{{invite.id}}/reject">Reject</a></br>
-    {{/unless}}
 
-    {{#isOwner}}
-    <a href="/playdates/invite/{{invite.id}}/cancel">Cancel</a></br>
-    {{/isOwner}}
+        <p>Guest: {{invite.receiverId.name}}</p>
+        <p></p><img src={{invite.receiverId.picture}}></p>
+        <p>
+            Description: {{invite.description}}
+        </p>
+        <p>
+            Date: {{invite.proposedDate}}
+        </p>
+
+        {{#unless isOwner}}
+        <a href="/playdates/invite/{{invite.id}}/accept">Accept</a></br>
+        <a href="/playdates/invite/{{invite.id}}/reject">Reject</a></br>
+        {{/unless}}
+
+        {{#isOwner}}
+        <a href="/playdates/invite/{{invite.id}}/cancel">Cancel</a></br>
+        {{/isOwner}}
 </div>

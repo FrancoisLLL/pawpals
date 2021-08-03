@@ -13,11 +13,11 @@ const fileUploader = require('../config/cloudinary');
 router.get("/pet/:id", async (req, res, next) => {
     try {
         const foundPet = await Pet.findById(req.params.id);
-        console.log("foundPet", foundPet);
+        // console.log("foundPet", foundPet);
 
 
         req.session.currentPet = { _id : foundPet._id}
-        console.log("after req session" + foundPet.id);
+        // console.log("after req session" + foundPet.id);
         res.render("pets/myPet.hbs", {
             pet : foundPet
         })
@@ -30,14 +30,9 @@ router.get("/pet/:id", async (req, res, next) => {
 })
 
 router.get("/homepage", (req,res,next) => {
-    req.session.destroy((error) => {
-        if (error) {
-            next(error);
-        } else {
-            res.redirect("/homepage")
-        }
+    req.session.currentPet.delete;
     })
-})
+
 
 
 

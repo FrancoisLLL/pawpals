@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Playdate = require("../models/Playdate")
 
-
+const checkPet = require("../middlewares/petSelected")
 
 async function getPlayDates(currentPetId) {
     const confirmed = await Playdate.find({
@@ -26,7 +26,7 @@ async function getPlayDates(currentPetId) {
     }
 }
 
-router.get('/playdates', async function (req, res, next) {
+router.get('/playdates', checkPet, async function (req, res, next) {
     //to be updated with receiver ID cookie and stuff
     console.log(req.session.currentPet)
     const playDates = await getPlayDates(req.session.currentPet._id);
@@ -38,12 +38,12 @@ router.get('/playdates', async function (req, res, next) {
     })
 }); 
 
-router.get('/playdates/invite', function (req, res, next) {
+router.get('/playdates/invite', checkPet, function (req, res, next) {
     res.render("./playdates/invite.hbs");
 });
 
 
-router.post('/playdates/invite', function (req, res, next) {
+router.post('/playdates/invite', checkPet, function (req, res, next) {
     Playdate.create({
             proposedDate: req.body.inviteDate,
             // receiverId: 0,
@@ -64,7 +64,7 @@ router.post('/playdates/invite', function (req, res, next) {
         .catch(e => console.log(e))
 });
 
-router.get('/playdates/invite/:id', function (req, res, next) {
+router.get('/playdates/invite/:id', checkPet, function (req, res, next) {
     // console.log(req.params.id);
 
     Playdate.findOne({
@@ -84,7 +84,7 @@ router.get('/playdates/invite/:id', function (req, res, next) {
 });
 
 
-router.get('/playdates/invite/:id/accept', function (req, res, next) {
+router.get('/playdates/invite/:id/accept', checkPet, function (req, res, next) {
     // console.log("accept playdate id" + req.params.id);
     Playdate.findOneAndUpdate(
             {_id: req.params.id}, {
@@ -104,7 +104,7 @@ router.get('/playdates/invite/:id/accept', function (req, res, next) {
         .catch(e => console.log(e))
 });
 
-router.get('/playdates/invite/:id/reject', function (req, res, next) {
+router.get('/playdates/invite/:id/reject', checkPet, function (req, res, next) {
     Playdate.findOneAndUpdate(
         {_id: req.params.id}, {
                 status: "rejected"
@@ -123,7 +123,7 @@ router.get('/playdates/invite/:id/reject', function (req, res, next) {
         .catch(e => console.log(e))
 });
 
-router.get('/playdates/invite/:id/cancel', function (req, res, next) {
+router.get('/playdates/invite/:id/cancel', checkPet, function (req, res, next) {
     Playdate.findOneAndUpdate(
         {_id: req.params.id}, {
                 status: "cancelled"

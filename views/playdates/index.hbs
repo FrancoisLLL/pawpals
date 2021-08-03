@@ -2,28 +2,44 @@
 <h2>Received</h2>
 <ol>
     {{#each playdatesPending}}
-    <li>Sender:{{this.senderId.name}} 
-        
-    </br>Receiver: {{this.receiverId.name}} 
-    </br>Description: {{this.description}}
-    </br>Date: {{this.proposedDate}}</br></li>
-    <a href="/playdates/invite/{{this.id}}/accept">Accept</a></br>
-    <a href="/playdates/invite/{{this.id}}/reject">Reject</a></br>
-    <a href="/playdates/invite/{{this.id}}">Details</a></br>
+    <li>
+        <p>Host:{{this.senderId.name}}</p>
+        <img src={{this.senderId.picture}}>
+        <p>Description: {{this.description}}</p>
+        <p>Date: {{this.proposedDate}}</p>
+    </li>
+    <a href="/playdates/invite/{{this.id}}/accept">Accept</a>
+    <a href="/playdates/invite/{{this.id}}/reject">Reject</a>
+    <a href="/playdates/invite/{{this.id}}">Details</a>
     {{/each}}
 </ol>
 <h2>Confirmed</h2>
 <ol>
     {{#each playdatesConfirmed}}
-    <li>Sender:{{this.senderId.name}} </br>Receiver: {{this.receiverId.name}}</br>Description: {{this.description}}</br>Date: {{this.proposedDate}}</br></li>
-    <a href="/playdates/invite/{{this.id}}">Details</a></br>
+    <li>
+        <p>Host:{{this.senderId.name}}</p>
+        <p>Guest: {{this.receiverId.name}}</p>
+        {{!--
+        <img src={{this.senderId.picture}}>
+        
+        <img src={{this.receiverId.picture}}> </br> --}}
+        <p>Description: {{this.description}}</p>
+        <p>Date: {{this.proposedDate}}</p>
+    </li>
+    <a href="/playdates/invite/{{this.id}}">Details</a>
     {{/each}}
 </ol>
 <h2>Sent</h2>
 <ol>
     {{#each playdatesSent}}
-    <li>Sender:{{this.senderId.name}} </br>Receiver: {{this.receiverId.name}}</br>Description: {{this.description}}</br>Date: {{this.proposedDate}} </br></li>
-    <a href="/playdates/invite/{{this.id}}">Details</a></br>
-    <a href="/playdates/invite/{{this.id}}/cancel">Cancel</a></br>
+    <p>Guest: {{this.receiverId.name}}</p>
+    {{!--
+    <img src={{this.receiverId.picture}}> --}}
+
+    <p>Description: {{this.description}}</p>
+    <p>Date: {{this.proposedDate}}</p>
+    </li>
+    <a href="/playdates/invite/{{this.id}}">Details</a>
+    <a href="/playdates/invite/{{this.id}}/cancel">Cancel</a>
     {{/each}}
 </ol>

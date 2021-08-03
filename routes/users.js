@@ -11,7 +11,8 @@ const Pet = require("../models/Pet")
             
           })
           .then((myPetsData) => {
-            console.log(myPetsData);
+            // console.log(myPetsData);
+            delete req.session.currentPet;
             res.render('home', {
               pet: myPetsData
             })
@@ -26,4 +27,3 @@ const Pet = require("../models/Pet")
 
 
       module.exports = router;
-      

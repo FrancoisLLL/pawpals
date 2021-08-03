@@ -94,7 +94,6 @@ app.use('/', usersRouter);
 // app.use('/', petsRouter);
 
 // app.use(require("./middlewares/auth")); 
-
 app.use('/', playdatesRouter);
 
 app.use('/', petsRouter)
