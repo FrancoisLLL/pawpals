@@ -41,6 +41,10 @@ const Pet = mongoose.model("Pet", {
         enum: ["park", "beach", "forest", "street", "stadium", "inside", "cage"]
     }],
     location: String, 
+    time : [{
+        type: String,
+        enum: ["morning", "afternoon", "lunch", "weekday", "weekend"]
+    }],
     tags: [String],
     owner: {
         type: mongoose.Schema.Types.ObjectId,

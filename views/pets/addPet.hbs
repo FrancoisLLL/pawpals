@@ -62,17 +62,29 @@
         </select>
     </div> --}}
 
-        <div>
+    <div>
         <fieldset>
             <legend>where does your pet prefer to play ?</legend>
             {{#each environment}}
-            <div class="select-environment-option">
+            <div class="select-option">
             <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
             <label for="{{this}}">{{this}}</label>
             </div>
             {{/each}}
         </fieldset>
     </div>
+
+<div>
+    <fieldset>
+        <legend>where does your pet prefer to play ?</legend>
+        {{#each time}}
+        <div class="select-option">
+        <input type="checkbox" id="{{this}}" name="time" value="{{this}}">
+        <label for="{{this}}">{{this}}</label>
+        </div>
+        {{/each}}
+    </fieldset>
+</div>
 
 
 

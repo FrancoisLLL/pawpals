@@ -4,29 +4,29 @@
 <form id="add-pet-form" method="POST" action="/pet/:id/edit"> 
 
     <div class="question">
-        <label for="name">NAME OF THE PET</label>
+        <label for="name">my pet's name is</label>
         <input type="text" name="name" placeholder="Snowflake" value="{{pet.name}}" required>
     </div>
 
     <div>
-        <label for="type">TYPE OF PET</label>
+        <label for="type">my pet is a</label>
         <select name="type" required>
             {{#each type}}
-            <option {{isSelected type "{{this}}" }} value="{{this}}">{{this}}</option>
+            <option {{isSelected ../pet.type this}} value="{{this}}">{{this}}</option>
             {{/each}}
         </select>
     </div>
 
     <div>
-        <label for="breed">BREED</label>
+        <label for="breed">my pet is a</label>
         <input type="text" name="breed" placeholder="breed, race, scientific name" value="{{pet.breed}}">
     </div>
 
     <div>
-        <label for="gender">GENDER</label>
+        <label for="gender">my pet is a</label>
         <select name="gender">
             {{#each gender}}
-            <option {{isSelected "{{this}}"}} value="{{this}}">{{this}}</option>
+            <option {{isSelected ../pet.gender this}} value="{{this}}">{{this}}</option>
             {{/each}}
 
             {{!-- <option {{isSelected pet.gender "Male"}} value="Male">Male</option>
@@ -36,7 +36,7 @@
     </div>
 
     <div>
-        <label for="size">SIZE</label>
+        <label for="size">my pet is</label>
         <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan" value="{{pet.size}}">
     </div>
 
@@ -64,12 +64,24 @@
         </select>
     </div> --}}
 
-        <div>
+    <div>
         <fieldset>
             <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
             {{#each environment}}
-            <div class="select-environment-option">
-            <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
+            <div class="select--option">
+            <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}" {{isChecked ../pet.preferredEnvironment this}}>
+            <label for="{{this}}">{{this}}</label>
+            </div>
+            {{/each}}
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <legend>WHEN DOES YOUR PET PREFER TO PLAY ? </legend>
+            {{#each time}}
+            <div class="select-option">
+            <input type="checkbox" id="{{this}}" name="time" value="{{this}}" {{isChecked ../pet.time this}}>
             <label for="{{this}}">{{this}}</label>
             </div>
             {{/each}}
@@ -86,7 +98,7 @@
         <input name="picture" type="file">
     </div>
 
-    <button type='submit'>ADD MY PET !</button>
+    <button type='submit'>UPDATE MY PET !</button>
 </form>
 
 </div>
