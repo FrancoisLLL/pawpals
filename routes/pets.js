@@ -6,7 +6,7 @@ const Pet = require("../models/Pet")
 
 // SEARCH
 router.get("/search", (req, res, next) => {
-    Pet.find()
+    Pet.find({owner: {$ne: req.session.currentUser}})
     .then((response) => {
         res.render("pets/petList.hbs", {
             pet: response,
