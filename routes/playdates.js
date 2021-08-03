@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Playdate = require("../models/playdates")
+const Playdate = require("../models/Playdate")
 
 /* GET users listing. */
 router.get('/playdates', async function (req, res, next) {

@@ -1,9 +1,9 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-const Playdate = require("../models/playdates");
-require('../config/mongodb')
-const Playdates = require('../models/playdates')
-const Users = require('../models/users')
+const Playdate = require("../models/Playdate");
+require('../config/mongo')
+const Playdates = require('../models/Playdate')
+const Users = require('../models/User')
 
 const playdateSeeds = [{
         senderId: cat1,

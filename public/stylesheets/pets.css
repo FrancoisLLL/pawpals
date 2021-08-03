@@ -14,3 +14,8 @@ body {
   width: 200px;
   padding: 1em;
 }
+
+.pet-list-card a {
+  text-decoration: none;
+  color: black;
+}
