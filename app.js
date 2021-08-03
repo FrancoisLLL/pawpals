@@ -40,7 +40,7 @@ app.use(cookieParser());
 
 app.set('trust proxy', 1);
 
-
+// USER SESSION
 app.use(
   session({
     secret: process.env.SESS_SECRET,
@@ -60,6 +60,7 @@ app.use(
     })
   })
 )
+
 
 app.use((req, res, next) => {
   if (req.session.currentUser) {
@@ -85,7 +86,7 @@ app.use(require("./middlewares/devMode"));
 }
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 // app.use('/', petsRouter);
 
 // app.use(require("./middlewares/auth")); 
@@ -114,5 +115,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

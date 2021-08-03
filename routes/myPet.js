@@ -1,45 +1,50 @@
 const express = require("express");
 const uploader = require("../config/cloudinary");
 const router = express.Router();
-const Pet = require("../models/Pet")
+const Pet = require("../models/Pet");
+const User = require("../models/User");
 
 
 
-console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
+// console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
 
-// SEARCH
-router.get("/search", (req, res, next) => {
-    Pet.find()
-    .then((response) => {
-        res.render("pets/petList.hbs", {
-            pet: response,
-            css: ["style.css", 'pets.css']
-        });
-    })
-    .catch((error) => {
+
+router.get("/pet/:id", async (req, res, next) => {
+    try {
+        const foundPet = await Pet.findById(req.params.id);
+        console.log("foundPet", foundPet);
+
+
+        req.session.currentPet = { _id : foundPet._id}
+        console.log("after req session" + foundPet.id);
+        res.render("pets/myPet.hbs", {
+            pet : foundPet
+        })
+    }
+    catch (error) { 
+        console.log(error);
         next(error)
+    }
+
+})
+
+router.get("/homepage", (req,res,next) => {
+    req.session.destroy((error) => {
+        if (error) {
+            next(error);
+        } else {
+            res.redirect("/homepage")
+        }
     })
 })
 
-// router.get("/:id", (req, res, next) => {
-//     Pet.findById(req.params.id)
-//     .then((response) => {
-//         res.render("pets/onePet.hbs", {
-//             pet: response,
-//             css: ["style.css", 'pets.css']
-//         });
-//     })
-//     .catch((error) => {
-//         next(error)
-//     })
-// })
 
 
 router.get("/add-pet", (req, res, next) => {
     res.render("pets/addPet.hbs", {
         type: Pet.schema.path('type').enumValues,
         gender: Pet.schema.path('gender').enumValues,
-        environment : Pet.schema.path('preferredEnvironment').enumValues
+        environment : Pet.schema.path('preferredEnvironment.0').enumValues
 
     })
 })
@@ -66,28 +71,30 @@ router.get("/add-pet", (req, res, next) => {
 
 
 // ADD PET FORM WITHOUT PICTURE
-router.post("/add-my-pet", (req, res, next) => {
-    Pet.create(req.body)
-    .then((pet) => {
-        console.log(pet)
-        res.redirect("/");
+router.post("/add-pet", (req, res, next) => {
+    let pet = req.body
+    pet.owner = req.session.currentUser._id
+
+    Pet.create(pet)
+    .then((petData) => {
+        console.log(petData)
+        res.redirect("/add-pet");
     })
     .catch((error) => {
         next(error)
     })
 }) 
 
-router.get("my-pet/:id", (req,res,next) => {
-    Pet.findById(req.params.id)
-    .then((petData)=>{
-        console.log(pet);
-        res.render("myPet.hbs", {
-            pet : petData
-        })
-    })
-})
+// router.get("/pet/:id", (req,res,next) => {
+//     Pet.findById(req.params.id)
+//     .then((petData)=>{
+//         res.render("pets/myPet.hbs", {
+//             pet : petData
+//         })
+//     })
+// })
 
-router.get("/my-pet/:id/update", (req, res, next) => {
+router.get("/pet/:id/edit", (req, res, next) => {
     Pet.findById(req.params.id)
     .then((catData) => {
         res.render("pets/updatePet.hbs", {

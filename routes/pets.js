@@ -10,7 +10,6 @@ router.get("/search", (req, res, next) => {
     .then((response) => {
         res.render("pets/petList.hbs", {
             pet: response,
-            css: ["style.css", 'pets.css']
         });
     })
     .catch((error) => {
@@ -18,18 +17,18 @@ router.get("/search", (req, res, next) => {
     })
 })
 
-// router.get("/:id", (req, res, next) => {
-//     Pet.findById(req.params.id)
-//     .then((response) => {
-//         res.render("pets/onePet.hbs", {
-//             pet: response,
-//             css: ["style.css", 'pets.css']
-//         });
-//     })
-//     .catch((error) => {
-//         next(error)
-//     })
-// })
+router.get("/search/:id", (req, res, next) => {
+    Pet.findById(req.params.id)
+    .then((response) => {
+        res.render("pets/onePet.hbs", {
+            pet: response,
+            css: ["style.css", 'pets.css']
+        });
+    })
+    .catch((error) => {
+        next(error)
+    })
+})
 
 
 module.exports = router
