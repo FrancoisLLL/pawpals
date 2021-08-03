@@ -41,6 +41,7 @@ router.post("/signup", async (req, res, next) => {
 
 		const createdUser = await User.create(user);
 
+		req.session.currentUser = createdUser;
 		res.redirect("/auth/signin");
 	} catch (error) {
 		next(error);
