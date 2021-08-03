@@ -4,6 +4,9 @@ const router = express.Router();
 const Pet = require("../models/Pet")
 
 
+
+console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
+
 // SEARCH
 router.get("/search", (req, res, next) => {
     Pet.find()

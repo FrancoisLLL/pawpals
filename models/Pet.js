@@ -36,10 +36,10 @@ const Pet = mongoose.model("Pet", {
     dateOfBirth: Date,
     physicalCondition: String,
     description: String,
-    preferredEnvironment: {
-        type: [String], 
+    preferredEnvironment: [{
+        type: String, 
         enum: ["park", "beach", "forest", "street", "stadium", "inside", "cage"]
-    },
+    }],
     location: String, 
     tags: [String],
     owner: {

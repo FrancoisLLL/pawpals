@@ -13,6 +13,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 const myPetRouter = require("./routes/myPet")
+const dev_mode = false;
 const petsRouter = require('./routes/pets')
 const playdatesRouter = require('./routes/playdates');
 const User = require('./models/User');
@@ -32,6 +33,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//uncommented duplicate lines
 //app.use(express.static(path.join(__dirname, 'public')));
 //hbs.registerPartials(path.join(__dirname, "views/partials")); 
 
@@ -47,6 +49,7 @@ app.use('/', authRouter);
 app.use('/', myPetRouter)
 
 app.set('trust proxy', 1);
+
 
 app.use(
   session({
@@ -68,13 +71,21 @@ app.use(
   })
 )
 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+// app.use('/', petsRouter);
+app.use('/', playdatesRouter);
+
+app.use('/', petsRouter)
+//app.use('/signin', authRouter);
+app.use('/', authRouter);
 
 
 app.use((req, res, next) => {
   if (req.session.currentUser) {
     User.findById(req.session.currentUser._id)
       .then((userFromDb) => {
-        res.locals.currentUser = userFromDB;
+        res.locals.currentUser = userFromDb;
         res.locals.isLoggedIn = true;
         next();
       })
@@ -95,7 +106,11 @@ app.use((req, res, next) => {
 //})
 
 app.use(require("./middlewares/auth")); 
+
+if (dev_mode === true) {
 app.use(require("./middlewares/devMode"));
+}
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

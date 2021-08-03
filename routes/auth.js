@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const User = require ("../models/User");
+const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 const SALT = 10;
@@ -18,15 +18,16 @@ router.post("/signup", async (req, res, next) => {
 	try {
 		const user = req.body;
 
-		if (!user.usernamename || !user.email) {
+		if (!user.username || !user.email) {
 			res.render("auth/signup.hbs", {
-				errorMessage: 
-				"Please provide your username and email",
+				errorMessage: "Please provide your username and email",
 			});
 			return;
 		}
 
-		const foundUser = await User.findOne({ email: user.email });
+		const foundUser = await User.findOne({
+			email: user.email
+		});
 
 		if (foundUser) {
 			res.render("auth/signup.hbs", {
@@ -35,20 +36,31 @@ router.post("/signup", async (req, res, next) => {
 			return;
 		}
 
-		const hashedPassword = bcrypt.hashSync(user.password, SALT);
+		console.log(user.password, SALT);
+		const hashedPassword = await bcrypt.hashSync(user.password, SALT);
 		user.password = hashedPassword;
 
 		const createdUser = await User.create(user);
 
-		res.redirect("/auth/signin");
+		req.session.currentUser = createdUser;
+
+		console.log(req.session.currentUser);
+
+		res.redirect("/signin");
+
 	} catch (error) {
 		next(error);
 	}
 });
 
 router.post("/signin", async (req, res, next) => {
+
+	console.log(req.body);
+
 	try {
-		const foundUser = await User.findOne ({ email: req.body.email });
+		const foundUser = await User.findOne({
+			email: req.body.email
+		});
 
 		if (!foundUser) {
 			res.render("auth/signin.hbs", {
@@ -56,6 +68,8 @@ router.post("/signin", async (req, res, next) => {
 			});
 			return;
 		}
+
+		console.log(req.body.password, foundUser.password);
 
 		const isValidPassword = bcrypt.compareSync(
 			req.body.password,
@@ -67,14 +81,14 @@ router.post("/signin", async (req, res, next) => {
 				_id: foundUser._id,
 			};
 
-			res.redirect("/home");
+			res.redirect("/");
 		} else {
 			res.render("auth/signin.hbs", {
 				errorMessage: "try again",
 			});
 			return;
-		}
-	}	catch (error) {}
+		}	
+	} catch (error) {}
 });
 
 router.get("/signout", (req, res, next) => {
