@@ -1,83 +1,60 @@
-<div class="signup-form-container"> 
+<div class="sign-page"> 
 <h1> Sign up and find a playmate for your pet now! </h1>
 
-<form method="POST" action="/signup">
+<img src="/images/logo-small.png">
 
-<div>
+<form method="POST" action="/signup" class="sign-form">
 
-<label for="username"> Username </label>
-<input type="text" id="username" name="username" value="jigglypuff" />
+	<div>
+		<label for="username"> Username </label>
+		<input type="text" id="username" name="username" value="jigglypuff" />
+	</div>
 
-</div>
+	<div>
+		<label for="email"> Email </label>
+		<input type="email" id="email" name="email" value="jigglypuff@catchme.com" />
+	</div>
 
-<div>
+	<div>
+		<label for="name"> Name </label>
+		<input type="text" id="name" name="name" value="charizard" />
+	</div>
 
-<label for="email"> Email </label>
-<input type="email" id="email" name="email" value="jigglypuff@catchme.com" />
+	<div>
+	<!-- code in js to set default date to today 
+	document.getElementById('date-field').value = new Date().toISOString().slice(0, 10);
+	--> 
+		<label for="date"> Date Joined </label>
+		<input type="date" id="date" value="{{date}}" />
+	</div>
 
-</div>
+	<div>
+		<label for="membership"> Membership Access </label>
+		<input type="checkbox" name="membership" value="member" />
+	</div>
 
-<div>
+	<div>
+		<label for="phoneNumber"> Phone Number </label>
+		<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" />
+	</div>
 
-<label for="name"> Name </label>
-<input type="text" id="name" name="name" value="charizard" />
+	<div>
+		<label for="password"> Password </label>
+		<input type="password" name="password" id="password" value="1111" />
+	</div>
 
-</div>
-
-<div>
-<!-- code in js to set default date to today 
-document.getElementById('date-field').value = new Date().toISOString().slice(0, 10);
---> 
-
-<label for="date"> Date Joined </label>
-<input type="date" id="date" value="2021-08-02" />
-</div>
-
-
-<div>
-<label for="membership"> Membership Access </label>
-<input type="checkbox" name="membership" value="member" />
-</div>
-
-<div>
-<label for="phoneNumber"> Phone Number </label>
-<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" />
-
-</div>
-
-<div>
-<label for="password"> Password </label>
-<input type="password" name="password" id="password" value="1111" />
-</div>
-
-<button> Submit !</button>
-
-{{#if errorMessage}}
-<p> {{errorMessage}} </p>
-{{/if}}
-
-</div>
-
-
-
-<!--- 
-username: String,
-	email: String,
-	password: String,
-	name: String,
-	dateJoined: {
-		type: String,
-		default: Date.now, 
-	},
-	membership: {
-		type: Boolean,
-		default: false,
-	},
-	phoneNumber: Number, 
-
---->
-
-
+	<button class="sign-btn"> SIGN UP</button>
 
 </form>
+
+{{#if errorMessage}}
+<div class="error-message"><p>{{errorMessage}}</p></div>
+{{/if}}
+
+<div class="signup-link-container">
+<p>Already have an account?</p>
+<p><a href="/signin" class="sign-btn">SIGN IN</a> now and find a pal for your pet today !</p>
+</div>
+
+
 </div>

@@ -1,29 +1,30 @@
-<h1> Welcome back to the bark side </h1>
+<div class="sign-page">
+<h1>Welcome back to the bark side</h1>
 
+<img src="/images/logo-small.png">
 
-<form method="POST" action="/signin">
+<form method="POST" action="/signin" class="sign-form">
+	<div>
+		<label for="email"> Email </label>
+		<input type="text" name="email" id="username" value="pikachu@aol.com" />
+	</div>
+	<div>
+		<label for="password"> Password </label>
+		<input type="password" name="password" id="password" value="1111" />
+	</div>
 
-
-
-<div>
-	<label for="email"> Email </label>
-	<input type="text" name="email" id="username" value="pikachu@aol.com" />
-
-</div>
-
-<div>
-	<label for="password"> Password </label>
-	<input type="password" name="password" id="password" value="1111" />
-
-
-</div>
-
-<button> Log in !</button>
+<button class="sign-btn">Log in!</button>
 
 {{#if errorMessage}}
-
-<p> {{errorMessage}} </p>
-
+<div class="error-message"><p>{{errorMessage}}</p></div>
 {{/if}}
 
+<div class="signup-link-container">
+<p>Don't have an account yet ?</p>
+<p><a href="/signup" class="sign-btn">SIGN UP</a> now and find a pal for your pet today !</p>
+</div>
+
+
+
 </form>
+</div>

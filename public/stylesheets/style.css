@@ -1,45 +1,96 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-
-  background-color: white;
-
+:root {
+  --color-scheme-1: rgba(192, 255, 156, 255);
+  --color-scheme-2: rgba(148, 192, 169, 1);
 }
 
-
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
+}
 
 .background {
-  
-    display: -webkit-flex;
-    height: 40vh;
-    -webkit-align-items: flex-end;
-    -webkit-justify-content: center;
-    width: 100%;
-    
-   
+  display: -webkit-flex;
+  height: 40vh;
+  -webkit-align-items: flex-end;
+  -webkit-justify-content: center;
+  width: 100%;
+}
 
-    
+nav ul li {
+  list-style-type: none;
 }
 
 img {
-
-
-flex-shrink: 0;
-
+  flex-shrink: 0;
 }
 
 a {
   color: #00b7ff;
 }
 
-.container {
+/* SIGN-IN FORM*/
+
+.sign-page {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-.signup-form-container {
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5em;
+}
+
+.sign-form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5em;
+}
+
+.sign-form input {
+  padding: 0.3em;
+}
+
+.error-message {
+}
+
+.signup-link-container {
+  margin-top: 1em;
+  font-size: 0.8em;
+}
+
+.signup-link-container p {
+  font-size: 0.8em;
+  margin: 0.2em;
+}
+
+.sign-btn {
+  text-decoration: none;
+  border-radius: 3px;
+  box-shadow: 3px 3px #eeeeee;
+  border: 0.5px solid #eeeeee;
+  margin: 0.2em;
+  padding: 0.5em 1em;
+  color: var(--color-scheme-2);
+  font-weight: 600;
+  background-color: white;
+}
+
+.sign-btn:hover {
+  background-color: var(--color-scheme-2);
+  color: white;
+  box-shadow: -0.5px -0.5px;
+}
+
+/* SIGN-UP FORM*/
+
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,9 +136,7 @@ h1 {
   color: black;
 }
 
-
 .welcome-container {
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,14 +144,10 @@ h1 {
   padding-top: 15%;
 }
 
-
 .page-container {
- 
-
-  border: 5px solid #B9F18C !important;
+  border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
-
 }

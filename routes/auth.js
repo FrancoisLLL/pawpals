@@ -12,7 +12,9 @@ router.get("/signin", (req, res, next) => {
 });
 
 router.get("/signup", (req, res, next) => {
-	res.render("auth/signup.hbs");
+	res.render("auth/signup.hbs", {
+		date: new Date().toISOString().slice(0, 10),
+	});
 });
 
 router.post("/signup", async (req, res, next) => {
