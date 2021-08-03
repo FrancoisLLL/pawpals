@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html>
+<h1>WELCOME BACK {{user.name}}</h1>
 
-<head>
-	<title>{{title}}</title>
-	{{#each css}}
-	<link rel='stylesheet' href='/stylesheets/{{this}}' />
-	{{/each}}
-</head>
 
-<body>
-	<div class="container-home">
-	{{> navbar}}
-	{{{body}}}
+You have XXX pets. 
 
+
+{{#each pet}}
+<div>
+	{{> petCard}}
 
 	</div>
 
-</body>
-
-</html>
+{{/each}}

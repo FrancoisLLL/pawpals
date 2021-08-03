@@ -1,27 +1,27 @@
 <div class="my-pet-container">
-    <img src="{{this.picture}}" alt="photo {{this.name}}">
-    <h2>{{this.name}}</h2>
-    <p>{{this.type}}<p>
+    <img src="{{pet.picture}}" alt="photo {{pet.name}}">
+    <h2>{{pet.name}}</h2>
+    <p>{{pet.type}}<p>
 
-        <p>{{this.breef}}</p>
-        <p>{{this.gender}}</p>
-        <p>{{this.size}}</p>
-        <p>{{this.dateOfBirth}}</p>
-        <p>{{this.physicalCondition}}</p>
+        <p>{{pet.breef}}</p>
+        <p>{{pet.gender}}</p>
+        <p>{{pet.size}}</p>
+        <p>{{pet.dateOfBirth}}</p>
+        <p>{{pet.physicalCondition}}</p>
 
         <ul>
-            {{#each this.preferredEnvironment}}
-            <li>{{this}}</li>
+            {{#each pet.preferredEnvironment}}
+            <li>{{pet}}</li>
             {{/each}}
         </ul>
 
-        <p>{{this.location}}</p>
+        <p>{{pet.location}}</p>
 
         <p>
-            {{#each this.tags}}<span>{{this}} </span>{{/each}}
+            {{#each pet.tags}}<span>{{pet}} </span>{{/each}}
 
         </p>
-        <p>{{this.owner}}</p>
+        <p>{{pet.owner}}</p>
         
     </ul>
 

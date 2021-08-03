@@ -12,7 +12,7 @@ const authRouter = require('./routes/auth');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-
+const myPetRouter = require("./routes/myPet")
 const petsRouter = require('./routes/pets')
 const playdatesRouter = require('./routes/playdates');
 const User = require('./models/User');
@@ -44,6 +44,7 @@ app.use('/', playdatesRouter);
 app.use('/', petsRouter)
 //app.use('/signin', authRouter);
 app.use('/', authRouter);
+app.use('/', myPetRouter)
 
 app.set('trust proxy', 1);
 

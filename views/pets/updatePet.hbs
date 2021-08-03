@@ -1,11 +1,12 @@
 <div id="add-pet-page">
-<h2>ADD A PET</h2>
 
-<form id="add-pet-form" method="POST" action="/add-pet"> 
+<h2>EDIT MY {{pet.name}} INFORMATION</h2>
+
+<form id="add-pet-form" method="POST" action="/pet/:id/update"> 
 
     <div class="question">
         <label for="name">NAME OF THE PET</label>
-        <input type="text" name="name" placeholder="Snowflake" required>
+        <input type="text" name="name" placeholder="Snowflake" value="{{pet.name}}" required>
     </div>
 
     <div>
@@ -19,7 +20,7 @@
 
     <div>
         <label for="breed">BREED</label>
-        <input type="" name="" placeholder="">
+        <input type="text" name="breed" placeholder="or scientific name" value="{{pet.breed}}">
     </div>
 
     <div>
@@ -33,22 +34,22 @@
 
     <div>
         <label for="size">SIZE</label>
-        <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan">
+        <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan" value="{{cat.size}}">
     </div>
 
     <div>
         <label for="size">PHYSICAL CONDITION</label>
-        <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind">
+        <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind" value="{{cat.physicalCondition}}">
     </div>
 
     <div>
         <label for="dateOfBirth">DATE OF BIRTH</label>
-        <input type="date" name="dateOfBirth">
+        <input type="date" name="dateOfBirth" value="{{cat.dateOfBirth}}">
     </div>
 
     <div>
         <label for="size">DESCRIPTION</label>
-        <input type="text" name="description" placeholder="timid at first then sociable af">
+        <input type="text" name="description" placeholder="timid at first then sociable af" value="{{cat.description}}">
     </div>
 
     {{!-- <div>
@@ -70,7 +71,7 @@
         <input name="picture" type="file">
     </div>
 
-    <button type='submit'>ADD MY PET !</button>
+    <button type='submit'>UPDATE MY PET'S INFO</button>
 </form>
 
 </div>
