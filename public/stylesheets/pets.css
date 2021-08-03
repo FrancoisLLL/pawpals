@@ -15,13 +15,14 @@ body {
   padding: 1em;
 }
 
+.pet-list-card a {
+  text-decoration: none;
+  color: black;
+}
+
 .signup-form-container {
-  
-  
-  
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-
 }
