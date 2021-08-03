@@ -40,7 +40,7 @@ app.use(cookieParser());
 
 app.set('trust proxy', 1);
 
-
+// USER SESSION
 app.use(
   session({
     secret: process.env.SESS_SECRET,
@@ -85,7 +85,7 @@ app.use(require("./middlewares/devMode"));
 }
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 // app.use('/', petsRouter);
 
 // app.use(require("./middlewares/auth")); 

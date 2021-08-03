@@ -5,7 +5,7 @@ const Pet = require("../models/Pet")
 
 
 
-console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
+// console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
 
 
 
@@ -13,7 +13,7 @@ router.get("/add-pet", (req, res, next) => {
     res.render("pets/addPet.hbs", {
         type: Pet.schema.path('type').enumValues,
         gender: Pet.schema.path('gender').enumValues,
-        environment : Pet.schema.path('preferredEnvironment').enumValues
+        environment : Pet.schema.path('preferredEnvironment.0').enumValues
 
     })
 })
@@ -40,11 +40,14 @@ router.get("/add-pet", (req, res, next) => {
 
 
 // ADD PET FORM WITHOUT PICTURE
-router.post("/add-my-pet", (req, res, next) => {
-    Pet.create(req.body)
-    .then((pet) => {
-        console.log(pet)
-        res.redirect("/");
+router.post("/add-pet", (req, res, next) => {
+    let pet = req.body
+    pet.owner = req.session.currentUser._id
+
+    Pet.create(pet)
+    .then((petData) => {
+        console.log(petData)
+        res.redirect("/add-pet");
     })
     .catch((error) => {
         next(error)

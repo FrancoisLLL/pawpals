@@ -1,4 +1,5 @@
 var express = require('express');
+const { isValidObjectId } = require('mongoose');
 var router = express.Router();
 const Pet = require("../models/Pet")
 
@@ -8,9 +9,8 @@ const Pet = require("../models/Pet")
 // });
 
 router.get('/', (req,res,next) => {
-  Pet.find()
+  Pet.find({owner: {$ne: req.session.currentUser}})
   .then((myPetsData) => {
-    console.log("it works");
     res.render('home.hbs', {
       pet: myPetsData
     })
