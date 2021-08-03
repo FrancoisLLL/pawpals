@@ -13,10 +13,11 @@ router.get("/pet/:id", async (req, res, next) => {
 
         req.session.currentPet = { _id : foundPet._id}
 
+        console.log(req.session)
+
         res.render("pets/myPet.hbs", { pet : foundPet })
     }
     catch (error) { next(error) }
-
 })
 
 

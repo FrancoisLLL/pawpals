@@ -19,6 +19,7 @@ const dev_mode = false;
 const searchRouter = require('./routes/search')
 const playdatesRouter = require('./routes/playdates');
 const User = require('./models/User');
+const Pet = require('./models/Pet')
 
 const app = express();
 
@@ -81,6 +82,25 @@ app.use((req, res, next) => {
     next();
   }
 });
+
+app.use((req, res, next) => {
+  if (req.session.currentPet) {
+    Pet.findById(req.session.currentPet._id)
+      .then((petFromDb) => {
+        res.locals.currentPet = petFromDb;
+        res.locals.petSelected = true;
+        next();
+      })
+      .catch((error) => {
+        next(error);
+      });
+  } else {
+    res.locals.currentPet = undefined;
+    res.locals.petSelected = false;
+    next();
+  }
+});
+
 
 
 if (dev_mode === true) {

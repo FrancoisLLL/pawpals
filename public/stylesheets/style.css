@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  background-color: white;
+  background-color: rgba(215, 215, 215, 0.5);
 }
 
 .background {
@@ -19,8 +19,39 @@ body {
   width: 100%;
 }
 
+/* NAVIGATION BAR*/
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: auto 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
 nav ul li {
   list-style-type: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: auto auto;
+  padding: 0 0.5em;
+}
+
+nav ul a {
+  color: var(--color-scheme-2);
+  text-decoration: none;
+}
+
+nav ul a:hover {
+  border-bottom: 2px solid var(--color-scheme-1);
+}
+
+nav ul img {
+  height: 3em;
 }
 
 img {
@@ -150,4 +181,34 @@ h1 {
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
+}
+
+/* USER HOMEPAGE */
+
+.user-pets-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+/* USER'S PET CARD DUSPLAYED ON HOMEPAGE*/
+
+.pet-list-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 70vh;
+  margin: auto 2em;
+}
+
+.pet-list-card-img {
+  width: 150px;
+  padding-top: 150px;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 1em auto;
+  border-radius: 50%;
 }
