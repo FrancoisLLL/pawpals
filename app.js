@@ -39,6 +39,9 @@ app.use(cookieParser());
 //hbs.registerPartials(path.join(__dirname, "views/partials")); 
 
 
+app.set('trust proxy', 1);
+
+
 app.use(
   session({
     secret: process.env.SESS_SECRET,
@@ -59,8 +62,6 @@ app.use(
   })
 )
 
-
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // app.use('/', petsRouter);
@@ -69,9 +70,6 @@ app.use('/', playdatesRouter);
 app.use('/', petsRouter)
 //app.use('/signin', authRouter);
 app.use('/', authRouter);
-
-app.set('trust proxy', 1);
-
 
 
 app.use((req, res, next) => {
