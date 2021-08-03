@@ -38,16 +38,6 @@ app.use(cookieParser());
 //hbs.registerPartials(path.join(__dirname, "views/partials")); 
 
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-// app.use('/', petsRouter);
-app.use('/', playdatesRouter);
-
-app.use('/', petsRouter)
-//app.use('/signin', authRouter);
-app.use('/', authRouter);
-app.use('/', myPetRouter)
-
 app.set('trust proxy', 1);
 
 
@@ -60,26 +50,16 @@ app.use(
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
-      maxAge: 60000
+      maxAge: 60 * 60 * 24 * 1000
     }, // ADDED code below !!!
     store: MongoStore.create({
-      mongoUrl: process.env.MONGO_URI || 'mongodb://localhost/basic-auth'
+      mongoUrl: process.env.MONGO_URI
 
       // ttl => time to live
       // ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
     })
   })
 )
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-// app.use('/', petsRouter);
-app.use('/', playdatesRouter);
-
-app.use('/', petsRouter)
-//app.use('/signin', authRouter);
-app.use('/', authRouter);
-
 
 app.use((req, res, next) => {
   if (req.session.currentUser) {
@@ -99,17 +79,23 @@ app.use((req, res, next) => {
   }
 });
 
-//app.use((req, res, next) => {
-//  console.log(req.session);
-//
-//  next();
-//})
-
-app.use(require("./middlewares/auth")); 
 
 if (dev_mode === true) {
 app.use(require("./middlewares/devMode"));
 }
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+// app.use('/', petsRouter);
+
+// app.use(require("./middlewares/auth")); 
+
+app.use('/', playdatesRouter);
+
+app.use('/', petsRouter)
+//app.use('/signin', authRouter);
+app.use('/', authRouter);
+app.use('/', myPetRouter)
 
 
 // catch 404 and forward to error handler
