@@ -12,7 +12,7 @@
         <label for="type">TYPE OF PET</label>
         <select name="type" required>
             {{#each type}}
-            <option value="{{this}}">{{this}}</option>
+            <option {{isSelected type "{{this}}" }} value="{{this}}">{{this}}</option>
             {{/each}}
         </select>
     </div>
@@ -26,8 +26,12 @@
         <label for="gender">GENDER</label>
         <select name="gender">
             {{#each gender}}
-            <option value="{{this}}">{{this}}</option>
+            <option {{isSelected "{{this}}"}} value="{{this}}">{{this}}</option>
             {{/each}}
+
+            {{!-- <option {{isSelected pet.gender "Male"}} value="Male">Male</option>
+            <option {{isSelected pet.gender "Female"}} value="Female">Female</option> 
+            <option {{isSelected pet.gender "Not specified"}} value="not specified">Not specified</option>          --}}
         </select>
     </div>
 

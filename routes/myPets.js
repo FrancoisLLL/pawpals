@@ -5,6 +5,7 @@ const Pet = require("../models/Pet");
 const User = require("../models/User");
 
 const fileUploader = require('../config/cloudinary');
+const requirePet = require("../middlewares/currentPet")
 
 router.get("/pet/:id", async (req, res, next) => {
     try {
@@ -57,12 +58,12 @@ router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
 // })
 
 router.get("/pet/:id/edit", (req, res, next) => {
-    Pet.findById(req.params.id)
+    Pet.findById(req.session.currentPet._id)
     .then((petData) => {
         res.render("pets/editPet.hbs", {
-            // type: Pet.schema.path('type').enumValues,
-            // gender: Pet.schema.path('gender').enumValues,
-            // environment : Pet.schema.path('preferredEnvironment').enumValues,
+            type: Pet.schema.path('type').enumValues,
+            gender: Pet.schema.path('gender').enumValues,
+            environment : Pet.schema.path('preferredEnvironment').enumValues,
             pet : petData
         })
     })
