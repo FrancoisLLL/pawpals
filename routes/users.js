@@ -8,7 +8,7 @@ const Pet = require("../models/Pet")
 //   res.send('respond with a resource');
 // });
 
-router.get('/', (req,res,next) => {
+router.get('/home', (req,res,next) => {
   Pet.find({owner: {$ne: req.session.currentUser}})
   .then((myPetsData) => {
     res.render('home.hbs', {

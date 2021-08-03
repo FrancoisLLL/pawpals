@@ -1,11 +1,42 @@
 const express = require("express");
 const uploader = require("../config/cloudinary");
 const router = express.Router();
-const Pet = require("../models/Pet")
+const Pet = require("../models/Pet");
+const User = require("../models/User");
 
 
 
 // console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
+
+
+router.get("/pet/:id", async (req, res, next) => {
+    try {
+        const foundPet = await Pet.findById(req.params.id);
+        console.log("foundPet", foundPet);
+
+
+        req.session.currentPet = { _id : foundPet._id}
+        console.log("after req session" + foundPet.id);
+        res.render("pets/myPet.hbs", {
+            pet : foundPet
+        })
+    }
+    catch (error) { 
+        console.log(error);
+        next(error)
+    }
+
+})
+
+router.get("/homepage", (req,res,next) => {
+    req.session.destroy((error) => {
+        if (error) {
+            next(error);
+        } else {
+            res.redirect("/homepage")
+        }
+    })
+})
 
 
 
@@ -54,15 +85,14 @@ router.post("/add-pet", (req, res, next) => {
     })
 }) 
 
-router.get("/pet/:id", (req,res,next) => {
-    Pet.findById(req.params.id)
-    .then((petData)=>{
-        console.log(pet);
-        res.render("myPet.hbs", {
-            pet : petData
-        })
-    })
-})
+// router.get("/pet/:id", (req,res,next) => {
+//     Pet.findById(req.params.id)
+//     .then((petData)=>{
+//         res.render("pets/myPet.hbs", {
+//             pet : petData
+//         })
+//     })
+// })
 
 router.get("/pet/:id/edit", (req, res, next) => {
     Pet.findById(req.params.id)

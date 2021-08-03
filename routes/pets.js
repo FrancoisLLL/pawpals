@@ -10,7 +10,6 @@ router.get("/search", (req, res, next) => {
     .then((response) => {
         res.render("pets/petList.hbs", {
             pet: response,
-            css: ["style.css", 'pets.css']
         });
     })
     .catch((error) => {

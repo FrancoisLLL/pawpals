@@ -61,6 +61,7 @@ app.use(
   })
 )
 
+
 app.use((req, res, next) => {
   if (req.session.currentUser) {
     User.findById(req.session.currentUser._id)
@@ -113,5 +114,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
