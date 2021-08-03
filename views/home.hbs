@@ -1,17 +1,19 @@
-<h1>WELCOME BACK {{currentUser.name}}</h1>
 {{> navbar}}
 
-You have XXX pets. 
+<h1>WELCOME BACK {{currentUser.name}}</h1>
+
+
+
 <body>
 	<div class="container-home">
 	
 	
 	{{{body}}}
 
-<h1>WELCOME BACK</h1>
 
 
-<p>You have XXX pets.</p>
+
+<p>You have {{pet.length}} pets listed in pawpals </p>
 
 {{#each pet}}
 	{{> myPetCard}}

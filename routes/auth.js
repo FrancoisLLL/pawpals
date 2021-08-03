@@ -102,7 +102,7 @@ router.get("/logout", (req, res, next) => {
 		if (error) {
 			next(error);
 		} else {
-			res.redirect("/signin");
+			res.render("auth/signout.hbs");
 		}
 	});
 });
