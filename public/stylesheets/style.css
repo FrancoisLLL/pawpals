@@ -6,3 +6,31 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.signup-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.container-home {
+  color: blue;
+}
+
+h1 {
+  text-align: center;
+  top: 20px;
+    left: 20px;
+    background-color: rgba(129, 120, 120, 0.767);
+    padding: 20px;
+    color: blue;
+}

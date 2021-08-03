@@ -6,15 +6,19 @@ const bcrypt = require("bcrypt");
 const SALT = 10;
 
 
+router.get("/signin", (req, res, next) => {
+	res.render("auth/signin.hbs")
+});
+
 router.get("/signup", (req, res, next) => {
-	res.render("signup.hbs")
+	res.render("auth/signup.hbs");
 });
 
 router.post("/signup", async (req, res, next) => {
 	try {
 		const user = req.body;
 
-		if (!user.name || !user.email) {
+		if (!user.usernamename || !user.email) {
 			res.render("auth/signup.hbs", {
 				errorMessage: 
 				"Please provide your username and email",

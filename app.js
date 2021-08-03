@@ -12,24 +12,28 @@ const authRouter = require('./routes/auth');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
+
 const petsRouter = require('./routes/pets')
-const playdatesRouter = require('./routes/playdates')
+const playdatesRouter = require('./routes/playdates');
+const User = require('./models/User');
 
 const app = express();
 
 require("./config/mongo.js");
 // view engine setup
+app.use(express.static(path.join(__dirname, 'public')));
+hbs.registerPartials(path.join(__dirname, "views/partials")); 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-hbs.registerPartials(__dirname + "/views/partials")
+//hbs.registerPartials(__dirname + "/views/partials")
 
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-hbs.registerPartials(path.join(__dirname, "views/partials")); 
+//app.use(express.static(path.join(__dirname, 'public')));
+//hbs.registerPartials(path.join(__dirname, "views/partials")); 
 
 
 app.use('/', indexRouter);
@@ -38,8 +42,8 @@ app.use('/users', usersRouter);
 app.use('/', playdatesRouter);
 
 app.use('/', petsRouter)
-app.use('/signin', authRouter);
-app.use('/signout', authRouter);
+//app.use('/signin', authRouter);
+app.use('/', authRouter);
 
 app.set('trust proxy', 1);
 
@@ -63,9 +67,34 @@ app.use(
   })
 )
 
+
+
+app.use((req, res, next) => {
+  if (req.session.currentUser) {
+    User.findById(req.session.currentUser._id)
+      .then((userFromDb) => {
+        res.locals.currentUser = userFromDB;
+        res.locals.isLoggedIn = true;
+        next();
+      })
+      .catch((error) => {
+        next(error);
+      });
+  } else {
+    res.locals.currentUser = undefined;
+    res.locals.isLoggedIn = false;
+    next();
+  }
+});
+
+//app.use((req, res, next) => {
+//  console.log(req.session);
+//
+//  next();
+//})
+
 app.use(require("./middlewares/auth")); 
-
-
+app.use(require("./middlewares/devMode"));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
