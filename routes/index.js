@@ -7,8 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/home', function(req, res, next) {
-  res.render('home.hbs');
-});
+// router.get('/home', function(req, res, next) {
+//   res.render('home.hbs');
+// });
 
 module.exports = router;

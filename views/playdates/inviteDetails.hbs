@@ -5,7 +5,7 @@
     <p>
         Sender:{{invite.senderId.name}}
     <p>
-        Receiver:
+        Receiver:{{invite.receiverId.name}}
     </p>
     <p>
         Description: {{invite.description}}
@@ -13,13 +13,13 @@
     <p>
         Date: {{invite.proposedDate}}
     </p>
-    
+
     {{#unless isOwner}}
     <a href="/playdates/invite/{{invite.id}}/accept">Accept</a></br>
     <a href="/playdates/invite/{{invite.id}}/reject">Reject</a></br>
     {{/unless}}
 
     {{#isOwner}}
-    <a href="/playdates/invite/{{invite.id}}/reject">Cancel</a></br>
+    <a href="/playdates/invite/{{invite.id}}/cancel">Cancel</a></br>
     {{/isOwner}}
 </div>
