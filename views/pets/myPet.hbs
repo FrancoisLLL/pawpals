@@ -11,7 +11,7 @@
 
         <ul>
             {{#each pet.preferredEnvironment}}
-            <li>{{pet}}</li>
+            <li>{{this}}</li>
             {{/each}}
         </ul>
 
@@ -19,10 +19,10 @@
 
         <p>
             {{#each pet.tags}}<span>{{pet}} </span>{{/each}}
-
         </p>
-        <p>{{pet.owner}}</p>
-        
+
+        <p><a href="/pet/{{pet._id}}/edit">Edit my pet's info</a></p>
+        <p><a href="/pet/{{pet._id}}/delete">Delete my pet's profile</a></p>
     </ul>
 
 </div>

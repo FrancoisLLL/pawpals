@@ -1,0 +1,92 @@
+<div id="add-pet-page">
+<h2>EDIT {{pet.name}}'S INFO</h2>
+
+<form id="add-pet-form" method="POST" action="/pet/:id/edit"> 
+
+    <div class="question">
+        <label for="name">NAME OF THE PET</label>
+        <input type="text" name="name" placeholder="Snowflake" value="{{pet.name}}" required>
+    </div>
+
+    <div>
+        <label for="type">TYPE OF PET</label>
+        <select name="type" required>
+            {{#each type}}
+            <option {{isSelected type "{{this}}" }} value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div>
+        <label for="breed">BREED</label>
+        <input type="text" name="breed" placeholder="breed, race, scientific name" value="{{pet.breed}}">
+    </div>
+
+    <div>
+        <label for="gender">GENDER</label>
+        <select name="gender">
+            {{#each gender}}
+            <option {{isSelected "{{this}}"}} value="{{this}}">{{this}}</option>
+            {{/each}}
+
+            {{!-- <option {{isSelected pet.gender "Male"}} value="Male">Male</option>
+            <option {{isSelected pet.gender "Female"}} value="Female">Female</option> 
+            <option {{isSelected pet.gender "Not specified"}} value="not specified">Not specified</option>          --}}
+        </select>
+    </div>
+
+    <div>
+        <label for="size">SIZE</label>
+        <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan" value="{{pet.size}}">
+    </div>
+
+    <div>
+        <label for="size">PHYSICAL CONDITION</label>
+        <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind" value="{{pet.physicalCondition}}">
+    </div>
+
+    <div>
+        <label for="dateOfBirth">DATE OF BIRTH</label>
+        <input type="date" name="dateOfBirth" value="{{pet.dateOfBirth}}">
+    </div>
+
+    <div>
+        <label for="size">DESCRIPTION</label>
+        <input type="text" name="description" placeholder="timid at first then sociable af" value="{{pet.description}}">
+    </div>
+
+    {{!-- <div>
+        <label for="preferredEnvironment">WHERE DOES YOUR PET PREFER TO PLAY ? </label>
+        <select name="preferredEnvironment" multiple>
+            {{#each environment}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
+    </div> --}}
+
+        <div>
+        <fieldset>
+            <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
+            {{#each environment}}
+            <div class="select-environment-option">
+            <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
+            <label for="{{this}}">{{this}}</label>
+            </div>
+            {{/each}}
+        </fieldset>
+    </div>
+
+    {{!-- <div>
+        <label for="size">LOCATION</label>
+        <input name="picture" type="text" name="location" placeholder="City, Country">
+    </div> --}}
+
+    <div>
+        <label for="size">ADD A PICTURE OF MY PET</label>
+        <input name="picture" type="file">
+    </div>
+
+    <button type='submit'>ADD MY PET !</button>
+</form>
+
+</div>

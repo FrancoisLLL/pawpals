@@ -1,4 +1,6 @@
 require('dotenv').config();
+require("./helpers/helpers-hbs");
+
 const createError = require('http-errors');
 const express = require('express');
 const hbs = require("hbs")
@@ -12,9 +14,9 @@ const authRouter = require('./routes/auth');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
-const myPetRouter = require("./routes/myPet")
+const myPetsRouter = require("./routes/myPets")
 const dev_mode = false;
-const petsRouter = require('./routes/pets')
+const searchRouter = require('./routes/search')
 const playdatesRouter = require('./routes/playdates');
 const User = require('./models/User');
 
@@ -91,15 +93,14 @@ if(process.env.MODE === "DEBUG") {
 
 app.use('/', indexRouter);
 app.use('/', usersRouter);
-// app.use('/', petsRouter);
 
 // app.use(require("./middlewares/auth")); 
 app.use('/', playdatesRouter);
 
-app.use('/', petsRouter)
+app.use('/', searchRouter)
 //app.use('/signin', authRouter);
 app.use('/', authRouter);
-app.use('/', myPetRouter);
+app.use('/', myPetsRouter);
 
 
 

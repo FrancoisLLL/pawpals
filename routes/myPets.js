@@ -5,10 +5,7 @@ const Pet = require("../models/Pet");
 const User = require("../models/User");
 
 const fileUploader = require('../config/cloudinary');
-
-
-// console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
-
+const requirePet = require("../middlewares/currentPet")
 
 router.get("/pet/:id", async (req, res, next) => {
     try {
@@ -29,12 +26,6 @@ router.get("/pet/:id", async (req, res, next) => {
 
 })
 
-router.get("/homepage", (req,res,next) => {
-    req.session.currentPet.delete;
-    })
-
-
-
 
 router.get("/add-pet", (req, res, next) => {
     res.render("pets/addPet.hbs", {
@@ -43,26 +34,6 @@ router.get("/add-pet", (req, res, next) => {
         environment : Pet.schema.path('preferredEnvironment.0').enumValues
     })
 })
-
-// WITH PICTURE
-/* router.post("/add-pet", uploader.single("picture"), (req, res, next) => {
-    const { name } = req.body;
-
-    const newPet = { name };
-
-    if ( req.file !== undefined) {
-        newPet.picture = req.file.path
-    }
-
-    Pet.create(newPet)
-    .then((pet) => {
-        console.log(pet)
-        res.redirect("/");
-    })
-    .catch((error) => {
-        next(error)
-    })
-}) */
 
 
 // ADD PET FORM WITHOUT PICTURE
@@ -73,7 +44,7 @@ router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
     Pet.create(pet)
     .then((petData) => {
         console.log(petData)
-        res.redirect("/add-pet");
+        res.redirect("/home");
     })
     .catch((error) => {
         next(error)
@@ -90,17 +61,30 @@ router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
 // })
 
 router.get("/pet/:id/edit", (req, res, next) => {
-    Pet.findById(req.params.id)
-    .then((catData) => {
-        res.render("pets/updatePet.hbs", {
+    Pet.findById(req.session.currentPet._id)
+    .then((petData) => {
+        res.render("pets/editPet.hbs", {
             type: Pet.schema.path('type').enumValues,
             gender: Pet.schema.path('gender').enumValues,
             environment : Pet.schema.path('preferredEnvironment').enumValues,
-            pet : catData
+            pet : petData
         })
     })
     .catch((error) => next (error))
 })
 
+
+router.get("/pet/:id/delete", (req, res, next) => {
+    if('currentPet' in req.session)
+        {delete req.session.currentPet}
+
+    Pet.findByIdAndDelete(req.params.id)
+    .then((deletedPet) => {
+        console.log("it has been deleted")
+        res.redirect("/home")
+    })
+    .catch(error => console.log(error))
+    
+})
 
 module.exports = router

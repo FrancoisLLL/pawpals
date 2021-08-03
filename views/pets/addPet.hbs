@@ -4,13 +4,14 @@
 <form id="add-pet-form" method="POST" action="/add-pet" enctype="multipart/form-data"> 
 
     <div class="question">
-        <label for="name">NAME OF THE PET</label>
+        <label for="name">my pet's name is</label>
         <input type="text" name="name" placeholder="Snowflake" required>
     </div>
 
     <div>
-        <label for="type">TYPE OF PET</label>
+        <label for="type">my pet is a </label>
         <select name="type" required>
+            <option>...</option>
             {{#each type}}
             <option value="{{this}}">{{this}}</option>
             {{/each}}
@@ -18,13 +19,14 @@
     </div>
 
     <div>
-        <label for="breed">BREED</label>
+        <label for="breed">my pet is a</label>
         <input type="text" name="breed" placeholder="breed, race, scientific name">
     </div>
 
     <div>
-        <label for="gender">GENDER</label>
+        <label for="gender">my pet is </label>
         <select name="gender">
+            <option>...</option>
             {{#each gender}}
             <option value="{{this}}">{{this}}</option>
             {{/each}}
@@ -32,22 +34,22 @@
     </div>
 
     <div>
-        <label for="size">SIZE</label>
+        <label for="size">describe the size of your pet</label>
         <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan">
     </div>
 
     <div>
-        <label for="size">PHYSICAL CONDITION</label>
+        <label for="size">provide any details on your pet's physical condition that might be relevant on playdates</label>
         <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind">
     </div>
 
     <div>
-        <label for="dateOfBirth">DATE OF BIRTH</label>
+        <label for="dateOfBirth">my pet was born on</label>
         <input type="date" name="dateOfBirth">
     </div>
 
     <div>
-        <label for="size">DESCRIPTION</label>
+        <label for="size">describe your pet</label>
         <input type="text" name="description" placeholder="timid at first then sociable af">
     </div>
 
@@ -62,7 +64,7 @@
 
         <div>
         <fieldset>
-            <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
+            <legend>where does your pet prefer to play ?</legend>
             {{#each environment}}
             <div class="select-environment-option">
             <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
