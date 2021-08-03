@@ -7,27 +7,11 @@
   <body>
 
 
-  
+{{#if isLoggedIn}}
+{{> navbar}}
+{{/if}} 
 
-
-
-<!--
-    {{#if isLoggedIn}}
-    {{> navbar}}
-
-
-    {{else}} -->
-
-<div class="container">
-
-
-<!--
-{{/if}}
--->
-
-    {{{body}}}
-
-    </div>
+{{{body}}}
 
   
   </body>

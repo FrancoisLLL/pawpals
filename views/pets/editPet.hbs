@@ -1,8 +1,7 @@
 <div id="add-pet-page">
+<h2>EDIT {{pet.name}}'S INFO</h2>
 
-<h2>EDIT MY {{pet.name}} INFORMATION</h2>
-
-<form id="add-pet-form" method="POST" action="/pet/{{pet._id}}/edit"> 
+<form id="add-pet-form" method="POST" action="/pet/:id/edit"> 
 
     <div class="question">
         <label for="name">NAME OF THE PET</label>
@@ -20,7 +19,7 @@
 
     <div>
         <label for="breed">BREED</label>
-        <input type="text" name="breed" placeholder="or scientific name" value="{{pet.breed}}">
+        <input type="text" name="breed" placeholder="breed, race, scientific name" value="{{pet.breed}}">
     </div>
 
     <div>
@@ -34,22 +33,22 @@
 
     <div>
         <label for="size">SIZE</label>
-        <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan" value="{{cat.size}}">
+        <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan" value="{{pet.size}}">
     </div>
 
     <div>
         <label for="size">PHYSICAL CONDITION</label>
-        <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind" value="{{cat.physicalCondition}}">
+        <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind" value="{{pet.physicalCondition}}">
     </div>
 
     <div>
         <label for="dateOfBirth">DATE OF BIRTH</label>
-        <input type="date" name="dateOfBirth" value="{{cat.dateOfBirth}}">
+        <input type="date" name="dateOfBirth" value="{{pet.dateOfBirth}}">
     </div>
 
     <div>
         <label for="size">DESCRIPTION</label>
-        <input type="text" name="description" placeholder="timid at first then sociable af" value="{{cat.description}}">
+        <input type="text" name="description" placeholder="timid at first then sociable af" value="{{pet.description}}">
     </div>
 
     {{!-- <div>
@@ -61,6 +60,18 @@
         </select>
     </div> --}}
 
+        <div>
+        <fieldset>
+            <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
+            {{#each environment}}
+            <div class="select-environment-option">
+            <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
+            <label for="{{this}}">{{this}}</label>
+            </div>
+            {{/each}}
+        </fieldset>
+    </div>
+
     {{!-- <div>
         <label for="size">LOCATION</label>
         <input name="picture" type="text" name="location" placeholder="City, Country">
@@ -71,7 +82,7 @@
         <input name="picture" type="file">
     </div>
 
-    <button type='submit'>UPDATE MY PET'S INFO</button>
+    <button type='submit'>ADD MY PET !</button>
 </form>
 
 </div>

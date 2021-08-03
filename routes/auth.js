@@ -71,20 +71,20 @@ router.post("/signin", async (req, res, next) => {
 
 		console.log("isValid" + isValidPassword)
 		if (isValidPassword) {
-			console.log("before req session" + foundUser._id);
+			// console.log("before req session" + foundUser._id);
 
-			console.log(req.session);
+			// console.log(req.session);
 
 			req.session.currentUser = {
 				_id: foundUser._id,
 			};
 
-			console.log("after req session" + foundUser._id);
+			// console.log("after req session" + foundUser._id);
 
 			res.redirect("/home");
 
 		} else {
-			console.log("else")
+			// console.log("else")
 			res.render("auth/signin.hbs", {
 				errorMessage: "try again",
 			});
