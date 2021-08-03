@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{{title}}</title>
+	{{#each css}}
+	<link rel='stylesheet' href='/stylesheets/{{this}}' />
+	{{/each}}
+</head>
+
+<body>
+	<div class="container-home">
+	{{> navbar}}
+	{{{body}}}
+
+
+	</div>
+
+</body>
+
+</html>

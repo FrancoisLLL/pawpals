@@ -3,11 +3,39 @@
   <head>
     <title>{{title}}</title>
     {{#each css}}
-    <link rel='stylesheet' href='/stylesheets/{{this}}' />
+    <link rel='stylesheet' type="text/css" href='/stylesheets/{{this}}' />
     {{/each}}
   </head>
   <body>
+
+
+  
+
+<h3> Welcome to pawpals ! </h3>
+
+
+    {{#if isLoggedIn}}
     {{> navbar}}
+
+
+    {{else}} 
+
+<div class="container">
+
+<a href="/signin"> Sign in </a>
+<p>
+  <a href="/signup"> Sign up </a>
+</p>
+
+
+{{/if}}
+
     {{{body}}}
+
+    </div>
+
+  
   </body>
+
+  
 </html>
