@@ -7,33 +7,16 @@ const Pet = require("../models/Pet")
 
 console.log(Pet.schema.path("preferredEnvironment.0").enumValues)
 
-// SEARCH
-router.get("/search", (req, res, next) => {
-    Pet.find()
-    .then((response) => {
-        res.render("pets/petList.hbs", {
-            pet: response,
-            css: ["style.css", 'pets.css']
-        });
-    })
-    .catch((error) => {
-        next(error)
-    })
-})
-
-// router.get("/:id", (req, res, next) => {
-//     Pet.findById(req.params.id)
-//     .then((response) => {
-//         res.render("pets/onePet.hbs", {
-//             pet: response,
-//             css: ["style.css", 'pets.css']
-//         });
-//     })
-//     .catch((error) => {
-//         next(error)
-//     })
-// })
-
+router.get('/homepage', (req,res,next) => {
+    res.render("home.hbs")
+    // Pet.find
+    // .then((myPetsData) => {
+    //   res.render('home.hbs', {
+    //     pet: myPetsData
+    //   })
+    // })
+    // .catch(error => next(error))
+  })
 
 router.get("/add-pet", (req, res, next) => {
     res.render("pets/addPet.hbs", {
