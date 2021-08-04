@@ -21,15 +21,10 @@ const Pet = require("../models/Pet")
 
 
     
-
-
-
-  
-
       router.post("/account/:id/edit", (req, res, next) => {
         User.findByIdAndUpdate(req.params.id, req.body)
-          .then((userDetails) => {
-            res.redirect("/account/" + userDetails._id);
+          .then((userDetails) => {(console.log("redirect"))
+            res.redirect("/home");
           })
 
           .catch(e => console.log(e))
