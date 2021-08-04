@@ -21,28 +21,16 @@ body {
 }
 
 @import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap';
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
 
 
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 /*
 a {
   color: #00b7ff;
 }
 */
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 
 /*
@@ -83,7 +71,11 @@ h1 {
 
 
 
-
+/* 
+========================
+      [Page ref here plizzz]
+========================
+*/
 
 
 @import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
@@ -121,30 +113,10 @@ div[class*=box] {
 }
 
 
-/* 
-========================
-      INDEX
-========================
-*/
-.background {
-    display: -webkit-flex;
-    height: 40vh;
-    -webkit-align-items: flex-end;
-    -webkit-justify-content: center;
-    width: 100%;     
-}
 
-.box-1 { background-color: #FF6766; }
-.box-2 { background-color: #3C3C3C; }
-.box-3 { background-color: #66A182; }
 
-.btn {
-  line-height: 50px;
-  height: 50px;
-  text-align: center;
-  width: 250px;
-  cursor: pointer;
-}
+
+
 
 
 /* 
@@ -160,31 +132,6 @@ div[class*=box] {
     width: 100%;     
 }
 
-.box-1 { background-color: #FF6766; }
-.box-2 { background-color: #3C3C3C; }
-.box-3 { background-color: #66A182; }
-
-.btn {
-  line-height: 50px;
-  height: 50px;
-  text-align: center;
-  width: 250px;
-  cursor: pointer;
-}
-
-
-/* 
-========================
-      INDEX
-========================
-*/
-.background {
-    display: -webkit-flex;
-    height: 40vh;
-    -webkit-align-items: flex-end;
-    -webkit-justify-content: center;
-    width: 100%;     
-}
 
 .page-container {
   border: 5px solid #B9F18C !important;
@@ -193,14 +140,13 @@ div[class*=box] {
   flex-shrink: 0;
   height: auto;
 }
-<<<<<<< Updated upstream
 
 .welcome-container {
-  display: flex;
+ display: flex;
   flex-direction: column;
   align-items: center;
   height: 50vh;
-}
+} 
 
 /* 
 ========================
@@ -261,75 +207,6 @@ div[class*=box] {
 
 }
 
-=======
-
-.welcome-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 50vh;
-}
-
-/* 
-========================
-      SIGN IN / SIGN UP
-========================
-*/
-
-.welcome-link-signup {
-  display: inline-block;
-  font-weight: bold;
-  text-decoration: none;
-  background: #B9F18C;
-  text-align: center;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 13px solid  #B9F18C;
-  transition: transform .2s;
-  border-radius: 10px;
-}
-
-.welcome-link-signin {
- display: inline-block;
-  font-weight: bold;
-  text-decoration: none;
-  background: #fff;
-  text-align: center;
-  color: #B9F18C;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 3px solid  #B9F18C;
-  padding: 12px 12px 12px 12px;
-  margin-bottom: 5px;
-  transition: transform .2s; /* Animation */
-  border-radius: 10px;
-}
-
-.welcome-link-signin:hover {
-  transform: scale(1.5); /* (150% zoom)*/
-}
-
-.welcome-link-signup:hover {
-  transform: scale(1.5); /* (150% zoom)*/
-}
-
-.signup-header {
-  display: flex;
-    flex-direction: column;
-  align-items: center;
-}
-
-.signup-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 20vh;
-  margin-bottom: -7%;
-
-}
-
->>>>>>> Stashed changes
 .signup-form-container {
   display: flex;
   align-items: center;
@@ -345,6 +222,8 @@ div[class*=box] {
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
+ display: flex;
+ flex-direction: column;
 }
 
 .container {
@@ -355,9 +234,7 @@ div[class*=box] {
 
 .signup-form-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
+  flex-direction: column;
 }
 
 .signup-text {
@@ -368,6 +245,7 @@ div[class*=box] {
     border-radius: 5px;
     padding-left: 3px;
     background: #B9F18C;
+    margin-bottom: 20px;
     
  }
 
@@ -396,6 +274,7 @@ div[class*=box] {
    background-color: #B9F18C;
    font-weight: bolder;
    font-size: 25px;
+  
  }
 
 
@@ -425,7 +304,6 @@ div[class*=box] {
   height: 60vh;
   flex-direction: column;
 
- 
 }
 
 
@@ -446,6 +324,9 @@ div[class*=box] {
   
 }
 
+
+
+
 /* 
 ========================
       HOME
@@ -454,8 +335,4 @@ div[class*=box] {
 
 .container-home {
   color: blue;
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
