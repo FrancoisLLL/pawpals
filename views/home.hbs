@@ -1,23 +1,13 @@
-
-
-
-
 <h1>Woof, welcome back {{currentUser.name}} !</h1>
 
+<h2>CHOOSE A PET TO START LOOKING FOR A PLAYMATE !</h2>
+
+<p>You have {{pet.length}} pets listed in pawpals </p>
 
 
-<body>
-	<div class="container-home">
 
-
-
-		<div class="user-homepage">
-
-			<p>You have {{pet.length}} pets listed in pawpals </p>
-
-			<div class="user-pets-container">
-				{{#each pet}}
-				{{> myPetCard}}
-				{{/each}}
-
-			</div>
+<div class="user-pets-container">
+	{{#each pet}}
+	{{> myPetCard}}
+	{{/each}}
+</div>

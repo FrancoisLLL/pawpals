@@ -16,9 +16,9 @@ body {
 }
 
 .pet-search-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
 }
 
 .pet-search-container img {
@@ -35,7 +35,7 @@ a {
   background-color: white;
   width: 200px;
   padding: 1em;
-  border: 1px solid rgba(128, 128, 128, 0.509);
+  border: 1px solid var(--main-color1);
   border-radius: 5px;
 }
 

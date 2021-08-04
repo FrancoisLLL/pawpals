@@ -118,6 +118,12 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
 } */
 
+:root {
+  --main-color1: #B9F18C;
+  --main-color2: brown;
+  --main-color3:
+}
+
 div[class*="box"] {
   height: 33.33%;
   width: 100%;
@@ -272,7 +278,6 @@ div[class*="box"] {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 70vh;
   margin: auto 2em;
 }
 

@@ -1,26 +1,22 @@
 <div class="pet-list-card">
-    <a href='/pet/{{this._id}}'>
+    
     <div>
-
-        <div>
-        <div class="pet-list-card-img" style="background-image: url('{{this.picture}}')"></div>
-        <h2>{{this.name}}</h2>
-        <p>{{this.type}}<p>
-        </div>
-
-        <div>
-            <p>Next playdate</p>
-            <!-- ADD NEXT PLAYDATE INFO-->
-
-            <p>Following playdates (<span> X </span>)</p>
-
-            <p>New invitation received (<span> X </span>)
-
-            <p><a href="/{{this._id}}/playdates" class="sign-btn">Playdates</a></p>
-
-            <p><a href="/{{this._id}}/search" class="sign-btn">Search</a></p>
-
-        </div>
+        <a href='/{{this._id}}'><div class="pet-list-card-img" style="background-image: url('{{this.picture}}')"></div></a>
     </div>
-    </a>
+
+    <div>
+        <h3>{{this.name}}</h3>
+        <p>{{this.type}}<p>
+
+        <p>Next playdate</p>
+        <!-- ADD NEXT PLAYDATE INFO-->
+
+        <p>Following playdates (<span> X </span>)</p>
+
+        <p><a href='/{{this._id}}/playdates'>See more...</p>
+
+        <p>New invitation received (<span> X </span>)
+
+        <p><a href="/{{this._id}}/search-playmate">SEARCH</p>
+    </div>
 </div>

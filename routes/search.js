@@ -7,13 +7,11 @@ const requireAuth = require("../middlewares/auth")
 const ObjectId = require('mongoose').Types.ObjectId;
 
 // SEARCH
-router.get("/:id/search", requireAuth, async (req, res, next) => {
-
+router.get("/:id/search-playmate", requireAuth, async (req, res, next) => {
     try {
         const foundPet = await Pet.findById(req.params.id);
-        req.session.currentPet = {
-            _id: foundPet._id
-        }
+        if(!req.session.currentPet) req.session.currentPet = { _id : foundPet._id};
+        console.log("CURRENT PET SESSION HAS STARTED", req.session)
 
         Pet.find({
                 owner: {
@@ -21,8 +19,45 @@ router.get("/:id/search", requireAuth, async (req, res, next) => {
                 }
             })
             .then((response) => {
-                console.log("render pet" + response)
+                res.render("pets/searchForm.hbs", {
+                    type: Pet.schema.path('type').enumValues,
+                    time: Pet.schema.path('time.0').enumValues,
+                    css: ["style", "search"],
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                next(error)
+            })
+    } catch { error => console.log(error) }
+})
 
+
+router.get("/search/filter", async (req, res, next) => {
+    await Pet.find(req.query)
+    .then(() => {
+        console.log(req.query);
+        res.render("pets/searchForm.hbs", {
+                    type: Pet.schema.path('type').enumValues,
+                    time: Pet.schema.path('time.0').enumValues,
+                    css: ["style", "search"],
+                    scripts: ["search"]
+        })
+    })
+    .catch(error => next(error))
+})
+
+
+router.get("/:id/search-playmate", requireAuth, async (req, res, next) => {
+    try {
+        const foundPet = await Pet.findById(req.params.id);
+        Pet.find({
+                owner: {
+                    $ne: new ObjectId(req.session.currentUser._id)
+                }
+            })
+            .then((response) => {
+                console.log("render pet" + response)
                 res.render("pets/searchForm.hbs", {
                     pet: response,
                     type: Pet.schema.path('type').enumValues,
@@ -35,11 +70,7 @@ router.get("/:id/search", requireAuth, async (req, res, next) => {
                 console.log(error);
                 next(error)
             })
-    } catch {
-        error => console.log(error)
-    }
-
-
+    } catch { error => console.log(error) }
 })
 
 router.get("/search/:id", requireAuth, (req, res, next) => {

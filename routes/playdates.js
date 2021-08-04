@@ -46,22 +46,18 @@ function renderPlaydates(res, playDates) {
 router.get('/:id/playdates', requireAuth, async function (req, res, next) {
     //to be updated with receiver ID cookie and stuff
 
-
     const foundPet = await Pet.findById(req.params.id);
 
-    req.session.currentPet = {
-        _id: foundPet._id
+    if(!req.session.currentPet) {
+        req.session.currentPet = { _id: foundPet._id }
     }
-
     const playDates = await getPlayDates(req.session.currentPet._id);
-
 
     // console.log(playDates.confirmed.length, playDates.pending.length, playDates.sent.length)
     renderPlaydates(res, playDates)
 });
 
 router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
-
     console.log("req params " + req.params.id)
     res.render("./playdates/invite.hbs", {
         guestId: req.params.id,
