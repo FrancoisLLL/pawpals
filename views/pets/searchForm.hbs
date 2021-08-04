@@ -1,0 +1,40 @@
+<h1>SEARCH RESULTS</h1>
+
+<form id="search-filter">
+
+<div>
+    <fieldset>
+        <legend>type of pet</legend>
+        {{#each type}}
+        <div class="select-filter">
+        <input type="checkbox" id="{{this}}" name="type" value="{{this}}">
+        <label for="{{this}}">{{this}}</label>
+        </div>
+        {{/each}}
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>when</legend>
+        {{#each time}}
+        <div class="select-filter">
+        <input type="checkbox" id="{{this}}" name="time" value="{{this}}">
+        <label for="{{this}}">{{this}}</label>
+        </div>
+        {{/each}}
+    </fieldset>
+</div>
+
+
+
+</form>
+
+
+
+<div class="pet-list-container">
+{{#each pet}}
+{{> petCard}}
+{{/each}}
+</div>
+

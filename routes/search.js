@@ -13,8 +13,10 @@ router.get("/search", (req, res, next) => {
             }
         })
         .then((response) => {
-            res.render("pets/petList.hbs", {
+            res.render("pets/searchForm.hbs", {
                 pet: response,
+                type: Pet.schema.path('type').enumValues,
+                time : Pet.schema.path('time.0').enumValues,
             });
         })
         .catch((error) => {
@@ -27,8 +29,7 @@ router.get("/search/:id", (req, res, next) => {
     Pet.findById(req.params.id)
         .then((response) => {
             res.render("pets/onePet.hbs", {
-                pet: response,
-                css: ["style.css", 'pets.css']
+                pet: response
             });
         })
         .catch((error) => {
