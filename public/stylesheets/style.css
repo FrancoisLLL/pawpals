@@ -34,7 +34,11 @@ nav {
   flex-direction: row;
   align-items: flex-start;
   padding: auto 0;
+<<<<<<< HEAD
+  margin-top: 5px;
+=======
   width: 100%;
+>>>>>>> c2c3d1321a5c6fbb0240b82b12b3d8a64a30243a
 }
 
 nav ul {
@@ -469,3 +473,4 @@ div[class*="box"] {
    text-align: center;
    margin-top: 5%;
  }
+

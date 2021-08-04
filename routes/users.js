@@ -19,32 +19,40 @@ const Pet = require("../models/Pet")
           .catch(error => next(error))
       });
 
-    router.get("/account/edit", (req, res, next) => {
-    res.render("auth/editAccount");
     
-    });
 
-    router.get("/account/:id/edit", (req, res, next) => {
+
+
+  
+
+      router.post("/account/:id/edit", (req, res, next) => {
         User.findByIdAndUpdate(req.params.id, req.body)
+          .then((userDetails) => {
+            res.redirect("/account/" + userDetails._id);
+          })
+
+          .catch(e => console.log(e))
+        
+      });
+
+
+        router.get("/account/:id/edit", (req, res, next) => {
+        User.findById(req.params.id)
         .then((oneUser) => {
             res.render("auth/editAccount", {
-              user: oneUser
-            })
+              user: oneUser,
+            });
         })
         .catch(e => console.log(e))
         
       });
 
 
-      router.post("/account/:id/edit", (req, res, next) => {
-        User.findByIdAndUpdate(req.params.id, req.body)
-          .then(() => {
-            res.redirect("auth/editAccount")
-          })
-
-          .catch(e => console.log(e))
-            res.redirect("/account" + req.params.id + "/edit")
-      });
+ 
+    router.get("/account/edit", (req, res, next) => {
+    res.render("auth/editAccount");
+    
+    });
 
       module.exports = router;
       
