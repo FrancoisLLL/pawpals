@@ -1,16 +1,18 @@
 <div id="add-pet-page">
+
+<div class="edit-pet-info-container">
 <h2>EDIT {{pet.name}}'S INFO</h2>
 
 <form id="add-pet-form" method="POST" action="/pet/{{pet._id}}/edit" enctype="multipart/form-data"> 
 
     <div class="question">
-        <label for="name">my pet's name is</label>
-        <input type="text" name="name" placeholder="Snowflake" value="{{pet.name}}" required>
+        <label for="name">My pet's name is</label>
+        <input type="text" name="name" class="edit-pet-form" placeholder="Snowflake" value="{{pet.name}}" required>
     </div>
 
     <div>
-        <label for="type">my pet is a</label>
-        <select name="type" required>
+        <label for="type">My pet is a</label>
+        <select name="type" class="edit-pet-form-select" required>
             {{#each type}}
             <option {{isSelected ../pet.type this}} value="{{this}}">{{this}}</option>
             {{/each}}
@@ -18,13 +20,13 @@
     </div>
 
     <div>
-        <label for="breed">my pet is a</label>
-        <input type="text" name="breed" placeholder="breed, race, scientific name" value="{{pet.breed}}">
+        <label for="breed"> My pet is a</label>
+        <input type="text" name="breed" class="edit-pet-form" placeholder="breed, race, scientific name" value="{{pet.breed}}">
     </div>
 
     <div>
-        <label for="gender">my pet is a</label>
-        <select name="gender">
+        <label for="gender">My pet is a</label>
+        <select name="gender" class="edit-pet-form-select">
             {{#each gender}}
             <option {{isSelected ../pet.gender this}} value="{{this}}">{{this}}</option>
             {{/each}}
@@ -36,8 +38,8 @@
     </div>
 
     <div>
-        <label for="size">my pet is </label>
-        <select name="size">
+        <label for="size">My pet is </label>
+        <select name="size" class="edit-pet-form-select">
             <option>...</option>
             {{#each size}}
             <option {{isSelected ../pet.size this}} value="{{this}}">{{this}}</option>
@@ -46,18 +48,18 @@
     </div>
 
     <div>
-        <label for="size">PHYSICAL CONDITION</label>
-        <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind" value="{{pet.physicalCondition}}">
+        <label for="size">Physical Condition</label>
+        <input type="text" name="physicalCondition" class="edit-pet-form" placeholder="cannot run fast, one weak paw, blind" value="{{pet.physicalCondition}}">
     </div>
 
     <div>
-        <label for="dateOfBirth">DATE OF BIRTH</label>
-        <input type="date" name="dateOfBirth" value="{{pet.dateOfBirth}}">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" name="dateOfBirth" class="edit-pet-form" value="{{pet.dateOfBirth}}">
     </div>
 
     <div>
-        <label for="size">DESCRIPTION</label>
-        <input type="text" name="description" placeholder="timid at first then sociable af" value="{{pet.description}}">
+        <label for="size">A bit about your pet</label>
+        <input type="text" name="description" class="edit-pet-form" placeholder="timid at first then sociable af" value="{{pet.description}}">
     </div>
 
     {{!-- <div>
@@ -74,7 +76,7 @@
             <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
             {{#each environment}}
             <div class="select--option">
-            <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}" {{isChecked ../pet.preferredEnvironment this}}>
+            <input type="checkbox" id="{{this}}" class="edit-pet-form-checkbox" name="preferredEnvironment" value="{{this}}" {{isChecked ../pet.preferredEnvironment this}}>
             <label for="{{this}}">{{this}}</label>
             </div>
             {{/each}}
@@ -86,7 +88,7 @@
             <legend>WHEN DOES YOUR PET PREFER TO PLAY ? </legend>
             {{#each time}}
             <div class="select-option">
-            <input type="checkbox" id="{{this}}" name="time" value="{{this}}" {{isChecked ../pet.time this}}>
+            <input type="checkbox" id="{{this}}" class="edit-pet-form" name="time" value="{{this}}" {{isChecked ../pet.time this}}>
             <label for="{{this}}">{{this}}</label>
             </div>
             {{/each}}
@@ -107,3 +109,4 @@
 </form>
 
 </div>
+</div> 

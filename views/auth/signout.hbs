@@ -1,3 +1,45 @@
-<h3> Thanks for using pawpals ! Book a playdate soon.  </h3>
 
-<a href="/signin" class="sign-btn"> Sign in again ! </a>
+
+<div class="signin-page-container">
+
+	<div class="welcome-signin-text">
+		<img src="https://i.imgur.com/rt2LjrY.png" class="signin-img" alt="logo"><span class="signin-text">
+			<h1> Thanks for using pawpals! Book a playdate soon.
+		</span></h1>
+	</div>
+
+	<form method="POST" action="/signin">
+
+
+		<!--
+		{{#if errorMessage}}
+		<div class="error-message">
+			<p>{{errorMessage}}</p>
+		</div>
+		{{/if}}
+		-->
+
+		<div class="signin-form-container">
+			<div>
+				<!-- <label for="email"> Email </label> -->
+				<input type="Email" class="signintextinput" name="email" id="Email"
+					placeholder="Email" />
+
+			</div>
+
+			<div>
+				<!-- <label for="password"> Password </label> -->
+				<input type="password" class="signintextinput" name="password" id="password"
+					placeholder="Password" />
+
+
+	</form>
+</div>
+
+<button class="signup-btn"> Log in !</button>
+
+{{#if errorMessage}}
+
+<p> {{errorMessage}} </p>
+
+{{/if}}

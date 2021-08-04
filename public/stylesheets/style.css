@@ -235,6 +235,21 @@ div[class*="box"] {
   height: auto;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 65vh;
+  margin: auto 2em;
+}
+
+.pet-list-card-img {
+  width: 150px;
+  padding-top: 150px;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 1em auto;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .container {
@@ -373,10 +388,6 @@ div[class*="box"] {
 ========================
 */
 
-.container-home {
-  color: blue;
-}
-
 /* 
 ========================
       EDIT ACCOUNT
@@ -396,6 +407,25 @@ div[class*="box"] {
   margin: 5px 0;
   border: 2px solid #b9f18c;
   border-radius: 10px;
+}
+
+.edittextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+}
+
+.editaccount-btn {
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  fill: #b9f18c;
+  color: white;
+  border-radius: 10px;
+  background-color: #b9f18c;
+  font-weight: bolder;
+  font-size: 25px;
 }
 
 .editaccount-btn {

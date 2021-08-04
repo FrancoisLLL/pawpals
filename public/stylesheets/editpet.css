@@ -1,0 +1,38 @@
+.edit-pet-info-container {
+	display: flex;
+	flex-direction: column;
+
+	  border: 5px solid #b9f18c !important;
+  margin: 40px 40px 40px 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: auto;
+
+	align-items: center;
+	padding-top: 15px;
+}
+
+
+ .edit-pet-form {
+   padding: 15px;
+   margin: 5px 0;
+border: none;
+   border-bottom: 2px solid #B9F18C;
+padding: 5px 5px;
+ }
+
+
+ .edit-pet-form-select {
+   appearance: none;
+   padding: 15px;
+   margin: 5px 0;
+border: none;
+   border-bottom: 2px solid #B9F18C;
+padding: 5px 5px;
+ }
+
+ .edit-pet-form-checkbox {
+
+ 
+}
+ 
