@@ -7,7 +7,11 @@ const checkPet = require("../middlewares/petSelected")
 async function getPlayDates(currentPetId) {
     const confirmed = await Playdate.find({
         status: "confirmed",
-        $or: [{ receiverId: currentPetId}, { senderId: currentPetId}] 
+        $or: [{
+            receiverId: currentPetId
+        }, {
+            senderId: currentPetId
+        }]
     }).populate("senderId").populate("receiverId").exec();
     const pending = await Playdate.find({
         status: "pending",
@@ -15,7 +19,7 @@ async function getPlayDates(currentPetId) {
     }).populate("senderId").populate("receiverId").exec();
 
     const sent = await Playdate.find({
-        senderId : currentPetId,
+        senderId: currentPetId,
         status: "pending"
     }).populate("senderId").populate("receiverId").exec();
 
@@ -36,20 +40,28 @@ router.get('/playdates', checkPet, async function (req, res, next) {
         playdatesPending: playDates.pending,
         playdatesSent: playDates.sent,
     })
-}); 
+});
 
-router.get('/playdates/invite', checkPet, function (req, res, next) {
-    res.render("./playdates/invite.hbs");
+router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
+
+    console.log("req params " + req.params.id)
+    res.render("./playdates/invite.hbs", {
+        guestId: req.params.id,
+        date: '2021-08-01T00:00',
+        key: process.env.GOOGLEMAPS_KEY
+    });
 });
 
 
-router.post('/playdates/invite', checkPet, function (req, res, next) {
+router.post('/playdates/invite/:id', checkPet, function (req, res, next) {
+
     Playdate.create({
             proposedDate: req.body.inviteDate,
-            // receiverId: 0,
+            receiverId: req.params.id,
             senderId: req.session.currentPet._id,
             description: req.body.inviteDesc,
-            status: "pending"
+            status: "pending",
+            location: req.body.address
         })
         .then(async (data) => {
             console.log(data);
@@ -73,11 +85,11 @@ router.get('/playdates/invite/:id', checkPet, function (req, res, next) {
         .populate("senderId")
         .populate("receiverId")
         .then(data => {
-            // console.log(data);
-            console.log("pet id " + req.session.currentPet._id + " sender: " + data.senderId._id )
+            console.log(data);
+            // console.log("pet id " + req.session.currentPet._id + " sender: " + data.senderId._id)
             res.render("playdates/inviteDetails", {
                 invite: data,
-                isOwner: req.session.currentPet._id.toString() === data.senderId._id.toString() ? true: false
+                isOwner: req.session.currentPet._id.toString() === data.senderId._id.toString() ? true : false
             })
         })
         .catch(e => console.log(e))
@@ -86,11 +98,11 @@ router.get('/playdates/invite/:id', checkPet, function (req, res, next) {
 
 router.get('/playdates/invite/:id/accept', checkPet, function (req, res, next) {
     // console.log("accept playdate id" + req.params.id);
-    Playdate.findOneAndUpdate(
-            {_id: req.params.id}, {
-                status: "confirmed"
-            }
-        )
+    Playdate.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            status: "confirmed"
+        })
         .then(async data => {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
@@ -105,11 +117,11 @@ router.get('/playdates/invite/:id/accept', checkPet, function (req, res, next) {
 });
 
 router.get('/playdates/invite/:id/reject', checkPet, function (req, res, next) {
-    Playdate.findOneAndUpdate(
-        {_id: req.params.id}, {
-                status: "rejected"
-            }
-        )
+    Playdate.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            status: "rejected"
+        })
         .then(async data => {
             // console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
@@ -124,11 +136,11 @@ router.get('/playdates/invite/:id/reject', checkPet, function (req, res, next) {
 });
 
 router.get('/playdates/invite/:id/cancel', checkPet, function (req, res, next) {
-    Playdate.findOneAndUpdate(
-        {_id: req.params.id}, {
-                status: "cancelled"
-            }
-        )
+    Playdate.findOneAndUpdate({
+            _id: req.params.id
+        }, {
+            status: "cancelled"
+        })
         .then(async data => {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);

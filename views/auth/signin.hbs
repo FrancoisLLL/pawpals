@@ -1,33 +1,32 @@
-
 <div class="signin-page-container">
 
-<div class="welcome-signin-text"> 
-	<img src="https://i.imgur.com/rt2LjrY.png" class="signin-img" alt="logo"><span class="signin-text">
-	<h1> Welcome back to the bark side. </span></h1>
-</div>
+	<div class="welcome-signin-text">
+		<img src="https://i.imgur.com/rt2LjrY.png" class="signin-img" alt="logo"><span class="signin-text">
+			<h1> Welcome back to the bark side.
+		</span></h1>
+	</div>
 
-<form method="POST" action="/signin">
+	<form method="POST" action="/signin">
+
+		{{#if errorMessage}}
+		<div class="error-message">
+			<p>{{errorMessage}}</p>
+		</div>
+		{{/if}}
+
+		<div class="signin-form-container">
+			<div>
+				<!-- <label for="email"> Email </label> -->
+				<input type="Email" class="signintextinput" name="email" id="Email" placeholder="Email" />
+
+			</div>
+
+			<div>
+				<!-- <label for="password"> Password </label> -->
+				<input type="password" class="signintextinput" name="password" id="password" placeholder="Password" />
 
 
-<!--
-{{#if errorMessage}}
-<div class="error-message"><p>{{errorMessage}}</p></div>
-{{/if}}
--->
-
-<div class="signin-form-container">
-<div>
-	<!-- <label for="email"> Email </label> -->
-	<input type="Email" class="signintextinput" name="email" id="Email" placeholder="Email" />
-
-</div>
-
-<div>
-	<!-- <label for="password"> Password </label> -->
-	<input type="password" class="signintextinput" name="password" id="password" placeholder="Password" />
-
-
-</form>
+	</form>
 </div>
 
 <button class="signup-btn"> Log in !</button>
@@ -38,7 +37,3 @@
 
 {{/if}}
 
-</form>
-
-</div>
-</div>
