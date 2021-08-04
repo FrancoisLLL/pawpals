@@ -19,15 +19,10 @@ const Pet = require("../models/Pet")
           .catch(error => next(error))
       });
 
-
-     
     router.get("/account/edit", (req, res, next) => {
     res.render("auth/editAccount");
     
     });
-
-
-
 
     router.get("/account/:id/edit", (req, res, next) => {
         User.findByIdAndUpdate(req.params.id, req.body)
@@ -39,7 +34,7 @@ const Pet = require("../models/Pet")
         .catch(e => console.log(e))
         
       });
-//
+
 
       router.post("/account/:id/edit", (req, res, next) => {
         User.findByIdAndUpdate(req.params.id, req.body)
@@ -50,7 +45,6 @@ const Pet = require("../models/Pet")
           .catch(e => console.log(e))
             res.redirect("/account" + req.params.id + "/edit")
       });
-
 
       module.exports = router;
       

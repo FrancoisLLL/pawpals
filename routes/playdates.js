@@ -32,7 +32,7 @@ async function getPlayDates(currentPetId) {
     }
 }
 
-function renderPlaydates(res, playDates) {
+function renderPlaydates(res, playDates, user) {
     res.render("./playdates/index.hbs", {
         playdatesConfirmed: playDates.confirmed,
         playdatesConfirmedLength: playDates.confirmed.length,
@@ -40,6 +40,7 @@ function renderPlaydates(res, playDates) {
         playdatesPendingLength: playDates.pending.length,
         playdatesSent: playDates.sent,
         playdatesSentLength: playDates.sent.length,
+        user: user
     })
 }
 
@@ -57,7 +58,7 @@ router.get('/:id/playdates', requireAuth, async function (req, res, next) {
 
 
     // console.log(playDates.confirmed.length, playDates.pending.length, playDates.sent.length)
-    renderPlaydates(res, playDates)
+    renderPlaydates(res, playDates, req.session.currentPet)
 });
 
 router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
@@ -85,7 +86,8 @@ router.post('/playdates/invite/:guestId', checkPet, function (req, res, next) {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            renderPlaydates(res, playDates)
+            renderPlaydates(res, playDates, req.session.currentPet)
+
 
         })
         .catch(e => console.log(e))
@@ -123,7 +125,7 @@ router.get('/playdates/invite/:id/accept', checkPet, function (req, res, next) {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            renderPlaydates(res, playDates)
+            renderPlaydates(res, playDates, req.session.currentPet)
 
         })
         .catch(e => console.log(e))
@@ -139,7 +141,7 @@ router.get('/playdates/invite/:id/reject', checkPet, function (req, res, next) {
             // console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            renderPlaydates(res, playDates)
+            renderPlaydates(res, playDates, req.session.currentPet)
 
         })
         .catch(e => console.log(e))
@@ -155,7 +157,7 @@ router.get('/playdates/invite/:id/cancel', checkPet, function (req, res, next) {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            renderPlaydates(res, playDates)
+            renderPlaydates(res, playDates, req.session.currentPet)
 
         })
         .catch(e => console.log(e))

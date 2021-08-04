@@ -14,15 +14,13 @@ router.get("/:id/search", requireAuth, async (req, res, next) => {
         req.session.currentPet = {
             _id: foundPet._id
         }
-
+        
         Pet.find({
                 owner: {
                     $ne: new ObjectId(req.session.currentUser._id)
                 }
             })
             .then((response) => {
-                console.log("render pet" + response)
-
                 res.render("pets/searchForm.hbs", {
                     pet: response,
                     type: Pet.schema.path('type').enumValues,
