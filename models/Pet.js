@@ -32,7 +32,10 @@ const Pet = mongoose.model("Pet", {
         type: String, 
         enum: ["Male", "Female", "Not specified"],
     },
-    size: String,
+    size: {
+        type: String,
+        enum: ["big", "medium", "small"]
+    },
     dateOfBirth: Date,
     physicalCondition: String,
     description: String,

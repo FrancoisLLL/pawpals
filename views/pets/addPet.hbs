@@ -34,8 +34,13 @@
     </div>
 
     <div>
-        <label for="size">describe the size of your pet</label>
-        <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan">
+        <label for="size">my pet is </label>
+        <select name="size">
+            <option>...</option>
+            {{#each size}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
     </div>
 
     <div>
@@ -52,15 +57,6 @@
         <label for="size">describe your pet</label>
         <input type="text" name="description" placeholder="timid at first then sociable af">
     </div>
-
-    {{!-- <div>
-        <label for="preferredEnvironment">WHERE DOES YOUR PET PREFER TO PLAY ? </label>
-        <select name="preferredEnvironment" multiple>
-            {{#each environment}}
-            <option value="{{this}}">{{this}}</option>
-            {{/each}}
-        </select>
-    </div> --}}
 
     <div>
         <fieldset>
