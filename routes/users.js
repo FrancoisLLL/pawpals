@@ -16,7 +16,8 @@ const Pet = require("../models/Pet")
           })
           .then((myPetsData) => {
             res.render('home', {
-              pet: myPetsData
+              pet: myPetsData,
+              css: ["home"]
             })
           })
           .catch(error => next(error))

@@ -1,10 +1,131 @@
-
 :root {
-  --color-scheme-2: #b9f18c;
+  --main-color1: #b9f18c;
+  --main-color2: grey;
+  --main-color3: ;
 }
 
-.container-home {
-	background-color: tomato;
+section {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+h1 {
+  color: var(--main-color2);
+  text-align: center;
+  text-transform: uppercase;
+  margin: 1em auto;
+}
 
+h1 span {
+  color: var(--main-color1);
+}
+
+section p {
+  margin-top: 1em;
+}
+
+h2 {
+  margin: 1em auto 0 auto;
+  font-size: 1em;
+}
+
+.add-pet {
+  text-decoration: none;
+  background-color: var(--main-color1);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  color: black;
+  margin-top: 3em;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 5%;
+}
+
+.user-pets-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.pet-card {
+  width: fit-content;
+  margin: 2em 2em;
+  width: fit-content;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pet-card-photo-container {
+  margin-bottom: 0;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+}
+
+.pet-card-photo-content {
+  width: 200px;
+  padding-top: 200px;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 1px 1px 5px grey;
+}
+
+.pet-card-content {
+  border: 2px solid var(--main-color1);
+  padding: 2em;
+  border-radius: 25px;
+  padding-top: 125px;
+  box-shadow: 10px 10px 5px grey;
+  background-color: white;
+}
+
+.pet-card h3 {
+  color: var(--main-color1);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.pet-card-content p {
+  margin: 2em auto;
+}
+
+.pet-card-content p:nth-of-type(2) {
+  margin-bottom: 0;
+}
+.pet-card-content a:nth-of-type(1) {
+  color: var(--main-color2);
+  font-size: 0.8em;
+  margin-top: 0;
+  text-align: right;
+}
+
+.green-btn {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: var(--main-color1);
+  height: 20px;
+  width: 60px;
+  padding: 10px;
+  font-size: small;
+  color: black;
+  border-radius: 5%;
+  font-weight: bold;
+}
+
+.pet-card-content span {
+  font-weight: bold;
+}
+
+.empty-container {
+  height: 100px;
+}

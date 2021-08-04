@@ -1,11 +1,10 @@
-<div class="search-form">
+<section class="search-section">
 
-<h1>Find a playmate for your pet</h1>
+<h1>Find a playmate</h1>
 
 <p>I want to find a playmate according to ...</p>
-
-<section class="search-section">
-    <div>
+    
+<div>
     <form id="search-filter-form" method="GET" action="/search/filter">
 
         <div class="search-form-option">
@@ -56,8 +55,10 @@
 
     </form>
 
-    <a href="{{pet._id}}/search-playmate">RESET FILTERS</a>
+    <a href="{{currentPetId}}/search-playmate">RESET FILTERS</a>
 </div>
+
+</section>
 
 
 
@@ -68,7 +69,7 @@
 </div>
 
 
-</section>
+
 
 
         {{!-- <select id='type-filter-form'class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here.." name="time">

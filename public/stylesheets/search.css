@@ -12,7 +12,17 @@ body {
 
 .search-section {
   display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: black;
+}
+
+.search-filter-form {
+  display: flex;
   flex-direction: row;
+  justify-content: flex-start;
 }
 
 .pet-search-container {

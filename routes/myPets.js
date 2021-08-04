@@ -7,6 +7,17 @@ const User = require("../models/User");
 const fileUploader = require('../config/cloudinary');
 const petSelected = require("../middlewares/petSelected")
 
+
+router.get("/add-pet", (req, res, next) => {
+    res.render("pets/addPet.hbs", {
+        type: Pet.schema.path('type').enumValues,
+        gender: Pet.schema.path('gender').enumValues,
+        environment : Pet.schema.path('preferredEnvironment.0').enumValues, 
+        time : Pet.schema.path('time.0').enumValues,
+        size: Pet.schema.path('size').enumValues,
+    })
+})
+
 router.get("/:id", async (req,res,next) => {
     await Pet.findById(req.params.id)
     .then((response) => {
@@ -18,17 +29,6 @@ router.get("/:id", async (req,res,next) => {
         })
     })
     .catch(error => next(error))  
-})
-
-
-router.get("/add-pet", (req, res, next) => {
-    res.render("pets/addPet.hbs", {
-        type: Pet.schema.path('type').enumValues,
-        gender: Pet.schema.path('gender').enumValues,
-        environment : Pet.schema.path('preferredEnvironment.0').enumValues, 
-        time : Pet.schema.path('time.0').enumValues,
-        size: Pet.schema.path('size').enumValues,
-    })
 })
 
 
