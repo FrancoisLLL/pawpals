@@ -6,12 +6,15 @@ const Pet = require("../models/Pet")
 
 
       router.get('/home', (req, res, next) => {
+
+        if(req.session.currentPet) { delete req.session.currentPet}
+
+        console.log("req.session.currentPet has ended", req.session)
+
         Pet.find({
             owner: req.session.currentUser._id
-            
           })
           .then((myPetsData) => {
-            console.log(myPetsData);
             res.render('home', {
               pet: myPetsData
             })

@@ -1,7 +1,7 @@
 <div id="add-pet-page">
 <h2>EDIT {{pet.name}}'S INFO</h2>
 
-<form id="add-pet-form" method="POST" action="/pet/:id/edit"> 
+<form id="add-pet-form" method="POST" action="/pet/{{pet._id}}/edit" enctype="multipart/form-data"> 
 
     <div class="question">
         <label for="name">my pet's name is</label>
@@ -99,11 +99,11 @@
     </div> --}}
 
     <div>
-        <label for="size">ADD A PICTURE OF MY PET</label>
+        <label for="size">Add pictures</label>
         <input name="picture" type="file">
     </div>
 
-    <button type='submit'>UPDATE MY PET !</button>
+    <button type='submit'><a href="/pet/{{pet._id}}">Edit my pet's info</a></button>
 </form>
 
 </div>
