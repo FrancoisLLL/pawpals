@@ -26,7 +26,8 @@ router.get("/add-pet", (req, res, next) => {
         type: Pet.schema.path('type').enumValues,
         gender: Pet.schema.path('gender').enumValues,
         environment : Pet.schema.path('preferredEnvironment.0').enumValues, 
-        time : Pet.schema.path('time.0').enumValues
+        time : Pet.schema.path('time.0').enumValues,
+        size: Pet.schema.path('size').enumValues,
     })
 })
 
@@ -53,6 +54,7 @@ router.get("/pet/:id/edit", (req, res, next) => {
             gender: Pet.schema.path('gender').enumValues,
             environment : Pet.schema.path('preferredEnvironment.0').enumValues,
             time : Pet.schema.path('time.0').enumValues,
+            size: Pet.schema.path('size').enumValues,
             pet : petData
         })
     })

@@ -36,8 +36,13 @@
     </div>
 
     <div>
-        <label for="size">my pet is</label>
-        <input type="text" name="size" placeholder="fits in one hand, taller than Michael Jordan" value="{{pet.size}}">
+        <label for="size">my pet is </label>
+        <select name="size">
+            <option>...</option>
+            {{#each size}}
+            <option {{isSelected ../pet.size this}} value="{{this}}">{{this}}</option>
+            {{/each}}
+        </select>
     </div>
 
     <div>

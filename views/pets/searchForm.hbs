@@ -1,32 +1,60 @@
-<div class="search-form-page">
-<h1>FIND A PLAYMATE</h1>
+<div class="search-form">
 
-<div class="search-form" id="search-playdate-form">
-    <form id="search-filter">
+<h1>Find a playmate for your pet</h1>
 
+<p>I want to find a playmate according to ...</p>
+
+<section class="search-section">
     <div>
-        <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
-            <option disabled selected>Choose your type of playdate</option>
-            {{#each type}}
-            <option name="type" value="{{this}}">{{this}}</option>
-            {{/each}}
-        </select>
-    </div>
+    <form id="search-filter-form" method="GET" action="/search/filter">
 
-    <div>
-        <fieldset>
-            <legend>when</legend>
-            {{#each time}}
-            <div class="select-filter">
-            <input type="checkbox" id="{{this}}" name="time" value="{{this}}">
-            <label for="{{this}}">{{this}}</label>
-            </div>
-            {{/each}}
-        </fieldset>
-    </div>
+        <div class="search-form-option">
+            <h3>TYPE</h3>
+            <p>Select the type of pet</p>
+            <ul>
+                {{#each type}}
+                <li>
+                <input {{isChecked }}type="checkbox" name="type" value="{{this}}">
+                <label>{{this}}</label>
+                </li>
+                {{/each}}
+            </ul>
+            <input type='hidden'>
+        </div>
 
-    </form>
+        <div class="search-form-option">
+            <h3>SIZE</h3>
+            <p>Select the size of the pet</p>
+            <ul>
+                {{#each size}}
+                <li>
+                <input type="checkbox" name="time" value="{{this}}">
+                <label>{{this}}</label>
+                </li>
+                {{/each}}
+            </ul>
+            <input type='hidden'>
+        </div>
 
+        <div class="search-form-option">
+            <h3>TIME AVAILABILITY</h3>
+            <p>It's better if my playmate is available...</p>
+            <ul>
+                {{#each time}}
+                <li>
+                <input type="checkbox" name="time" value="{{this}}">
+                <label>{{this}}</label>
+                </li>
+                {{/each}}
+            </ul>
+            <input type='hidden'>
+        </div>
+
+        <div>
+        <button type="submit">SUBMIT</button>
+        </div>
+
+    </form class="btn-save btn btn-primary btn-sm">
 </div>
 
 
@@ -37,4 +65,14 @@
 {{/each}}
 </div>
 
-</div>
+
+</section>
+
+
+        {{!-- <select id='type-filter-form'class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here.." name="time">
+            <option>Choose your type of playdate</option>
+            {{#each time}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+            <input type='hidden'>
+        </select> --}}
