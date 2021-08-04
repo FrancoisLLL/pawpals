@@ -44,14 +44,14 @@ router.get("/:id/search", requireAuth, async (req, res, next) => {
 
 router.get("/search/:id", requireAuth, (req, res, next) => {
     Pet.findById(req.params.id)
-        .then((response) => {
-            res.render("pets/onePet.hbs", {
-                pet: response
-            });
-        })
-        .catch((error) => {
-            next(error)
-        })
+    .then((response) => {
+        res.render("pets/onePet.hbs", {
+            pet: response
+        });
+    })
+    .catch((error) => {
+        next(error)
+    })
 })
 
 

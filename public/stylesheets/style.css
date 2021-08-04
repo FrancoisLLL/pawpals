@@ -4,6 +4,10 @@
 ========================
 */
 
+:root {
+  --color-scheme-2: #b9f18c;
+}
+
 *,
 *:before,
 *:after {
@@ -30,6 +34,7 @@ nav {
   flex-direction: row;
   align-items: flex-start;
   padding: auto 0;
+  width: 100%;
 }
 
 nav ul {
@@ -64,8 +69,6 @@ a {
 }
 */
 
-
-
 /*
 h1 {
   text-align: center;
@@ -76,7 +79,6 @@ h1 {
   color: blue;
 }
 */
-
 
 .pet-list-container {
   display: flex;

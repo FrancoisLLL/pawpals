@@ -4,17 +4,75 @@
 ========================
 */
 
-.search-form-page {
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.search-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.pet-search-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.pet-search-container img {
+  width: 30%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.pet-search-card {
+  margin: 1em;
+  background-color: white;
+  width: 200px;
+  padding: 1em;
+  border: 1px solid rgba(128, 128, 128, 0.509);
+  border-radius: 5px;
+}
+
+a.invite-link {
+  text-align: right;
+  color: var(--color-scheme-2);
+}
+
+form {
   display: flex;
   flex-direction: column;
 }
 
-.pet-search-card {
-  border: 1px solid grey;
+form div {
   margin: 1em;
 }
 
-.pet-search-container {
-  display: grid;
-  grid-template-columns: repeat 5 (1fr);
+/* .search-form-option {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.search-form-option:hover .dropdown-content {
+  display: block;
+}
+*/
+
+.search-form-option ul li {
+  list-style-type: none;
 }
