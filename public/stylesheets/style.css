@@ -1,24 +1,34 @@
-:root {
-  --color-scheme-1: rgba(192, 255, 156, 255);
-  --color-scheme-2: rgba(148, 192, 169, 1);
-}
+/* 
+========================
+      GEN STYLING
+========================
+*/
 
-body {
+*, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap';
+
+
+body {
+  margin: 0;
+  padding: 0;
+<<<<<<< HEAD
   font-family: "Montserrat", sans-serif;
   background-color: rgba(215, 215, 215, 0.5);
+=======
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+>>>>>>> 3d5f7c9ca3e6345fd98b136f8876c725841e033f
 }
 
-.background {
-  display: -webkit-flex;
-  height: 40vh;
-  -webkit-align-items: flex-end;
-  -webkit-justify-content: center;
-  width: 100%;
-}
+@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap';
+<<<<<<< Updated upstream
 
+<<<<<<< HEAD
 /* NAVIGATION BAR*/
 
 nav {
@@ -53,84 +63,31 @@ nav ul a:hover {
 nav ul img {
   height: 3em;
 }
+=======
+=======
+>>>>>>> Stashed changes
+>>>>>>> 3d5f7c9ca3e6345fd98b136f8876c725841e033f
 
-img {
-  flex-shrink: 0;
-}
 
+
+
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
+/*
 a {
   color: #00b7ff;
 }
+*/
 
-/* SIGN-IN FORM*/
+<<<<<<< Updated upstream
+=======
 
-.sign-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+>>>>>>> Stashed changes
 
-.sign-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0.5em;
-}
 
-.sign-form div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0.5em;
-}
-
-.sign-form input {
-  padding: 0.3em;
-}
-
-.error-message {
-}
-
-.signup-link-container {
-  margin-top: 1em;
-  font-size: 0.8em;
-}
-
-.signup-link-container p {
-  font-size: 0.8em;
-  margin: 0.2em;
-}
-
-.sign-btn {
-  text-decoration: none;
-  border-radius: 3px;
-  box-shadow: 3px 3px #eeeeee;
-  border: 0.5px solid #eeeeee;
-  margin: 0.2em;
-  padding: 0.5em 1em;
-  color: var(--color-scheme-2);
-  font-weight: 600;
-  background-color: white;
-}
-
-.sign-btn:hover {
-  background-color: var(--color-scheme-2);
-  color: white;
-  box-shadow: -0.5px -0.5px;
-}
-
-/* SIGN-UP FORM*/
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container-home {
-  color: blue;
-}
-
+/*
 h1 {
   text-align: center;
   top: 20px;
@@ -139,13 +96,8 @@ h1 {
   padding: 20px;
   color: blue;
 }
+*/
 
-.signup-form-container {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
 .pet-list-container {
   display: flex;
@@ -167,22 +119,277 @@ h1 {
   color: black;
 }
 
+
+
+
+
+
+
+
+
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+div[class*=box] {
+  height: 33.33%;
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-1 { background-color: #FF6766; }
+.box-2 { background-color: #3C3C3C; }
+.box-3 { background-color: #66A182; }
+
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+
+/* 
+========================
+      INDEX
+========================
+*/
+.background {
+    display: -webkit-flex;
+    height: 40vh;
+    -webkit-align-items: flex-end;
+    -webkit-justify-content: center;
+    width: 100%;     
+}
+
+.box-1 { background-color: #FF6766; }
+.box-2 { background-color: #3C3C3C; }
+.box-3 { background-color: #66A182; }
+
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+
+/* 
+========================
+      INDEX
+========================
+*/
+.background {
+    display: -webkit-flex;
+    height: 40vh;
+    -webkit-align-items: flex-end;
+    -webkit-justify-content: center;
+    width: 100%;     
+}
+
+.box-1 { background-color: #FF6766; }
+.box-2 { background-color: #3C3C3C; }
+.box-3 { background-color: #66A182; }
+
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+
+/* 
+========================
+      INDEX
+========================
+*/
+.background {
+    display: -webkit-flex;
+    height: 40vh;
+    -webkit-align-items: flex-end;
+    -webkit-justify-content: center;
+    width: 100%;     
+}
+
+.page-container {
+  border: 5px solid #B9F18C !important;
+  margin: 40px 40px 40px 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: auto;
+}
+<<<<<<< Updated upstream
+
 .welcome-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 40vh;
-  padding-top: 15%;
+  height: 50vh;
 }
 
-.page-container {
-  border: 5px solid #b9f18c !important;
+/* 
+========================
+      SIGN IN / SIGN UP
+========================
+*/
+
+.welcome-link-signup {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: #B9F18C;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 13px solid  #B9F18C;
+  transition: transform .2s;
+  border-radius: 10px;
+}
+
+.welcome-link-signin {
+ display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: #fff;
+  text-align: center;
+  color: #B9F18C;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid  #B9F18C;
+  padding: 12px 12px 12px 12px;
+  margin-bottom: 5px;
+  transition: transform .2s; /* Animation */
+  border-radius: 10px;
+}
+
+.welcome-link-signin:hover {
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+.welcome-link-signup:hover {
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+.signup-header {
+  display: flex;
+    flex-direction: column;
+  align-items: center;
+}
+
+.signup-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20vh;
+  margin-bottom: -7%;
+
+}
+
+=======
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+}
+
+/* 
+========================
+      SIGN IN / SIGN UP
+========================
+*/
+
+.welcome-link-signup {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: #B9F18C;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 13px solid  #B9F18C;
+  transition: transform .2s;
+  border-radius: 10px;
+}
+
+.welcome-link-signin {
+ display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: #fff;
+  text-align: center;
+  color: #B9F18C;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid  #B9F18C;
+  padding: 12px 12px 12px 12px;
+  margin-bottom: 5px;
+  transition: transform .2s; /* Animation */
+  border-radius: 10px;
+}
+
+.welcome-link-signin:hover {
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+.welcome-link-signup:hover {
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+.signup-header {
+  display: flex;
+    flex-direction: column;
+  align-items: center;
+}
+
+.signup-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20vh;
+  margin-bottom: -7%;
+
+}
+
+>>>>>>> Stashed changes
+.signup-form-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+
+
+.signup-page-container {
+  border: 5px solid #B9F18C !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
 }
 
+<<<<<<< HEAD
 /* USER HOMEPAGE */
 
 .user-pets-container {
@@ -212,3 +419,117 @@ h1 {
   margin: 1em auto;
   border-radius: 50%;
 }
+=======
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.signup-text {
+  margin-top: 5%;
+  padding: 5px 5px 5px 5px;
+   -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding-left: 3px;
+    background: #B9F18C;
+    
+ }
+
+ .signup-text::selection {
+     background: #B9F18C;
+ }
+
+ .signup-text::-moz-selection {
+   background: #B9F18C;
+ }
+
+ .signuptextinput {
+   padding: 15px;
+   margin: 5px 0;
+   border: 2px solid #B9F18C;
+   border-radius: 10px;
+ }
+
+ .signup-btn {
+    padding: 15px;
+   margin: 5px 0;
+   border: 2px solid #B9F18C;
+   fill: #B9F18C;
+   color: white;
+   border-radius: 10px;
+   background-color: #B9F18C;
+   font-weight: bolder;
+   font-size: 25px;
+ }
+
+
+ .signintextinput {
+    padding: 15px;
+   margin: 5px 0;
+   border: 2px solid #B9F18C;
+   border-radius: 10px;
+   align-items: center;
+ }
+
+
+ .signin-page-container {
+  border: 5px solid #B9F18C !important;
+  margin: 40px 40px 40px 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: 90vh;
+
+}
+
+
+.signin-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  flex-direction: column;
+
+ 
+}
+
+
+
+.signin-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20vh;
+  margin-bottom: 5%;
+  
+
+}
+
+.signin-text {
+  text-align: center;
+  margin-top: 50px;
+  
+}
+
+/* 
+========================
+      HOME
+========================
+*/
+
+.container-home {
+  color: blue;
+<<<<<<< Updated upstream
+}
+=======
+}
+>>>>>>> Stashed changes
+>>>>>>> 3d5f7c9ca3e6345fd98b136f8876c725841e033f
