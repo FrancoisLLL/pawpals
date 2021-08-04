@@ -4,6 +4,10 @@
 ========================
 */
 
+:root {
+  --color-scheme-2: #b9f18c;
+}
+
 *,
 *:before,
 *:after {
@@ -30,6 +34,7 @@ nav {
   flex-direction: row;
   align-items: flex-start;
   padding: auto 0;
+  width: 100%;
 }
 
 nav ul {
@@ -57,21 +62,12 @@ nav ul a:hover {
 nav ul img {
   height: 3em;
 }
-=======
-=======
->>>>>>> Stashed changes
->>>>>>> 3d5f7c9ca3e6345fd98b136f8876c725841e033f
-
-
-
 
 /*
 a {
   color: #00b7ff;
 }
 */
-
-
 
 /*
 h1 {
@@ -83,7 +79,6 @@ h1 {
   color: blue;
 }
 */
-
 
 .pet-list-container {
   display: flex;

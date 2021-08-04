@@ -1,31 +1,36 @@
-<div class="search-form-page">
-<h1>FIND A PLAYMATE</h1>
+<div class="search-form">
 
-<div class="search-form" id="search-playdate-form">
-    <form id="search-filter">
-
+    <h1>FIND A PLAYMATE</h1>
+    <form id="search-filter-form" method="GET" action="/search/filter">
     <div>
-        <select class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here..">
+        <select id='type-filter-form' class="mdb-select md-form colorful-select dropdown-primary" multiple searchable="Search here.." name="type">
             <option disabled selected>Choose your type of playdate</option>
             {{#each type}}
-            <option name="type" value="{{this}}">{{this}}</option>
+            <option value="{{this}}">{{this}}</option>
             {{/each}}
+            <input type='hidden'>
+        </select>
+        <select id='type-filter-form'class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here.." name="time">
+            <option>Choose your type of playdate</option>
+            {{#each time}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+            <input type='hidden'>
         </select>
     </div>
-
-    <div>
-        <fieldset>
-            <legend>when</legend>
+    {{!-- <div>
+        <select class="mdb-select colorful-select dropdown-primary md-form" multiple name="time">
+            <option disabled selected>Choose your type of playdate</option>
             {{#each time}}
-            <div class="select-filter">
-            <input type="checkbox" id="{{this}}" name="time" value="{{this}}">
-            <label for="{{this}}">{{this}}</label>
-            </div>
+            <option value="{{this}}">{{this}}</option>
             {{/each}}
-        </fieldset>
-    </div>
+            <input type='hidden' name="time">
+        </select>
+    </div> --}}
 
-    </form>
+    <button type="submit">SUBMIT</button>
+
+    </form class="btn-save btn btn-primary btn-sm">
 
 </div>
 
@@ -37,4 +42,3 @@
 {{/each}}
 </div>
 
-</div>

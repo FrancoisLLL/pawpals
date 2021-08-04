@@ -3,10 +3,11 @@
     <div>
     <img src="{{this.picture}}" alt="photo {{this.name}}">
     <h2>{{this.name}}</h2>
+    </div>
+    </a>
     <p>{{this.type}}<p>
     {{!-- <p>{{../owner.username}}</p> --}}
 
-    <a href="/playdates/invite">Play</a>
-    </div>
-    </a>
+    <a class="invite-link" href="/playdates/{{this._id}}/invite/">Play</a>
+    
 </div>

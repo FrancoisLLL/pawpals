@@ -4,17 +4,37 @@
 ========================
 */
 
-.search-form-page {
+body {
   display: flex;
   flex-direction: column;
-}
-
-.pet-search-card {
-  border: 1px solid grey;
-  margin: 1em;
+  flex-wrap: nowrap;
 }
 
 .pet-search-container {
-  display: grid;
-  grid-template-columns: repeat 5 (1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.pet-search-container img {
+  width: 30%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.pet-search-card {
+  margin: 1em;
+  background-color: white;
+  width: 200px;
+  padding: 1em;
+  border: 1px solid rgba(128, 128, 128, 0.509);
+  border-radius: 5px;
+}
+
+a.invite-link {
+  text-align: right;
+  color: var(--color-scheme-2);
 }
