@@ -4,27 +4,67 @@
 ========================
 */
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap';
-
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap";
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: white;
 }
 
-@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap';
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap";
+
+/* NAVIGATION BAR*/
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: auto 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+nav ul li {
+  list-style-type: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: auto auto;
+  padding: 0 0.5em;
+}
+
+nav ul a {
+  color: var(--color-scheme-2);
+  text-decoration: none;
+}
+
+nav ul a:hover {
+  border-bottom: 2px solid var(--color-scheme-1);
+}
+
+nav ul img {
+  height: 3em;
+}
+=======
+=======
+>>>>>>> 3d5f7c9ca3e6345fd98b136f8876c725841e033f
 
 
 
 
+>>>>>>> 6fc36d032efde83a73d513baccfa66187eeb81fa
 /*
 a {
   color: #00b7ff;
@@ -65,20 +105,7 @@ h1 {
   color: black;
 }
 
-
-
-
-
-
-
-/* 
-========================
-      [Page ref here plizzz]
-========================
-*/
-
-
-@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+@import "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300";
 
 html,
 body {
@@ -89,20 +116,26 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
-div[class*=box] {
+div[class*="box"] {
   height: 33.33%;
-  width: 100%; 
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.box-1 { background-color: #FF6766; }
-.box-2 { background-color: #3C3C3C; }
-.box-3 { background-color: #66A182; }
+.box-1 {
+  background-color: #ff6766;
+}
+.box-2 {
+  background-color: #3c3c3c;
+}
+.box-3 {
+  background-color: #66a182;
+}
 
 .btn {
   line-height: 50px;
@@ -112,11 +145,28 @@ div[class*=box] {
   cursor: pointer;
 }
 
+/* 
+========================
+      INDEX
+========================
+*/
+.background {
+  display: -webkit-flex;
+  height: 40vh;
+  -webkit-align-items: flex-end;
+  -webkit-justify-content: center;
+  width: 100%;
+}
 
-
-
-
-
+.box-1 {
+  background-color: #ff6766;
+}
+.box-2 {
+  background-color: #3c3c3c;
+}
+.box-3 {
+  background-color: #66a182;
+}
 
 
 /* 
@@ -125,16 +175,47 @@ div[class*=box] {
 ========================
 */
 .background {
-    display: -webkit-flex;
-    height: 40vh;
-    -webkit-align-items: flex-end;
-    -webkit-justify-content: center;
-    width: 100%;     
+  display: -webkit-flex;
+  height: 40vh;
+  -webkit-align-items: flex-end;
+  -webkit-justify-content: center;
+  width: 100%;
+}
+
+.box-1 {
+  background-color: #ff6766;
+}
+.box-2 {
+  background-color: #3c3c3c;
+}
+.box-3 {
+  background-color: #66a182;
+}
+
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+/* 
+========================
+      INDEX
+========================
+*/
+.background {
+  display: -webkit-flex;
+  height: 40vh;
+  -webkit-align-items: flex-end;
+  -webkit-justify-content: center;
+  width: 100%;
 }
 
 
 .page-container {
-  border: 5px solid #B9F18C !important;
+  border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
@@ -158,29 +239,29 @@ div[class*=box] {
   display: inline-block;
   font-weight: bold;
   text-decoration: none;
-  background: #B9F18C;
+  background: #b9f18c;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 13px solid  #B9F18C;
-  transition: transform .2s;
+  border: 13px solid #b9f18c;
+  transition: transform 0.2s;
   border-radius: 10px;
 }
 
 .welcome-link-signin {
- display: inline-block;
+  display: inline-block;
   font-weight: bold;
   text-decoration: none;
   background: #fff;
   text-align: center;
-  color: #B9F18C;
+  color: #b9f18c;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 3px solid  #B9F18C;
+  border: 3px solid #b9f18c;
   padding: 12px 12px 12px 12px;
   margin-bottom: 5px;
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
   border-radius: 10px;
 }
 
@@ -194,7 +275,7 @@ div[class*=box] {
 
 .signup-header {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -204,7 +285,71 @@ div[class*=box] {
   margin-right: auto;
   height: 20vh;
   margin-bottom: -7%;
+}
 
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+}
+
+/* 
+========================
+      SIGN IN / SIGN UP
+========================
+*/
+
+.welcome-link-signup {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: #b9f18c;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 13px solid #b9f18c;
+  transition: transform 0.2s;
+  border-radius: 10px;
+}
+
+.welcome-link-signin {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: #fff;
+  text-align: center;
+  color: #b9f18c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #b9f18c;
+  padding: 12px 12px 12px 12px;
+  margin-bottom: 5px;
+  transition: transform 0.2s; /* Animation */
+  border-radius: 10px;
+}
+
+.welcome-link-signin:hover {
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+.welcome-link-signup:hover {
+  transform: scale(1.5); /* (150% zoom)*/
+}
+
+.signup-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20vh;
+  margin-bottom: -7%;
 }
 
 .signup-form-container {
@@ -212,18 +357,46 @@ div[class*=box] {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-
 }
 
-
 .signup-page-container {
-  border: 5px solid #B9F18C !important;
+  border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
  display: flex;
  flex-direction: column;
+}
+
+/* USER HOMEPAGE */
+
+.user-pets-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+/* USER'S PET CARD DUSPLAYED ON HOMEPAGE*/
+
+.pet-list-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 70vh;
+  margin: auto 2em;
+}
+
+.pet-list-card-img {
+  width: 150px;
+  padding-top: 150px;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 1em auto;
+  border-radius: 50%;
 }
 
 .container {
@@ -289,13 +462,55 @@ div[class*=box] {
 
  .signin-page-container {
   border: 5px solid #B9F18C !important;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-left: 3px;
+  background: #b9f18c;
+}
+
+.signup-text::selection {
+  background: #b9f18c;
+}
+
+.signup-text::-moz-selection {
+  background: #b9f18c;
+}
+
+.signuptextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+}
+
+.signup-btn {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  fill: #b9f18c;
+  color: white;
+  border-radius: 10px;
+  background-color: #b9f18c;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.signintextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.signin-page-container {
+  border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: 90vh;
-
 }
-
 
 .signin-form-container {
   display: flex;
@@ -306,22 +521,17 @@ div[class*=box] {
 
 }
 
-
-
 .signin-img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   height: 20vh;
   margin-bottom: 5%;
-  
-
 }
 
 .signin-text {
   text-align: center;
   margin-top: 50px;
-  
 }
 
 

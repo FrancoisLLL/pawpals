@@ -17,6 +17,8 @@ router.get("/search", (req, res, next) => {
                 pet: response,
                 type: Pet.schema.path('type').enumValues,
                 time : Pet.schema.path('time.0').enumValues,
+                css: ["style", "search"],
+                scripts: ["search"]
             });
         })
         .catch((error) => {
