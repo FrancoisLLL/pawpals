@@ -22,7 +22,6 @@ const Pet = require("../models/Pet")
 
      
     router.get("/account/edit", (req, res, next) => {
-    
     res.render("auth/editAccount");
     
     });
