@@ -1,28 +1,30 @@
-{{> navbar}}
+
 <form method="POST" action="/account/{{currentUser._id}}/edit">
 
-<h1>Editing {{currentUser.name}}'s account </h1>
+<div>
+<h1 class="editaccount-text">Editing {{currentUser.name}}'s account </h1>
+</div>
 
-
+	<div class="update-form-container">
 
 	<div>
 
-		<label for="username"> Username </label>
-		<input type="text" id="username" name="username" value="{{currentUser.username}}" />
+	
+		<input type="text" class="edittextinput" id="username" name="username" placeholder="{{currentUser.username}}" />
 
 	</div>
 
 	<div>
 
-		<label for="email"> Email </label>
-		<input type="email" id="email" name="email" value="{{currentUser.email}}" />
+	
+		<input type="email" class="edittextinput" id="email" name="email" placeholder="{{currentUser.email}}" />
 
 	</div>
 
 	<div>
 
-		<label for="name"> Name </label>
-		<input type="text" id="name" name="name" value="{{currentUser.name}}" />
+		
+		<input type="text" class="edittextinput" id="name" name="name" placeholder="{{currentUser.name}}" />
 
 	</div>
 
@@ -34,23 +36,36 @@ document.getElementById('date-field').value = new Date().toISOString().slice(0, 
 	
 
 
-	<div>
-		<label for="membership"> Membership Access </label>
-		<input type="checkbox" name="membership" value="member" value="{{currentUser.membership}}" />
-	</div>
-
-	<div>
-		<label for="phoneNumber"> Phone Number </label>
-		<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" value="{{currentUser.phoneNumber}}" />
-
-	</div>
-
-	<div>
-		<label for="password"> Password </label>
-		<input type="password" name="password" id="password" value="xxxx" />
-	</div>
-
-	<button> Submit Changes !</button>
 	
 
+	<div>
+		
+		
+		
+		<input type="tel" class="edittextinput" id="phone" name="phone" pattern="[0-9]{10}" placeholder="xxxx-xxxx" />
+
+	</div>
+
+	<div>
+		
+		<input type="password" class="edittextinput" name="password" id="password" placeholder="Update Password" />
+	</div>
+
+	
+		
+<div>
+	<label for="membership"> Subscribe to premium membership </label>
+	<input type="checkbox" class="edittextinput" name="membership" value="member"
+		placeholder="{{currentUser.membership}}" />
+</div>
+	
+
+
+
+	<div>
+	<button class="editaccount-btn"> Submit Changes!</button>
+	</div>
+
 	</form>
+
+	</div>
