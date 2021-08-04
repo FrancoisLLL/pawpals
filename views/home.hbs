@@ -13,11 +13,19 @@
 
 		<div class="user-homepage">
 
-			<p>You have {{pet.length}} pets listed in pawpals </p>
+			<p>You have {{pet.length}} pets listed in pawpals </p> 
+			
 
 			<div class="user-pets-container">
 				{{#each pet}}
 				{{> myPetCard}}
+			
+			
 				{{/each}}
-
+		
 			</div>
+
+				<div>
+					<a href="/add-pet" class="add-pet-btn"> Add Pet </a>
+				
+				</div>

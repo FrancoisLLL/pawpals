@@ -36,6 +36,8 @@ nav {
   padding: auto 0;
   margin-top: 5px;
   width: 100%;
+
+  
 }
 
 nav ul {
@@ -269,8 +271,9 @@ div[class*="box"] {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 70vh;
+  height: 65vh;
   margin: auto 2em;
+
 }
 
 .pet-list-card-img {
@@ -281,6 +284,7 @@ div[class*="box"] {
   background-repeat: no-repeat;
   margin: 1em auto;
   border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .container {
@@ -427,9 +431,7 @@ div[class*="box"] {
 ========================
 */
 
-.container-home {
-  color: blue;
-}
+
 
 /* 
 ========================
@@ -454,7 +456,7 @@ div[class*="box"] {
  }
 
  .editaccount-btn {
-    padding: 15px;
+    padding: 10px;
    margin: 5px 0;
    border: 2px solid #B9F18C;
    fill: #B9F18C;
