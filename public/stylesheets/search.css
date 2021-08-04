@@ -53,7 +53,7 @@ form div {
   margin: 1em;
 }
 
-/* .search-form-option {
+.search-form-option {
   position: relative;
   display: inline-block;
 }
@@ -71,7 +71,6 @@ form div {
 .search-form-option:hover .dropdown-content {
   display: block;
 }
-*/
 
 .search-form-option ul li {
   list-style-type: none;

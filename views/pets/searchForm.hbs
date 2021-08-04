@@ -11,7 +11,7 @@
         <div class="search-form-option">
             <h3>TYPE</h3>
             <p>Select the type of pet</p>
-            <ul>
+            <ul class="dropdown-content">
                 {{#each type}}
                 <li>
                 <input {{isChecked }}type="checkbox" name="type" value="{{this}}">
@@ -56,7 +56,7 @@
 
     </form>
 
-    <a href="/search-playmate">RESET FILTERS</a>
+    <a href="{{pet._id}}/search-playmate">RESET FILTERS</a>
 </div>
 
 
