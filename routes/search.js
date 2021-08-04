@@ -27,22 +27,19 @@ router.get("/search", (req, res, next) => {
 })
 
 router.get("/search/filter", (req, res, next) => {
-    Pet.find(req.query)
-    .then((response) => {
-        console.log(req.query);
-        res.render("pets/searchForm.hbs", {
-            pet: response,
-            type: Pet.schema.path('type').enumValues,
-            time : Pet.schema.path('time.0').enumValues,
-            css: ["style", "search"],
-            scripts: ["search"],
-        });
-        
-    })
-    .catch((error) => {
-        console.log(error);
-        next(error)
-    })
+    Pet.find(
+        { owner: { $ne: new ObjectId(req.session.currentUser._id) } }
+        )
+        .then((response) => { 
+                res.render("pets/searchForm.hbs", {
+                pet: response,
+                type: Pet.schema.path('type').enumValues,
+                time : Pet.schema.path('time.0').enumValues,
+                css: ["style", "search"],
+                scripts: ["search"],
+                })
+            })
+        .catch((error) => { next(error) })
 })
 
 router.get("/search/:id", (req, res, next) => {
