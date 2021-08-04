@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Playdate = require("../models/Playdate")
+const Pet = require("../models/Pet")
 
 const checkPet = require("../middlewares/petSelected")
+const requireAuth = require("../middlewares/auth")
 
 async function getPlayDates(currentPetId) {
     const confirmed = await Playdate.find({
@@ -30,16 +32,32 @@ async function getPlayDates(currentPetId) {
     }
 }
 
-router.get('/playdates', checkPet, async function (req, res, next) {
-    //to be updated with receiver ID cookie and stuff
-    console.log(req.session.currentPet)
-    const playDates = await getPlayDates(req.session.currentPet._id);
-
+function renderPlaydates(res, playDates) {
     res.render("./playdates/index.hbs", {
         playdatesConfirmed: playDates.confirmed,
+        playdatesConfirmedLength: playDates.confirmed.length,
         playdatesPending: playDates.pending,
+        playdatesPendingLength: playDates.pending.length,
         playdatesSent: playDates.sent,
+        playdatesSentLength: playDates.sent.length,
     })
+}
+
+router.get('/:id/playdates', requireAuth, async function (req, res, next) {
+    //to be updated with receiver ID cookie and stuff
+
+
+    const foundPet = await Pet.findById(req.params.id);
+
+    req.session.currentPet = {
+        _id: foundPet._id
+    }
+
+    const playDates = await getPlayDates(req.session.currentPet._id);
+
+
+    // console.log(playDates.confirmed.length, playDates.pending.length, playDates.sent.length)
+    renderPlaydates(res, playDates)
 });
 
 router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
@@ -53,11 +71,11 @@ router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
 });
 
 
-router.post('/playdates/invite/:id', checkPet, function (req, res, next) {
+router.post('/playdates/invite/:guestId', checkPet, function (req, res, next) {
 
     Playdate.create({
             proposedDate: req.body.inviteDate,
-            receiverId: req.params.id,
+            receiverId: req.params.guestId,
             senderId: req.session.currentPet._id,
             description: req.body.inviteDesc,
             status: "pending",
@@ -67,11 +85,8 @@ router.post('/playdates/invite/:id', checkPet, function (req, res, next) {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            res.render("playdates/index.hbs", {
-                playdatesConfirmed: playDates.confirmed,
-                playdatesPending: playDates.pending,
-                playdatesSent: playDates.sent,
-            })
+            renderPlaydates(res, playDates)
+
         })
         .catch(e => console.log(e))
 });
@@ -89,7 +104,8 @@ router.get('/playdates/invite/:id', checkPet, function (req, res, next) {
             // console.log("pet id " + req.session.currentPet._id + " sender: " + data.senderId._id)
             res.render("playdates/inviteDetails", {
                 invite: data,
-                isOwner: req.session.currentPet._id.toString() === data.senderId._id.toString() ? true : false
+                isOwner: req.session.currentPet._id.toString() === data.senderId._id.toString() ? true : false,
+                isPending: data.status === "pending"
             })
         })
         .catch(e => console.log(e))
@@ -107,11 +123,8 @@ router.get('/playdates/invite/:id/accept', checkPet, function (req, res, next) {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            res.render("./playdates/index.hbs", {
-                playdatesConfirmed: playDates.confirmed,
-                playdatesPending: playDates.pending,
-                playdatesSent: playDates.sent,
-            })
+            renderPlaydates(res, playDates)
+
         })
         .catch(e => console.log(e))
 });
@@ -126,11 +139,8 @@ router.get('/playdates/invite/:id/reject', checkPet, function (req, res, next) {
             // console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            res.render("./playdates/index.hbs", {
-                playdatesConfirmed: playDates.confirmed,
-                playdatesPending: playDates.pending,
-                playdatesSent: playDates.sent,
-            })
+            renderPlaydates(res, playDates)
+
         })
         .catch(e => console.log(e))
 });
@@ -145,11 +155,8 @@ router.get('/playdates/invite/:id/cancel', checkPet, function (req, res, next) {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            res.render("./playdates/index.hbs", {
-                playdatesConfirmed: playDates.confirmed,
-                playdatesPending: playDates.pending,
-                playdatesSent: playDates.sent,
-            })
+            renderPlaydates(res, playDates)
+
         })
         .catch(e => console.log(e))
 });

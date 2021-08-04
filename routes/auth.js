@@ -100,6 +100,7 @@ router.post("/signin", async (req, res, next) => {
 });
 
 router.get("/logout", (req, res, next) => {
+	console.log(req.session.currentUser);
 	req.session.destroy((error) => {
 		if (error) {
 			next(error);
