@@ -15,6 +15,7 @@ router.get("/add-pet", (req, res, next) => {
         environment : Pet.schema.path('preferredEnvironment.0').enumValues, 
         time : Pet.schema.path('time.0').enumValues,
         size: Pet.schema.path('size').enumValues,
+        css: ["editpet"]
     })
 })
 
@@ -54,7 +55,8 @@ router.get("/pet/:id/edit", (req, res, next) => {
             environment : Pet.schema.path('preferredEnvironment.0').enumValues,
             time : Pet.schema.path('time.0').enumValues,
             size: Pet.schema.path('size').enumValues,
-            pet : petData
+            pet : petData,
+            css: ["editpet"]
         })
     })
     .catch((error) => next (error))

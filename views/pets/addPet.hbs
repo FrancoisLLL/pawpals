@@ -1,16 +1,16 @@
-<div id="add-pet-page">
+<div class="edit-pet-info-container">
 <h2>ADD A PET</h2>
 
 <form id="add-pet-form" method="POST" action="/add-pet" enctype="multipart/form-data"> 
 
     <div class="question">
-        <label for="name">my pet's name is</label>
-        <input type="text" name="name" placeholder="Snowflake" required>
+        <label for="name">Name</label>
+        <input type="text" name="name" class="edit-pet-form" required>
     </div>
 
     <div>
-        <label for="type">my pet is a </label>
-        <select name="type" required>
+        <label for="type">Select the type of your pet</label>
+        <select name="type" class="edit-pet-form-select" required>
             <option>...</option>
             {{#each type}}
             <option value="{{this}}">{{this}}</option>
@@ -19,13 +19,13 @@
     </div>
 
     <div>
-        <label for="breed">my pet is a</label>
-        <input type="text" name="breed" placeholder="breed, race, scientific name">
+        <label for="breed">Provide further details on your pet</label>
+        <input type="text" name="breed" class="edit-pet-form" placeholder="breed, race, scientific name">
     </div>
 
     <div>
-        <label for="gender">my pet is </label>
-        <select name="gender">
+        <label for="gender">Gender</label>
+        <select name="gender" class="edit-pet-form-select">
             <option>...</option>
             {{#each gender}}
             <option value="{{this}}">{{this}}</option>
@@ -34,8 +34,8 @@
     </div>
 
     <div>
-        <label for="size">my pet is </label>
-        <select name="size">
+        <label for="size">Size</label>
+        <select name="size" class="edit-pet-form-select">
             <option>...</option>
             {{#each size}}
             <option value="{{this}}">{{this}}</option>
@@ -44,53 +44,46 @@
     </div>
 
     <div>
-        <label for="size">provide any details on your pet's physical condition that might be relevant on playdates</label>
-        <input type="text" name="physicalCondition" placeholder="cannot run fast, one weak paw, blind">
+        <div>
+            <p>You may provide any details on your pet's physical condition that might be relevant on playdates.</p>
+            <p>Example : gets easily tired, cannot run fast, deaf, etc...</p>
+        </div>
+        <label for="size">Physical condition</label>
+        <input type="text" name="physicalCondition" class="edit-pet-form">
     </div>
 
     <div>
-        <label for="dateOfBirth">my pet was born on</label>
-        <input type="date" name="dateOfBirth">
+        <label for="dateOfBirth">Date of birth</label>
+        <input type="date" class="edit-pet-form" name="dateOfBirth">
     </div>
 
     <div>
-        <label for="size">describe your pet</label>
-        <input type="text" name="description" placeholder="timid at first then sociable af">
+        <label for="size">Information</label>
+        <textarea name="description" class="edit-pet-form" placeholder="Please provide a short introduction of the pet, or a description of the playdates you would like to find."></textarea>
     </div>
 
     <div>
-        <fieldset>
-            <legend>where does your pet prefer to play ?</legend>
-            {{#each environment}}
-            <div class="select-option">
-            <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
-            <label for="{{this}}">{{this}}</label>
-            </div>
-            {{/each}}
-        </fieldset>
-    </div>
-
-<div>
-    <fieldset>
-        <legend>where does your pet prefer to play ?</legend>
-        {{#each time}}
+        <legend>Preferred location(s) to play</legend>
+        {{#each environment}}
         <div class="select-option">
-        <input type="checkbox" id="{{this}}" name="time" value="{{this}}">
+        <input type="checkbox" id="{{this}}" name="preferredEnvironment" value="{{this}}">
         <label for="{{this}}">{{this}}</label>
         </div>
         {{/each}}
-    </fieldset>
-</div>
-
-
-
-    {{!-- <div>
-        <label for="size">LOCATION</label>
-        <input name="picture" type="text" name="location" placeholder="City, Country">
-    </div> --}}
+    </div>
 
     <div>
-        <label for="size">ADD A PICTURE OF MY PET</label>
+        <legend>Preferred time(s) to play</legend>
+        {{#each time}}
+        <div class="select-option">
+        <input type="checkbox" id="{{this}}" name="time" class="edit-pet-form-checkbox" value="{{this}}">
+        <label for="{{this}}">{{this}}</label>
+        </div>
+        {{/each}}
+    </div>
+
+    <div>
+        <label for="size">Upload a picture</label>
         <input name="picture" type="file">
     </div>
 

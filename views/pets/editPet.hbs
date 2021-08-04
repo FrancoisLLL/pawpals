@@ -1,5 +1,3 @@
-<div id="add-pet-page">
-
 <div class="edit-pet-info-container">
 <h2>EDIT {{pet.name}}'S INFO</h2>
 
@@ -7,7 +5,7 @@
 
     <div class="question">
         <label for="name">My pet's name is</label>
-        <input type="text" name="name" class="edit-pet-form" placeholder="Snowflake" value="{{pet.name}}" required>
+        <input type="text" name="name" class="edit-pet-form" value="{{pet.name}}" required>
     </div>
 
     <div>
@@ -62,37 +60,19 @@
         <input type="text" name="description" class="edit-pet-form" placeholder="timid at first then sociable af" value="{{pet.description}}">
     </div>
 
-    {{!-- <div>
-        <label for="preferredEnvironment">WHERE DOES YOUR PET PREFER TO PLAY ? </label>
-        <select name="preferredEnvironment" multiple>
-            {{#each environment}}
-            <option value="{{this}}">{{this}}</option>
-            {{/each}}
-        </select>
-    </div> --}}
 
     <div>
-        <fieldset>
-            <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
-            {{#each environment}}
-            <div class="select--option">
-            <input type="checkbox" id="{{this}}" class="edit-pet-form-checkbox" name="preferredEnvironment" value="{{this}}" {{isChecked ../pet.preferredEnvironment this}}>
-            <label for="{{this}}">{{this}}</label>
-            </div>
-            {{/each}}
-        </fieldset>
+        <legend>WHERE DOES YOUR PET PREFER TO PLAY ? </legend>
+        {{#each environment}}
+        <div class="select--option">
+        <input type="checkbox" id="{{this}}" class="edit-pet-form-checkbox" name="preferredEnvironment" value="{{this}}" {{isChecked ../pet.preferredEnvironment this}}>
+        <label for="{{this}}">{{this}}</label>
+        </div>
+        {{/each}}
     </div>
 
     <div>
-        <fieldset>
-            <legend>WHEN DOES YOUR PET PREFER TO PLAY ? </legend>
-            {{#each time}}
-            <div class="select-option">
-            <input type="checkbox" id="{{this}}" class="edit-pet-form" name="time" value="{{this}}" {{isChecked ../pet.time this}}>
-            <label for="{{this}}">{{this}}</label>
-            </div>
-            {{/each}}
-        </fieldset>
+
     </div>
 
     {{!-- <div>
@@ -101,7 +81,7 @@
     </div> --}}
 
     <div>
-        <label for="size">Add pictures</label>
+        <label for="size">UPDATE PICTURES</label>
         <input name="picture" type="file">
     </div>
 
@@ -109,4 +89,3 @@
 </form>
 
 </div>
-</div> 
