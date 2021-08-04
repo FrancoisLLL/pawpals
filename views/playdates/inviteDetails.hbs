@@ -2,28 +2,27 @@
     Invite details
 </h1>
 <div>
-        <p>Host:{{invite.senderId.name}}</p>
-        <p><img src={{invite.senderId.picture}}></p>
+    <p><img src={{invite.senderId.picture}} class="invitePhoto"></p>
+    <p>From:{{invite.senderId.name}}</p>
 
+    <p><img src={{invite.receiverId.picture}} class="invitePhoto"></p>
+    <p>To: {{invite.receiverId.name}}</p>
 
-        <p>Guest: {{invite.receiverId.name}}</p>
-        <p></p><img src={{invite.receiverId.picture}}></p>
-        <p>
-            Description: {{invite.description}}
-        </p>
-        <p>
-            Date: {{invite.proposedDate}}
-        </p>
-        <p>
-            Location: {{invite.location}}
-        </p>
+    <p>Description: {{invite.description}}</p>
+    <p>Date: {{invite.proposedDate}}</p>
+    <p>Location: {{invite.location}}</p>
 
+    <div class="inviteButtons">
         {{#unless isOwner}}
-        <a href="/playdates/invite/{{invite.id}}/accept">Accept</a>
-        <a href="/playdates/invite/{{invite.id}}/reject">Reject</a>
+        {{#if isPending}}
+        
+        <p><a href="/playdates/invite/{{invite.id}}/accept">Accept</a></p>
+        <p><a href="/playdates/invite/{{invite.id}}/reject">Reject</a></p>
+        {{/if}}
         {{/unless}}
 
         {{#isOwner}}
-        <a href="/playdates/invite/{{invite.id}}/cancel">Delete</a>
+        <p><a href="/playdates/invite/{{invite.id}}/cancel">Delete</a></p>
         {{/isOwner}}
+    </div>
 </div>

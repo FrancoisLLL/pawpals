@@ -8,16 +8,16 @@
 
 <body>
 	<div class="container-home">
-	
 
 
-<div class="user-homepage">
 
-<p>You have {{pet.length}} pets listed in pawpals </p>
+		<div class="user-homepage">
 
-<div class="user-pets-container">
-{{#each pet}}
-	{{> myPetCard}}
-{{/each}}
+			<p>You have {{pet.length}} pets listed in pawpals </p>
 
-</div>
+			<div class="user-pets-container">
+				{{#each pet}}
+				{{> myPetCard}}
+				{{/each}}
+
+			</div>

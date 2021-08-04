@@ -3,10 +3,10 @@
 
 <head>
   <title>{{title}}</title>
-  <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
   <link rel='stylesheet' type="text/css" href='/stylesheets/tabs.css' />
 
-  <link rel='stylesheet' type="text/css" href='/stylesheets/home.css' />
+  <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+  <link rel='stylesheet' type="text/css" href='/stylesheets/home.css' /> 
   {{#each css}}
   <link rel='stylesheet' type="text/css" href='/stylesheets/{{this}}.css' />
   {{/each}}
@@ -22,13 +22,11 @@
 
 <body>
 
-
   {{#if isLoggedIn}}
   {{> navbar}}
   {{/if}}
 
   {{{body}}}
-
 
 </body>
 

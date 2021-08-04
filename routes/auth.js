@@ -34,7 +34,7 @@ router.post("/signup", async (req, res, next) => {
 
 		if (foundUser) {
 			res.render("auth/signup.hbs", {
-				errorMessage: "Email taken",
+				errorMessage: "Email taken. Please use another email",
 			});
 			return;
 		}
@@ -61,7 +61,7 @@ router.post("/signin", async (req, res, next) => {
 
 		if (!foundUser) {
 			res.render("auth/signin.hbs", {
-				errorMessage: "try again",
+				errorMessage: "Credentials don't match. Try again. Meow.",
 			});
 			return;
 		}
@@ -88,7 +88,7 @@ router.post("/signin", async (req, res, next) => {
 		} else {
 			// console.log("else")
 			res.render("auth/signin.hbs", {
-				errorMessage: "try again",
+				errorMessage: "Please input credentials again.",
 			});
 			return;
 		}	
@@ -99,14 +99,23 @@ router.post("/signin", async (req, res, next) => {
 	}
 });
 
+
+
+
 router.get("/logout", (req, res, next) => {
+	console.log(req.session.currentUser);
 	req.session.destroy((error) => {
 		if (error) {
 			next(error);
 		} else {
-			res.render("auth/signout.hbs");
+			res.redirect("/signout");
 		}
 	});
 });
+
+router.get("/signout", (req, res, next) => {
+	res.render("auth/signout.hbs")
+});
+
 
 module.exports = router;
