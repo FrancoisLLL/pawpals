@@ -4,31 +4,25 @@
 ========================
 */
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap';
-
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap";
 
 body {
   margin: 0;
   padding: 0;
-<<<<<<< HEAD
   font-family: "Montserrat", sans-serif;
-  background-color: rgba(215, 215, 215, 0.5);
-=======
-  font-family: 'Montserrat', sans-serif;
   background-color: white;
->>>>>>> 3d5f7c9ca3e6345fd98b136f8876c725841e033f
 }
 
-@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap';
-<<<<<<< Updated upstream
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap";
 
-<<<<<<< HEAD
 /* NAVIGATION BAR*/
 
 nav {
@@ -71,20 +65,12 @@ nav ul img {
 
 
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 /*
 a {
   color: #00b7ff;
 }
 */
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 
 /*
@@ -119,16 +105,7 @@ h1 {
   color: black;
 }
 
-
-
-
-
-
-
-
-
-
-@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+@import "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300";
 
 html,
 body {
@@ -139,20 +116,26 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
-div[class*=box] {
+div[class*="box"] {
   height: 33.33%;
-  width: 100%; 
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.box-1 { background-color: #FF6766; }
-.box-2 { background-color: #3C3C3C; }
-.box-3 { background-color: #66A182; }
+.box-1 {
+  background-color: #ff6766;
+}
+.box-2 {
+  background-color: #3c3c3c;
+}
+.box-3 {
+  background-color: #66a182;
+}
 
 .btn {
   line-height: 50px;
@@ -162,23 +145,28 @@ div[class*=box] {
   cursor: pointer;
 }
 
-
 /* 
 ========================
       INDEX
 ========================
 */
 .background {
-    display: -webkit-flex;
-    height: 40vh;
-    -webkit-align-items: flex-end;
-    -webkit-justify-content: center;
-    width: 100%;     
+  display: -webkit-flex;
+  height: 40vh;
+  -webkit-align-items: flex-end;
+  -webkit-justify-content: center;
+  width: 100%;
 }
 
-.box-1 { background-color: #FF6766; }
-.box-2 { background-color: #3C3C3C; }
-.box-3 { background-color: #66A182; }
+.box-1 {
+  background-color: #ff6766;
+}
+.box-2 {
+  background-color: #3c3c3c;
+}
+.box-3 {
+  background-color: #66a182;
+}
 
 .btn {
   line-height: 50px;
@@ -188,23 +176,28 @@ div[class*=box] {
   cursor: pointer;
 }
 
-
 /* 
 ========================
       INDEX
 ========================
 */
 .background {
-    display: -webkit-flex;
-    height: 40vh;
-    -webkit-align-items: flex-end;
-    -webkit-justify-content: center;
-    width: 100%;     
+  display: -webkit-flex;
+  height: 40vh;
+  -webkit-align-items: flex-end;
+  -webkit-justify-content: center;
+  width: 100%;
 }
 
-.box-1 { background-color: #FF6766; }
-.box-2 { background-color: #3C3C3C; }
-.box-3 { background-color: #66A182; }
+.box-1 {
+  background-color: #ff6766;
+}
+.box-2 {
+  background-color: #3c3c3c;
+}
+.box-3 {
+  background-color: #66a182;
+}
 
 .btn {
   line-height: 50px;
@@ -214,28 +207,26 @@ div[class*=box] {
   cursor: pointer;
 }
 
-
 /* 
 ========================
       INDEX
 ========================
 */
 .background {
-    display: -webkit-flex;
-    height: 40vh;
-    -webkit-align-items: flex-end;
-    -webkit-justify-content: center;
-    width: 100%;     
+  display: -webkit-flex;
+  height: 40vh;
+  -webkit-align-items: flex-end;
+  -webkit-justify-content: center;
+  width: 100%;
 }
 
 .page-container {
-  border: 5px solid #B9F18C !important;
+  border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
 }
-<<<<<<< Updated upstream
 
 .welcome-container {
   display: flex;
@@ -254,29 +245,29 @@ div[class*=box] {
   display: inline-block;
   font-weight: bold;
   text-decoration: none;
-  background: #B9F18C;
+  background: #b9f18c;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 13px solid  #B9F18C;
-  transition: transform .2s;
+  border: 13px solid #b9f18c;
+  transition: transform 0.2s;
   border-radius: 10px;
 }
 
 .welcome-link-signin {
- display: inline-block;
+  display: inline-block;
   font-weight: bold;
   text-decoration: none;
   background: #fff;
   text-align: center;
-  color: #B9F18C;
+  color: #b9f18c;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 3px solid  #B9F18C;
+  border: 3px solid #b9f18c;
   padding: 12px 12px 12px 12px;
   margin-bottom: 5px;
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
   border-radius: 10px;
 }
 
@@ -290,7 +281,7 @@ div[class*=box] {
 
 .signup-header {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -300,10 +291,7 @@ div[class*=box] {
   margin-right: auto;
   height: 20vh;
   margin-bottom: -7%;
-
 }
-
-=======
 
 .welcome-container {
   display: flex;
@@ -322,29 +310,29 @@ div[class*=box] {
   display: inline-block;
   font-weight: bold;
   text-decoration: none;
-  background: #B9F18C;
+  background: #b9f18c;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 13px solid  #B9F18C;
-  transition: transform .2s;
+  border: 13px solid #b9f18c;
+  transition: transform 0.2s;
   border-radius: 10px;
 }
 
 .welcome-link-signin {
- display: inline-block;
+  display: inline-block;
   font-weight: bold;
   text-decoration: none;
   background: #fff;
   text-align: center;
-  color: #B9F18C;
+  color: #b9f18c;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 3px solid  #B9F18C;
+  border: 3px solid #b9f18c;
   padding: 12px 12px 12px 12px;
   margin-bottom: 5px;
-  transition: transform .2s; /* Animation */
+  transition: transform 0.2s; /* Animation */
   border-radius: 10px;
 }
 
@@ -358,7 +346,7 @@ div[class*=box] {
 
 .signup-header {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -368,28 +356,23 @@ div[class*=box] {
   margin-right: auto;
   height: 20vh;
   margin-bottom: -7%;
-
 }
 
->>>>>>> Stashed changes
 .signup-form-container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-
 }
 
-
 .signup-page-container {
-  border: 5px solid #B9F18C !important;
+  border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
 }
 
-<<<<<<< HEAD
 /* USER HOMEPAGE */
 
 .user-pets-container {
@@ -419,7 +402,7 @@ div[class*=box] {
   margin: 1em auto;
   border-radius: 50%;
 }
-=======
+
 .container {
   display: flex;
   align-items: center;
@@ -436,60 +419,55 @@ div[class*=box] {
 .signup-text {
   margin-top: 5%;
   padding: 5px 5px 5px 5px;
-   -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding-left: 3px;
-    background: #B9F18C;
-    
- }
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-left: 3px;
+  background: #b9f18c;
+}
 
- .signup-text::selection {
-     background: #B9F18C;
- }
+.signup-text::selection {
+  background: #b9f18c;
+}
 
- .signup-text::-moz-selection {
-   background: #B9F18C;
- }
+.signup-text::-moz-selection {
+  background: #b9f18c;
+}
 
- .signuptextinput {
-   padding: 15px;
-   margin: 5px 0;
-   border: 2px solid #B9F18C;
-   border-radius: 10px;
- }
+.signuptextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+}
 
- .signup-btn {
-    padding: 15px;
-   margin: 5px 0;
-   border: 2px solid #B9F18C;
-   fill: #B9F18C;
-   color: white;
-   border-radius: 10px;
-   background-color: #B9F18C;
-   font-weight: bolder;
-   font-size: 25px;
- }
+.signup-btn {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  fill: #b9f18c;
+  color: white;
+  border-radius: 10px;
+  background-color: #b9f18c;
+  font-weight: bolder;
+  font-size: 25px;
+}
 
+.signintextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+  align-items: center;
+}
 
- .signintextinput {
-    padding: 15px;
-   margin: 5px 0;
-   border: 2px solid #B9F18C;
-   border-radius: 10px;
-   align-items: center;
- }
-
-
- .signin-page-container {
-  border: 5px solid #B9F18C !important;
+.signin-page-container {
+  border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: 90vh;
-
 }
-
 
 .signin-form-container {
   display: flex;
@@ -497,11 +475,7 @@ div[class*=box] {
   justify-content: center;
   height: 60vh;
   flex-direction: column;
-
- 
 }
-
-
 
 .signin-img {
   display: block;
@@ -509,14 +483,11 @@ div[class*=box] {
   margin-right: auto;
   height: 20vh;
   margin-bottom: 5%;
-  
-
 }
 
 .signin-text {
   text-align: center;
   margin-top: 50px;
-  
 }
 
 /* 
@@ -527,9 +498,4 @@ div[class*=box] {
 
 .container-home {
   color: blue;
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
->>>>>>> 3d5f7c9ca3e6345fd98b136f8876c725841e033f

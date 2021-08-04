@@ -5,27 +5,6 @@ const User = require("../models/User");
 const Pet = require("../models/Pet")
 
 
-<<<<<<< HEAD
-router.get('/home', (req, res, next) => {
-  Pet.find({ owner: req.session.currentUser._id })
-    .then((myPetsData) => {
-      // console.log(myPetsData);
-      delete req.session.currentPet;
-      res.render('home', {
-        pet: myPetsData
-      })
-    })
-    .catch(error => next(error))
-});
-
-
-router.get("/account/edit", (req, res, next) => {
-  res.render("auth/editAccount");
-});
-
-
-module.exports = router;
-=======
       router.get('/home', (req, res, next) => {
         Pet.find({
             owner: req.session.currentUser._id
@@ -76,4 +55,3 @@ module.exports = router;
 
       module.exports = router;
       
->>>>>>> 3d5f7c9ca3e6345fd98b136f8876c725841e033f
