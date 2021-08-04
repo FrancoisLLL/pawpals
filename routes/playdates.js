@@ -40,7 +40,8 @@ function renderPlaydates(res, playDates, user) {
         playdatesPendingLength: playDates.pending.length,
         playdatesSent: playDates.sent,
         playdatesSentLength: playDates.sent.length,
-        user: user
+        user: user,
+        css: ["tabs"]
     })
 }
 
@@ -63,7 +64,8 @@ router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
     res.render("./playdates/invite.hbs", {
         guestId: req.params.id,
         date: '2021-08-01T00:00',
-        key: process.env.GOOGLEMAPS_KEY
+        key: process.env.GOOGLEMAPS_KEY,
+        css: ["tabs"]
     });
 });
 
@@ -103,7 +105,8 @@ router.get('/playdates/invite/:id', checkPet, function (req, res, next) {
             res.render("playdates/inviteDetails", {
                 invite: data,
                 isOwner: req.session.currentPet._id.toString() === data.senderId._id.toString() ? true : false,
-                isPending: data.status === "pending"
+                isPending: data.status === "pending",
+                css: ["style","tabs"]
             })
         })
         .catch(e => console.log(e))

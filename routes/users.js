@@ -5,23 +5,23 @@ const User = require("../models/User");
 const Pet = require("../models/Pet")
 
 
-      router.get('/home', (req, res, next) => {
+router.get('/home', (req, res, next) => {
 
-        if(req.session.currentPet) { delete req.session.currentPet}
+  if(req.session.currentPet) { delete req.session.currentPet}
 
-        console.log("req.session.currentPet has ended", req.session)
+  console.log("req.session.currentPet has ended", req.session)
 
-        Pet.find({
-            owner: req.session.currentUser._id
-          })
-          .then((myPetsData) => {
-            res.render('home', {
-              pet: myPetsData,
-              css: ["home"]
-            })
-          })
-          .catch(error => next(error))
-      });
+  Pet.find({
+      owner: req.session.currentUser._id
+    })
+    .then((myPetsData) => {
+      res.render('home', {
+        pet: myPetsData,
+        css: ["home", "style"]
+      })
+    })
+    .catch(error => next(error))
+});
 
     
 

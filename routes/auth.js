@@ -113,6 +113,16 @@ router.get("/logout", (req, res, next) => {
 	});
 });
 
+router.get("/", (req, res, next) => {
+	req.session.destroy((error) => {
+		if (error) {
+			next(error);
+		} else {
+			res.redirect("/");
+		}
+	});
+});
+
 router.get("/signout", (req, res, next) => {
 	res.render("auth/signout.hbs")
 });
