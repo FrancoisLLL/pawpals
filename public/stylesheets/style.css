@@ -30,6 +30,7 @@ nav {
   flex-direction: row;
   align-items: flex-start;
   padding: auto 0;
+  margin-top: 5px;
 }
 
 nav ul {
@@ -467,3 +468,4 @@ div[class*="box"] {
    text-align: center;
    margin-top: 5%;
  }
+
