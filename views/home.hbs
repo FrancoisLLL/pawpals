@@ -1,3 +1,7 @@
+
+
+
+
 {{> navbar}}
 
 <h1>WELCOME BACK {{currentUser.name}}</h1>
@@ -9,9 +13,13 @@
 	
 
 
+<div class="user-homepage">
 
 <p>You have {{pet.length}} pets listed in pawpals </p>
 
+<div class="user-pets-container">
 {{#each pet}}
 	{{> myPetCard}}
-{{/each}} 
+{{/each}}
+
+</div>

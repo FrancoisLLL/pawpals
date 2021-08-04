@@ -1,0 +1,20 @@
+/* 
+========================
+      SEARCH FORM
+========================
+*/
+
+.search-form-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-search-card {
+  border: 1px solid grey;
+  margin: 1em;
+}
+
+.pet-search-container {
+  display: grid;
+  grid-template-columns: repeat 5 (1fr);
+}

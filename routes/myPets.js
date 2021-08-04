@@ -13,10 +13,11 @@ router.get("/pet/:id", async (req, res, next) => {
 
         req.session.currentPet = { _id : foundPet._id}
 
+        console.log(req.session)
+
         res.render("pets/myPet.hbs", { pet : foundPet })
     }
     catch (error) { next(error) }
-
 })
 
 
@@ -34,7 +35,10 @@ router.get("/add-pet", (req, res, next) => {
 router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
     let pet = req.body
     pet.owner = req.session.currentUser._id
-    pet.picture = req.file.path;
+
+    if(pet.picture !== undefined)
+    {pet.picture = req.file.path;}
+    
     Pet.create(pet)
     .then((petData) => { res.redirect("/home") })
     .catch((error) => { next(error) })

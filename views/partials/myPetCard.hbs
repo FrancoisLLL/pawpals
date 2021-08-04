@@ -1,11 +1,23 @@
-
 <div class="pet-list-card">
-    <a href='/pet/{{this._id}}'
+    <a href='/pet/{{this._id}}'>
     <div>
-    <img src="{{this.picture}}" alt="photo {{this.name}}">
-    <h2>{{this.name}}</h2>
-    <p>{{this.type}}<p>
 
+        <div>
+        <div class="pet-list-card-img" style="background-image: url('{{this.picture}}')"></div>
+        <h2>{{this.name}}</h2>
+        <p>{{this.type}}<p>
+        </div>
+
+        <div>
+            <p>Next playdate</p>
+            <!-- ADD NEXT PLAYDATE INFO-->
+
+            <p>Following playdates (<span> X </span>)</p>
+
+            <p>New invitation received (<span> X </span>)
+
+            <p><a href="/search" class="sign-btn">Search</a></p>
+        </div>
     </div>
     </a>
 </div>
