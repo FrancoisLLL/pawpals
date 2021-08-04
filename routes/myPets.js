@@ -8,14 +8,16 @@ const fileUploader = require('../config/cloudinary');
 const petSelected = require("../middlewares/petSelected")
 
 router.get("/:id", async (req,res,next) => {
-    const foundPet = await Pet.findById(req.params.id)
-    .then()
+    await Pet.findById(req.params.id)
+    .then((response) => {
+        const foundPet = response;
+        if(!req.session.currentPet) req.session.currentPet = { _id : foundPet._id};
+        console.log("CURRENT PET SESSION HAS STARTED", req.session)
+        res.render("pets/myPet.hbs", {
+            pet: foundPet
+        })
+    })
     .catch(error => next(error))  
-
-    if(!req.session.currentPet) req.session.currentPet = { _id : foundPet._id};
-    console.log("CURRENT PET SESSION HAS STARTED", req.session)
-    
-    res.render("pets/myPet.hbs", { pet: foundPet })
 })
 
 
@@ -35,8 +37,7 @@ router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
     let pet = req.body
     pet.owner = req.session.currentUser._id
 
-    if (req.file)
-    {pet.picture = req.file.path;}
+    if (req.file) { pet.picture = req.file.path }
     
     Pet.create(pet)
     .then((petData) => { res.redirect("/home") })
