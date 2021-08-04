@@ -1,60 +1,58 @@
 <div class="signup-page-container"> 
 
-<div class="signup-header">
-	<img src="https://i.imgur.com/rt2LjrY.png" class="signup-img" alt="logo"><span class="signup-text">
-<h1> Sign up. Anyone can join. </h1></span>
-</div>
+		<div class="signup-header">
+			<img src="https://i.imgur.com/rt2LjrY.png" class="signup-img" alt="logo"><span class="signup-text">
+			<h1> Sign up. Anyone can join. </h1></span>
+		</div>
 
 
 
-<div class="signup-form-container-container">
+		<div class="signup-form-container-container">
+			<form method="POST" action="/signup" class="sign-form">
 
-<form method="POST" action="/signup" class="sign-form">
 
-
-<div class="signup-form-container">
-<div>
-
+			<div class="signup-form-container">
+		
+				<div>
 <!-- <label for="username"> Username </label> -->
-<input type="text" id="username" class="signuptextinput" name="username" placeholder="Username" />
+				<input type="text" id="username" class="signuptextinput" name="username" placeholder="Username" />
+				</div>
 
-</div>
-
-<div>
-
+				<div>
 <!-- <label for="email"> Email </label> -->
-<input type="email" class="signuptextinput" id="email" name="email" placeholder="Email" />
+				<input type="email" class="signuptextinput" id="email" name="email" placeholder="Email" />
+				</div>
 
-</div>
-
-<div>
-
+				<div>
 <!-- <label for="name"> Name </label> -->
-<input type="text" class="signuptextinput" id="name" name="name" placeholder="Name" />
+				<input type="text" class="signuptextinput" id="name" name="name" placeholder="Name" />
 
-</div>
+				</div>
 
-<div>
+				<div>
 <!-- code in js to set default date to today 
 document.getElementById('date-field').value = new Date().toISOString().slice(0, 10);
 --> 
 	<!-- <label for="password"> Password </label> -->
-	<input type="password" class="signuptextinput" name="password" id="password" placeholder="New Password" />
-</div>
+				<input type="password" class="signuptextinput" name="password" id="password" placeholder="New Password" />
+				</div>
 
-	<div>
+				
 	<!-- code in js to set default date to today 
 	document.getElementById('date-field').value = new Date().toISOString().slice(0, 10);
 	--> 
+
+	<!--	<div>
 		<label for="date"> Date Joined </label>
 		<input type="date" id="date" value="{{date}}" />
-	</div>
+		</div>
+		-->
+	
 
-<div>
+				<div>
 <!-- <label for="phoneNumber"> Phone Number </label> -->
-<input type="tel" id="phone" class="signuptextinput" name="phone" pattern="[0-9]{10}" placeholder="Phone Number" />
-
-</div>
+				<input type="tel" id="phone" class="signuptextinput" name="phone" pattern="[0-9]{4}[0-9]{4}" placeholder="Phone Number" />
+				</div>
 
 <!--
 <div>
@@ -63,16 +61,19 @@ document.getElementById('date-field').value = new Date().toISOString().slice(0, 
 </div> -->
 
 
-<div>
-	<label for="membership"> Want premium membership? </label>
-	<input type="checkbox" class="signuptextinput" name="membership" placeholder="member" />
-</div>
+				<div>
+				<label for="membership"> Want premium membership? </label>
+				<input type="checkbox" class="signuptextinput" name="membership" placeholder="member" />
+				</div>
 
-<button class="signup-btn"> Sign up</button>
 
-{{#if errorMessage}}
-<div class="error-message"><p>{{errorMessage}}</p></div>
-{{/if}}
+				<div>
+				<button class="signup-btn"> Sign up</button>
+				</div>
+
+				{{#if errorMessage}}
+				<div class="error-message"><p>{{errorMessage}}</p></div>
+				{{/if}}
 </div>
 </div>
 

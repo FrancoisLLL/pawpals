@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
-    {{#each css}}
-    <link rel='stylesheet' type="text/css" href='/stylesheets/{{this}}.css' />
-    {{/each}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
-   
-   {{#each scripts}}
-   <script src="/scripts/{{this}}.js" type="module"></script>
-   {{/each}}
 
-   {{#each bootstrap}}
-   {{this}}
-   {{/each}}
+<head>
+  <title>{{title}}</title>
+  <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+  <link rel='stylesheet' type="text/css" href='/stylesheets/tabs.css' />
 
-  </head>
-  <body>
+  <link rel='stylesheet' type="text/css" href='/stylesheets/home.css' />
+  {{#each css}}
+  <link rel='stylesheet' type="text/css" href='/stylesheets/{{this}}.css' />
+  {{/each}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+
+  {{#each scripts}}
+  <script src="/scripts/{{this}}" type="module"></script>
+  {{/each}}
+
+</head>
+
+<body>
 
 
-{{#if isLoggedIn}}
-{{> navbar}}
-{{/if}} 
+  {{#if isLoggedIn}}
+  {{> navbar}}
+  {{/if}}
 
-{{{body}}}
+  {{{body}}}
 
-  
+
 </body>
 
-  
+
 </html>

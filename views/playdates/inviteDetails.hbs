@@ -14,13 +14,16 @@
         <p>
             Date: {{invite.proposedDate}}
         </p>
+        <p>
+            Location: {{invite.location}}
+        </p>
 
         {{#unless isOwner}}
-        <a href="/playdates/invite/{{invite.id}}/accept">Accept</a></br>
-        <a href="/playdates/invite/{{invite.id}}/reject">Reject</a></br>
+        <a href="/playdates/invite/{{invite.id}}/accept">Accept</a>
+        <a href="/playdates/invite/{{invite.id}}/reject">Reject</a>
         {{/unless}}
 
         {{#isOwner}}
-        <a href="/playdates/invite/{{invite.id}}/cancel">Cancel</a></br>
+        <a href="/playdates/invite/{{invite.id}}/cancel">Delete</a>
         {{/isOwner}}
 </div>

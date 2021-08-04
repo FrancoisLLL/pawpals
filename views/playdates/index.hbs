@@ -1,45 +1,66 @@
 <h1>Playdates</h1>
-<h2>Received</h2>
-<ol>
-    {{#each playdatesPending}}
-    <li>
-        <p>Host:{{this.senderId.name}}</p>
-        <img src={{this.senderId.picture}}>
-        <p>Description: {{this.description}}</p>
-        <p>Date: {{this.proposedDate}}</p>
-    </li>
-    <a href="/playdates/invite/{{this.id}}/accept">Accept</a>
-    <a href="/playdates/invite/{{this.id}}/reject">Reject</a>
-    <a href="/playdates/invite/{{this.id}}">Details</a>
-    {{/each}}
-</ol>
-<h2>Confirmed</h2>
-<ol>
-    {{#each playdatesConfirmed}}
-    <li>
-        <p>Host:{{this.senderId.name}}</p>
+
+<div class="tab">
+    <button id="default" class="tablinks" onclick="openStatus(event, 'Received')">Received</button>
+    <button class="tablinks" onclick="openStatus(event, 'Confirmed')">Confirmed</button>
+    <button class="tablinks" onclick="openStatus(event, 'Sent')">Sent</button>
+</div>
+
+<div id="Received" class="tabcontent">
+    <h2>Received</h2>
+
+    <ol>
+        {{#each playdatesPending}}
+        <li>
+            <p>Host:{{this.senderId.name}}</p>
+            <img src={{this.senderId.picture}}>
+            <p>Description: {{this.description}}</p>
+            <p>Date: {{this.proposedDate}}</p>
+            <p>Location: {{this.location}}</p>
+
+        </li>
+        <a href="/playdates/invite/{{this.id}}/accept">Accept</a>
+        <a href="/playdates/invite/{{this.id}}/reject">Reject</a>
+        <a href="/playdates/invite/{{this.id}}">Details</a>
+        {{/each}}
+    </ol>
+</div>
+
+<div id="Confirmed" class="tabcontent">
+    <h2>Confirmed</h2>
+    <ol>
+        {{#each playdatesConfirmed}}
+        <li>
+            <p>Host:{{this.senderId.name}}</p>
+            <p>Guest: {{this.receiverId.name}}</p>
+            {{!--
+            <img src={{this.senderId.picture}}>
+
+            <img src={{this.receiverId.picture}}> </br> --}}
+            <p>Description: {{this.description}}</p>
+            <p>Date: {{this.proposedDate}}</p>
+        </li>
+        <a href="/playdates/invite/{{this.id}}">Details</a>
+        {{/each}}
+    </ol>
+</div>
+<div id="Sent" class="tabcontent">
+    <h2>Sent</h2>
+    <ol>
+        {{#each playdatesSent}}
         <p>Guest: {{this.receiverId.name}}</p>
         {{!--
-        <img src={{this.senderId.picture}}>
-        
-        <img src={{this.receiverId.picture}}> </br> --}}
+        <img src={{this.receiverId.picture}}> --}}
+
         <p>Description: {{this.description}}</p>
         <p>Date: {{this.proposedDate}}</p>
-    </li>
-    <a href="/playdates/invite/{{this.id}}">Details</a>
-    {{/each}}
-</ol>
-<h2>Sent</h2>
-<ol>
-    {{#each playdatesSent}}
-    <p>Guest: {{this.receiverId.name}}</p>
-    {{!--
-    <img src={{this.receiverId.picture}}> --}}
+        </li>
+        <a href="/playdates/invite/{{this.id}}">Details</a>
+        <a href="/playdates/invite/{{this.id}}/cancel">Delete</a>
+        {{/each}}
+    </ol>
+</div>
 
-    <p>Description: {{this.description}}</p>
-    <p>Date: {{this.proposedDate}}</p>
-    </li>
-    <a href="/playdates/invite/{{this.id}}">Details</a>
-    <a href="/playdates/invite/{{this.id}}/cancel">Cancel</a>
-    {{/each}}
-</ol>
+
+<script type="text/javascript" src="/javascripts/tabs.js"></script>
+

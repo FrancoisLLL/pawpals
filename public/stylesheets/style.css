@@ -140,67 +140,6 @@ div[class*="box"] {
   cursor: pointer;
 }
 
-/* 
-========================
-      INDEX
-========================
-*/
-.background {
-  display: -webkit-flex;
-  height: 40vh;
-  -webkit-align-items: flex-end;
-  -webkit-justify-content: center;
-  width: 100%;
-}
-
-.box-1 {
-  background-color: #ff6766;
-}
-.box-2 {
-  background-color: #3c3c3c;
-}
-.box-3 {
-  background-color: #66a182;
-}
-
-.btn {
-  line-height: 50px;
-  height: 50px;
-  text-align: center;
-  width: 250px;
-  cursor: pointer;
-}
-
-/* 
-========================
-      INDEX
-========================
-*/
-.background {
-  display: -webkit-flex;
-  height: 40vh;
-  -webkit-align-items: flex-end;
-  -webkit-justify-content: center;
-  width: 100%;
-}
-
-.box-1 {
-  background-color: #ff6766;
-}
-.box-2 {
-  background-color: #3c3c3c;
-}
-.box-3 {
-  background-color: #66a182;
-}
-
-.btn {
-  line-height: 50px;
-  height: 50px;
-  text-align: center;
-  width: 250px;
-  cursor: pointer;
-}
 
 /* 
 ========================
@@ -224,11 +163,11 @@ div[class*="box"] {
 }
 
 .welcome-container {
-  display: flex;
+ display: flex;
   flex-direction: column;
   align-items: center;
   height: 50vh;
-}
+} 
 
 /* 
 ========================
@@ -295,64 +234,6 @@ div[class*="box"] {
   height: 50vh;
 }
 
-/* 
-========================
-      SIGN IN / SIGN UP
-========================
-*/
-
-.welcome-link-signup {
-  display: inline-block;
-  font-weight: bold;
-  text-decoration: none;
-  background: #b9f18c;
-  text-align: center;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 13px solid #b9f18c;
-  transition: transform 0.2s;
-  border-radius: 10px;
-}
-
-.welcome-link-signin {
-  display: inline-block;
-  font-weight: bold;
-  text-decoration: none;
-  background: #fff;
-  text-align: center;
-  color: #b9f18c;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 3px solid #b9f18c;
-  padding: 12px 12px 12px 12px;
-  margin-bottom: 5px;
-  transition: transform 0.2s; /* Animation */
-  border-radius: 10px;
-}
-
-.welcome-link-signin:hover {
-  transform: scale(1.5); /* (150% zoom)*/
-}
-
-.welcome-link-signup:hover {
-  transform: scale(1.5); /* (150% zoom)*/
-}
-
-.signup-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.signup-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 20vh;
-  margin-bottom: -7%;
-}
-
 .signup-form-container {
   display: flex;
   align-items: center;
@@ -360,12 +241,15 @@ div[class*="box"] {
   flex-direction: column;
 }
 
+
 .signup-page-container {
   border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
+ display: flex;
+ flex-direction: column;
 }
 
 /* USER HOMEPAGE */
@@ -406,19 +290,66 @@ div[class*="box"] {
 
 .signup-form-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
+  flex-direction: column;
 }
 
 .signup-text {
   margin-top: 5%;
   padding: 5px 5px 5px 5px;
+   -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding-left: 3px;
+    background: #B9F18C;
+    margin-bottom: 20px;
+    
+ }
+
+ .signup-text::selection {
+     background: #B9F18C;
+ }
+
+ .signup-text::-moz-selection {
+   background: #B9F18C;
+ }
+
+ .signuptextinput {
+   padding: 15px;
+   margin: 5px 0;
+   border: 2px solid #B9F18C;
+   border-radius: 10px;
+ }
+
+ .signup-btn {
+    padding: 15px;
+   margin: 5px 0;
+   border: 2px solid #B9F18C;
+   fill: #B9F18C;
+   color: white;
+   border-radius: 10px;
+   background-color: #B9F18C;
+   font-weight: bolder;
+   font-size: 25px;
+  
+ }
+
+
+ .signintextinput {
+    padding: 15px;
+   margin: 5px 0;
+   border: 2px solid #B9F18C;
+   border-radius: 10px;
+   align-items: center;
+ }
+
+
+ .signin-page-container {
+  border: 5px solid #B9F18C !important;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   padding-left: 3px;
-  background: #b9f18c;
+  background: #fff;
 }
 
 .signup-text::selection {
@@ -470,6 +401,7 @@ div[class*="box"] {
   justify-content: center;
   height: 60vh;
   flex-direction: column;
+
 }
 
 .signin-img {
@@ -485,6 +417,9 @@ div[class*="box"] {
   margin-top: 50px;
 }
 
+
+
+
 /* 
 ========================
       HOME
@@ -494,3 +429,43 @@ div[class*="box"] {
 .container-home {
   color: blue;
 }
+
+/* 
+========================
+      EDIT ACCOUNT
+========================
+*/
+
+.update-form-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 50px;
+
+}
+
+ .edittextinput {
+   padding: 15px;
+   margin: 5px 0;
+   border: 2px solid #B9F18C;
+   border-radius: 10px;
+ }
+
+ .editaccount-btn {
+    padding: 15px;
+   margin: 5px 0;
+   border: 2px solid #B9F18C;
+   fill: #B9F18C;
+   color: white;
+   border-radius: 10px;
+   background-color: #B9F18C;
+   font-weight: bolder;
+   font-size: 25px;
+ }
+
+
+ .editaccount-text {
+   text-align: center;
+   margin-top: 5%;
+ }

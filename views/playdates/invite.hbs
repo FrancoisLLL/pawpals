@@ -1,9 +1,13 @@
 <h1>Send invite</h1>
-<img src="blabla.jpg" alt="blabla">
 <div>
-    <form method="post" action="/playdates/invite">
-        <input type="text" name="inviteDesc" value="Describe your invitation">
-        <input type="datetime-local" name="inviteDate">
+    <form method="post" action="/playdates/invite/{{guestId}}">
+        <input type="text" name="inviteDesc" placeholder="Describe your invitation">
+        <input type="datetime-local" name="inviteDate" value = {{date}}>
+        <input id="address" name="address" placeholder="Enter address" class="form-control">
+
         <button>Send invite</button>
     </form>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key={{key}}"></script>
+    <script type="text/javascript" src="/javascripts/googlemaps.config.js"></script>
 </div>
