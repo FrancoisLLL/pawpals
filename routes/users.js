@@ -22,7 +22,6 @@ const Pet = require("../models/Pet")
           .catch(error => next(error))
       });
 
-
     
 
 
@@ -50,14 +49,13 @@ const Pet = require("../models/Pet")
         .catch(e => console.log(e))
         
       });
-//
+
 
  
     router.get("/account/edit", (req, res, next) => {
     res.render("auth/editAccount");
     
     });
-
 
       module.exports = router;
       

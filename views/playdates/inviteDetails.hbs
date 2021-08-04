@@ -1,16 +1,16 @@
 <h1>
     Invite details
 </h1>
-<div>
+<div class= "inviteDetailsGrid">
     <p><img src={{invite.senderId.picture}} class="invitePhoto"></p>
-    <p>From:{{invite.senderId.name}}</p>
+     <p class="inviteText"><span class="bold">From: </span>{{invite.senderId.name}}</p>
 
     <p><img src={{invite.receiverId.picture}} class="invitePhoto"></p>
-    <p>To: {{invite.receiverId.name}}</p>
+     <p class="inviteText"><span class="bold">To: </span>{{invite.receiverId.name}}</p>
 
-    <p>Description: {{invite.description}}</p>
-    <p>Date: {{invite.proposedDate}}</p>
-    <p>Location: {{invite.location}}</p>
+     <p class="inviteText"><span class="bold">Description:  </span>{{invite.description}}</p>
+     <p class="inviteText"><span class="bold">Date: </span>{{invite.proposedDate}}</p>
+     <p class="inviteText"><span class="bold">Location: </span>{{invite.location}}</p>
 
     <div class="inviteButtons">
         {{#unless isOwner}}

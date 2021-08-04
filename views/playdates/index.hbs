@@ -1,4 +1,9 @@
 <h1>Playdates</h1>
+<div id="invitePlay">
+    <a href="/{{user._id}}/search/">{{user.name}}
+        &#128062; Invite a friend to play &#128062;
+    </a>
+</div>
 
 <div class="tab">
     <button id="default" class="tablinks" onclick="openStatus(event, 'Received')">Received
@@ -55,10 +60,7 @@
     {{#each playdatesSent}}
     <div class="inviteContainer">
         <img src={{this.receiverId.picture}} class="invitePhoto">
-
-        <p class="inviteText">To: {{this.receiverId.name}}</p>
-
-
+        <p class="inviteText"><span class="bold">To: </span>{{this.receiverId.name}}</p>
         <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
         <p class="inviteText"><span class="bold">Date: </span>{{this.proposedDate}}</p>
         <div class="inviteButtons">

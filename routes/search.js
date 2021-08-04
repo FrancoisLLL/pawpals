@@ -26,6 +26,10 @@ router.get("/search/filter", (req, res, next) => {
 router.get("/:id/search-playmate", requireAuth, async (req, res, next) => {
     try {
         const foundPet = await Pet.findById(req.params.id);
+        req.session.currentPet = {
+            _id: foundPet._id
+        }
+        
         Pet.find({
                 owner: {
                     $ne: new ObjectId(req.session.currentUser._id)
