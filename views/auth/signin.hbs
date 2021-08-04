@@ -1,30 +1,49 @@
-<div class="sign-page">
-<h1>Welcome back to the bark side</h1>
 
-<img src="/images/logo-small.png">
+<div class="signin-page-container">
 
-<form method="POST" action="/signin" class="sign-form">
-	<div>
-		<label for="email"> Email </label>
-		<input type="text" name="email" id="username" value="pikachu@aol.com" />
-	</div>
-	<div>
-		<label for="password"> Password </label>
-		<input type="password" name="password" id="password" value="1111" />
-	</div>
+<div class="welcome-signin-text"> 
+	<img src="https://i.imgur.com/rt2LjrY.png" class="signin-img" alt="logo"><span class="signin-text">
+	<h1> Welcome back to the bark side </span></h1>
+</div>
 
-<button class="sign-btn">Log in!</button>
+<form method="POST" action="/signin">
 
 {{#if errorMessage}}
 <div class="error-message"><p>{{errorMessage}}</p></div>
 {{/if}}
 
-<div class="signup-link-container">
-<p>Don't have an account yet ?</p>
-<p><a href="/signup" class="sign-btn">SIGN UP</a> now and find a pal for your pet today !</p>
+<div class="signin-form-container">
+<div>
+	<!-- <label for="email"> Email </label> -->
+	<input type="Email" class="signintextinput" name="email" id="Email" placeholder="Email" />
+
 </div>
 
+<div>
+	<!-- <label for="password"> Password </label> -->
+	<input type="password" class="signintextinput" name="password" id="password" placeholder="Password" />
 
 
 </form>
 </div>
+
+<button class="signup-btn"> Log in !</button>
+
+{{#if errorMessage}}
+
+<p> {{errorMessage}} </p>
+
+{{/if}}
+
+</form>
+
+</div>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+</div>
+=======
+</div>
+>>>>>>> Stashed changes
+=======
+</div>
+>>>>>>> Stashed changes

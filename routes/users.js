@@ -11,8 +11,7 @@ const Pet = require("../models/Pet")
             
           })
           .then((myPetsData) => {
-            // console.log(myPetsData);
-            delete req.session.currentPet;
+            console.log(myPetsData);
             res.render('home', {
               pet: myPetsData
             })
@@ -21,9 +20,38 @@ const Pet = require("../models/Pet")
       });
 
 
-      router.get("/account/edit", (req, res, next) => {
-        res.render("auth/editAccount");
+     
+    router.get("/account/edit", (req, res, next) => {
+    
+    res.render("auth/editAccount");
+    
+    });
+
+
+
+
+    router.get("/account/:id/edit", (req, res, next) => {
+        User.findByIdAndUpdate(req.params.id, req.body)
+        .then((oneUser) => {
+            res.render("auth/editAccount", {
+              user: oneUser
+            })
+        })
+        .catch(e => console.log(e))
+        
+      });
+//
+
+      router.post("/account/:id/edit", (req, res, next) => {
+        User.findByIdAndUpdate(req.params.id, req.body)
+          .then(() => {
+            res.redirect("auth/editAccount")
+          })
+
+          .catch(e => console.log(e))
+            res.redirect("/account" + req.params.id + "/edit")
       });
 
 
       module.exports = router;
+      
