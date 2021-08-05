@@ -1,10 +1,11 @@
 <div class="pet-card">
     
     {{!-- <div class="pet-card-photo-container">
-        <a href='/{{this._id}}'><div class="pet-card-photo-content" style="background-image: url('{{this.picture}}')"></div></a>
+        <div class="pet-card-photo-content" style="background-image: url('{{this.picture}}')"></div></a>
     </div> --}}
+    
     <div class="pet-card-photo-container">
-    <img src="{{this.picture}}" alt="photo {{this.name}}">
+    <a href='/{{this._id}}'><img src="{{this.picture}}" alt="photo {{this.name}}"></a>
     </div>
 
     <div class="empty-container"> </div>

@@ -51,8 +51,6 @@ h2 {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-
-
 }
 
 .pet-card {
@@ -70,15 +68,18 @@ h2 {
   z-index: 1;
   position: absolute;
   top: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px grey;
 }
 
-.pet-card img {
+.pet-card-photo-container img {
   object-fit: cover;
   width: 200px;
   height: 200px;
-  box-shadow: 1px 1px 5px grey;
-  padding-top: 200px;
   border-radius: 50%;
+  /* padding-top: 200px; */
 }
 
 /* .pet-card-photo-content {
