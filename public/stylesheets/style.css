@@ -153,7 +153,7 @@ div[class*="box"] {
   width: 100%;
 }
 
-.page-container {
+.page-container-index {
   border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
@@ -456,3 +456,6 @@ div[class*="box"] {
   height: 88vh;
 }
 
+.cat-bottom-pic {
+  text-align: center;
+}
