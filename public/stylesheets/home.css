@@ -51,8 +51,6 @@ h2 {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-
-
 }
 
 .pet-card {
@@ -70,18 +68,27 @@ h2 {
   z-index: 1;
   position: absolute;
   top: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px grey;
+  background-color: white;
 }
 
-.pet-card-photo-content {
+.pet-card-photo-container img {
+  object-fit: cover;
   width: 200px;
-  padding-top: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /* padding-top: 200px; */
+}
+
+/* .pet-card-photo-content {
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
-  border-radius: 50%;
   background-color: white;
-  box-shadow: 1px 1px 5px grey;
-}
+} */
 
 .pet-card-content {
   border: 3px solid var(--main-color1);

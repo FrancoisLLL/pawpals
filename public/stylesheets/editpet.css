@@ -23,7 +23,7 @@ textarea {
   margin: 10px auto;
   
 }
-.edit-pet-form.input input {
+.edit-pet-form input {
   border: none;
   border-bottom: 2px solid #b9f18c;
   padding: 5px 5px;

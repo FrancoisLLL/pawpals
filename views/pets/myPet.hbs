@@ -1,31 +1,55 @@
+<section class="one-pet-container">
+    <div class="photo-container">
+        <img src="{{pet.picture}}" alt="photo {{pet.name}}">
+        <h2>{{pet.name}}</h2>
+    </div>
 
-<div class="my-pet-container-container">
-<div class="my-pet-container">
-    <img src="{{pet.picture}}" alt="photo {{pet.name}}">
-    <h2>{{pet.name}}</h2>
-    <p>{{pet.type}}<p>
+    <div class="info-container">
 
-        <p>{{pet.breef}}</p>
-        <p>{{pet.gender}}</p>
-        <p>{{pet.size}}</p>
-        <p>{{pet.dateOfBirth}}</p>
-        <p>{{pet.physicalCondition}}</p>
+        <div>
+            <p>Type : <span class="info">{{pet.type}}</span></p>
+            <p>{{pet.breed}}</p>
+        </div>
+        
+        <div>
+            <p>Gender : <span class="info">{{pet.gender}}</span></p>
+        </div>
 
-        <ul>
-            {{#each pet.preferredEnvironment}}
-            <li>{{this}}</li>
-            {{/each}}
-        </ul>
+        <div>
+            <p>Size : <span class="info">{{pet.size}}</span></p>
+        </div>
+        
+        <div>
+            <p>Date of birth : <span class="info">{{pet.dateOfBirth}}</span></p>
+        </div>
 
-        <p>{{pet.location}}</p>
+        <div>
+            <p>Prefers to play at :</p>
+            <ul>
+                {{#each pet.preferredEnvironment}}
+                <li class="info">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
 
-        <p>
-            {{#each pet.tags}}<span>{{pet}} </span>{{/each}}
-        </p>
+        <div>
+            <p>Additional details on the physical conditions</p>
+            <p class="info">{{pet.physicalCondition}}</p>
+        </div>
 
-        <p><a href="/{{pet._id}}/edit">Edit my pet's info</a></p>
-        <p><a href="/{{pet._id}}/delete">Delete my pet's profile</a></p>
-    </ul>
+        <div>
+            <p>Location : <span class="info">{{pet.location}}</span></p>
+        </div>
 
-</div>
-</div>
+    </div>
+
+        {{!-- <p>Owner : <span>{{pet.owner}}</span></p> --}}
+        <a href="/{{pet._id}}/edit" class="action-btn edit">Edit pet profile</a>
+        <a href="/{{pet._id}}/delete" class="action-btn delete">Delete pet profile</a>
+    </div>
+
+</section>
+
+
+
+      
