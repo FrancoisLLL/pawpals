@@ -407,7 +407,7 @@ div[class*="box"] {
 
 .signin-text {
   text-align: center;
-  margin-top: 50px;
+
 }
 
 /* 
@@ -462,4 +462,8 @@ div[class*="box"] {
 
 .cat-bottom-pic {
   text-align: center;
+}
+
+.welcome-signin-text {
+  margin-bottom: 50px;
 }
