@@ -98,6 +98,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+
 }
 
 #invitePlay {
@@ -110,11 +112,42 @@
   text-align: center;
   margin-bottom: 20px;
   border-radius: 5px;
-  font-size:large;
+  font-size: large;
   font-weight: bolder;
 }
-#invitePlay a{
+
+#invitePlay a {
   text-decoration: none;
   background-color: var(--main-color1);
   color: black;
 }
+
+.horizontalgrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 800px;
+  padding: 20px;
+}
+
+
+#addPet {
+  text-decoration: none;
+  background-color: var(--main-color1);
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: large;
+  font-weight: bolder;
+}
+
+#addPet a {
+  text-decoration: none;
+  background-color: var(--main-color1);
+  color: black;
+}
+

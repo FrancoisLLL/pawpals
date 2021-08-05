@@ -1,28 +1,37 @@
 <h1>
     Invite details
 </h1>
-<div class= "inviteDetailsGrid">
-    <p><img src={{invite.senderId.picture}} class="invitePhoto"></p>
-     <p class="inviteText"><span class="bold">From: </span>{{invite.senderId.name}}</p>
-
-    <p><img src={{invite.receiverId.picture}} class="invitePhoto"></p>
-     <p class="inviteText"><span class="bold">To: </span>{{invite.receiverId.name}}</p>
-
-     <p class="inviteText"><span class="bold">Description:  </span>{{invite.description}}</p>
-     <p class="inviteText"><span class="bold">Date: </span>{{invite.proposedDate}}</p>
-     <p class="inviteText"><span class="bold">Location: </span>{{invite.location}}</p>
-
-    <div class="inviteButtons">
-        {{#unless isOwner}}
-        {{#if isPending}}
-        
-        <p><a href="/playdates/invite/{{invite.id}}/accept">Accept</a></p>
-        <p><a href="/playdates/invite/{{invite.id}}/reject">Reject</a></p>
-        {{/if}}
-        {{/unless}}
-
-        {{#isOwner}}
-        <p><a href="/playdates/invite/{{invite.id}}/cancel">Delete</a></p>
-        {{/isOwner}}
+<div class="inviteDetailsGrid">
+    <div class="horizontalgrid">
+        <div>
+            <p><img src={{invite.senderId.picture}} class="invitePhoto"></p>
+            <p class="inviteText"><span class="bold">From: </span>{{invite.senderId.name}}</p>
+            <p class="inviteText"><span class="bold">Email: </span>{{senderOwner.email}}</p>
+            <p class="inviteText"><span class="bold">Phone: </span>{{senderOwner.phoneNumber}}</p>
+        </div>
+        <div>
+            <p><img src={{invite.receiverId.picture}} class="invitePhoto"></p>
+            <p class="inviteText"><span class="bold">To: </span>{{invite.receiverId.name}}</p>
+            <p class="inviteText"><span class="bold">Email: </span>{{receiverOwner.email}}</p>
+            <p class="inviteText"><span class="bold">Phone: </span>{{receiverOwner.phoneNumber}}</p>
+        </div>
     </div>
+
+    <p class="inviteText"><span class="bold">Description: </span>{{invite.description}}</p>
+    <p class="inviteText"><span class="bold">Date: </span>{{invite.proposedDate}}</p>
+    <p class="inviteText"><span class="bold">Location: </span>{{invite.location}}</p>
+</div>
+<div class="inviteButtons">
+    {{#unless isOwner}}
+    {{#if isPending}}
+
+    <p><a href="/playdates/invite/{{invite.id}}/accept">Accept</a></p>
+    <p><a href="/playdates/invite/{{invite.id}}/reject">Reject</a></p>
+    {{/if}}
+    {{/unless}}
+
+    {{#isOwner}}
+    <p><a href="/playdates/invite/{{invite.id}}/cancel">Delete</a></p>
+    {{/isOwner}}
+</div>
 </div>

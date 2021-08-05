@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Playdate = require("../models/Playdate")
 const Pet = require("../models/Pet")
+const User = require("../models/User")
 
 const checkPet = require("../middlewares/petSelected")
 const requireAuth = require("../middlewares/auth")
@@ -93,25 +94,29 @@ router.post('/playdates/invite/:guestId', checkPet, function (req, res, next) {
         .catch(e => console.log(e))
 });
 
-router.get('/playdates/invite/:id', checkPet, function (req, res, next) {
+router.get('/playdates/invite/:id', checkPet, async function (req, res, next) {
     // console.log(req.params.id);
 
-    Playdate.findOne({
-            _id: req.params.id
-        })
+    const playdate = await Playdate.findById(req.params.id)
         .populate("senderId")
         .populate("receiverId")
-        .then(data => {
-            console.log(data);
-            // console.log("pet id " + req.session.currentPet._id + " sender: " + data.senderId._id)
-            res.render("playdates/inviteDetails", {
-                invite: data,
-                isOwner: req.session.currentPet._id.toString() === data.senderId._id.toString() ? true : false,
-                isPending: data.status === "pending"
-            })
-        })
-        .catch(e => console.log(e))
-});
+        .exec()
+
+    const senderOwner = await User.findById(playdate.senderId.owner);
+    const receiverOwner = await User.findById(playdate.receiverId.owner);
+
+    // console.log(owner);
+    // console.log(playdate);
+
+    res.render("playdates/inviteDetails", {
+        invite: playdate,
+        isOwner: req.session.currentPet._id.toString() === playdate.senderId._id.toString() ? true : false,
+        isPending: playdate.status === "pending",
+        senderOwner: senderOwner,
+        receiverOwner:receiverOwner
+    })
+
+})
 
 
 router.get('/playdates/invite/:id/accept', checkPet, function (req, res, next) {
