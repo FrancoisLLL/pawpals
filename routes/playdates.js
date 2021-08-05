@@ -111,7 +111,8 @@ router.get('/playdates/invite/:id', checkPet, async function (req, res, next) {
         isOwner: req.session.currentPet._id.toString() === playdate.senderId._id.toString() ? true : false,
         isPending: playdate.status === "pending",
         senderOwner: senderOwner,
-        receiverOwner:receiverOwner
+        receiverOwner:receiverOwner, 
+        css: ["tabs"]
     })
 
 })

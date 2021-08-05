@@ -6,6 +6,15 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* GET home page. */
+router.get('/prehome', function(req, res, next) {
+  res.render('prehome',{
+    css: ["prehome"]
+  });
+});
+
+
+
 
 // router.get('/home', function(req, res, next) {
 //   res.render('home.hbs');

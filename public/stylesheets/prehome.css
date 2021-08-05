@@ -1,0 +1,71 @@
+:root {
+    --main-color1: rgba(185, 241, 140);
+    --main-color1-transparent: rgba(185, 241, 140, 0.8);
+    --main-color2: brown;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#header,
+#purpose,
+#howTo,
+#footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#purpose {
+    display: flex;
+    height: 700px;
+    background-image: url("./../images/homepage.jpeg");
+    background-size: cover;
+    flex-flow:column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+}
+
+#hoverText {
+    background-color: var(--main-color1-transparent);
+    width: 250px;
+    padding: 40px;
+    font-weight: bolder;
+    border-radius: 10%;
+}
+
+#commentsGrid {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#hoverComment {
+    background-color: var(--main-color1-transparent);
+    width: 25%;
+    padding: 20px;
+    border-radius:5%;
+    font-size: small;
+    font-style: italic;
+}
+
+#signinButton {
+    border-radius: 10%;
+    width: 100px;
+    height: 20px;
+}
+#signinButton a{
+    text-decoration: none;
+    background-color: #fafafa;
+    color:black;
+}
+
+#homepageTitle {
+    font-size: xx-large;
+    font-weight: 900;
+}
