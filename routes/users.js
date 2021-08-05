@@ -5,7 +5,7 @@ const User = require("../models/User");
 const Pet = require("../models/Pet")
 
 
-router.get('/home', (req, res, next) => {
+router.get('/home', requireAuth, (req, res, next) => {
 
   if(req.session.currentPet) { delete req.session.currentPet}
 

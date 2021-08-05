@@ -118,7 +118,7 @@ router.get("/", (req, res, next) => {
 		if (error) {
 			next(error);
 		} else {
-			res.redirect("/");
+			res.rendirect("/prehome");
 		}
 	});
 });

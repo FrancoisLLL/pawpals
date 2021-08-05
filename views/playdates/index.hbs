@@ -1,5 +1,3 @@
-
-
 <div class="playdates-container"></div>
 <h1>Playdates</h1>
 <div id="invitePlay">
@@ -10,78 +8,81 @@
 
 
 <div class="playdates-card-container">
-<div class="tab">
-    <button id="default" class="tablinks" onclick="openStatus(event, 'Received')">Received
-        ({{playdatesPendingLength}})</button>
-    <button class="tablinks" onclick="openStatus(event, 'Confirmed')">Confirmed ({{playdatesConfirmedLength}})</button>
-    <button class="tablinks" onclick="openStatus(event, 'Sent')">Sent ({{playdatesSentLength}})</button>
-</div>
-
-
-<div id="Received" class="tabcontent gridContainer">
-    {{#each playdatesPending}}
-    <div class="inviteContainer">
-        <img src="{{this.senderId.picture}} "alt = "Cat" class="invitePhoto">
-
-        <p class="inviteText"><span class="bold">From: </span>{{this.senderId.name}}</p>
-        <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
-        <p class="inviteText"><span class="bold">Date: </span>{{this.proposedDate}}</p>
-        <p class="inviteText"><span class="bold">Location: </span>{{this.location}}</p>
-
-        <div class="inviteButtons">
-            <p> <a href="/playdates/invite/{{this.id}}/accept">Accept</a>
-            </p>
-            <p> <a href="/playdates/invite/{{this.id}}/reject">Reject</a>
-            </p>
-            <p> <a href="/playdates/invite/{{this.id}}">Details</a>
-            </p>
-        </div>
+    <div class="tab">
+        <button id="default" class="tablinks" onclick="openStatus(event, 'Received')">Received
+            ({{playdatesPendingLength}})</button>
+        <button class="tablinks" onclick="openStatus(event, 'Confirmed')">Confirmed
+            ({{playdatesConfirmedLength}})</button>
+        <button class="tablinks" onclick="openStatus(event, 'Sent')">Sent ({{playdatesSentLength}})</button>
     </div>
 
-    {{/each}}
-</div>
 
+    <div id="Received" class="tabcontent gridContainer">
+        {{#each playdatesPending}}
+        <div class="inviteContainer">
+            <div class="inviteRound">
+                <img src="{{this.senderId.picture}} " alt="Cat" class="invitePhoto">
+            </div>
 
-<div id="Confirmed" class="tabcontent gridContainer">
-    {{#each playdatesConfirmed}}
-    <div class="inviteContainer">
+            <p class="inviteText"><span class="bold">From: </span>{{this.senderId.name}}</p>
+            <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
+            <p class="inviteText"><span class="bold">Date: </span>{{this.proposedDate}}</p>
+            <p class="inviteText"><span class="bold">Location: </span>{{this.location}}</p>
 
-        <p class="inviteText"><span class="bold">From: </span>{{this.senderId.name}}</p>
-        <p class="inviteText"><span class="bold">To: </span>{{this.receiverId.name}}</p>
-        <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
-        <p class="inviteText"><span class="bold">Date: </span>{{this.proposedDate}}</p>
-        <p class="inviteText"><span class="bold">Location: </span>{{this.location}}</p>
-
-        <div class="inviteButtons">
-            <p><a href="/playdates/invite/{{this.id}}">Details</a></p>
+            <div class="inviteButtons">
+                <p> <a href="/playdates/invite/{{this.id}}/accept">Accept</a>
+                </p>
+                <p> <a href="/playdates/invite/{{this.id}}/reject">Reject</a>
+                </p>
+                <p> <a href="/playdates/invite/{{this.id}}">Details</a>
+                </p>
+            </div>
         </div>
+
+        {{/each}}
     </div>
 
-    {{/each}}
 
-</div>
+    <div id="Confirmed" class="tabcontent gridContainer">
+        {{#each playdatesConfirmed}}
+        <div class="inviteContainer">
 
-<div id="Sent" class="tabcontent gridContainer">
-    {{#each playdatesSent}}
-    <div class="inviteContainer">
-        <img src="{{this.receiverId.picture}}" alt="Cat" class="invitePhoto">
-        <p class="inviteText"><span class="bold">To: </span>{{this.receiverId.name}}</p>
-        <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
-        <p class="inviteText"><span class="bold">Date: </span>{{this.proposedDate}}</p>
-        <div class="inviteButtons">
-            <p> <a href="/playdates/invite/{{this.id}}">Details</a>
-            </p>
-            <p>
-                <a href="/playdates/invite/{{this.id}}/cancel">Delete</a>
+            <p class="inviteText"><span class="bold">From: </span>{{this.senderId.name}}</p>
+            <p class="inviteText"><span class="bold">To: </span>{{this.receiverId.name}}</p>
+            <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
+            <p class="inviteText"><span class="bold">Date: </span>{{this.proposedDate}}</p>
+            <p class="inviteText"><span class="bold">Location: </span>{{this.location}}</p>
 
-            </p>
+            <div class="inviteButtons">
+                <p><a href="/playdates/invite/{{this.id}}">Details</a></p>
+            </div>
         </div>
+
+        {{/each}}
 
     </div>
 
-    {{/each}}
+    <div id="Sent" class="tabcontent gridContainer">
+        {{#each playdatesSent}}
+        <div class="inviteContainer">
+            <img src="{{this.receiverId.picture}}" alt="Cat" class="invitePhoto">
+            <p class="inviteText"><span class="bold">To: </span>{{this.receiverId.name}}</p>
+            <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
+            <p class="inviteText"><span class="bold">Date: </span>{{this.proposedDate}}</p>
+            <div class="inviteButtons">
+                <p> <a href="/playdates/invite/{{this.id}}">Details</a>
+                </p>
+                <p>
+                    <a href="/playdates/invite/{{this.id}}/cancel">Delete</a>
 
-</div>
+                </p>
+            </div>
+
+        </div>
+
+        {{/each}}
+
+    </div>
 </div>
 
 <script type="text/javascript" src="/javascripts/tabs.js"></script>

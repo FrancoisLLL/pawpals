@@ -14,21 +14,27 @@
 #footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 80%;
     margin: 0 auto;
     padding: 10px;
 }
 
+#header {
+    align-items: center;
+}
+
 #purpose {
     display: flex;
-    height: 700px;
+    height: 800px;
     background-image: url("./../images/homepage.jpeg");
     background-size: cover;
-    flex-flow:column;
+        flex-flow:column;
     justify-content: space-between;
     align-items: flex-start;
     width: 80%;
+    border-radius: 20px;
+    background-attachment: fixed;
+    min-height: 500px; 
 }
 
 #hoverText {
@@ -36,7 +42,7 @@
     width: 250px;
     padding: 40px;
     font-weight: bolder;
-    border-radius: 10%;
+    border-radius: 20px;
     margin: 40px;
 }
 
@@ -50,7 +56,7 @@
     background-color: var(--main-color1-transparent);
     width: 30%;
     padding: 20px;
-    border-radius:5%;
+    border-radius:20px;
     font-size: small;
     font-style: italic;
     margin: 40px;
@@ -84,7 +90,6 @@
 
 #signinButton {
     border-radius: 10%;
-    width: 100px;
     height: 20px;
 }
 #signinButton a{
@@ -96,4 +101,51 @@
 #homepageTitle {
     font-size: xx-large;
     font-weight: 900;
+}
+
+#howTo {
+
+}
+
+#howTo div {
+    width: 33%;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#howTo img {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    border: 5px solid var(--main-color1);
+    margin: 0 auto;
+
+}
+
+#howTo p {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#howTo h2 {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#footer {
+    background-color: var(--main-color1);
+    height: 50px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    text-align: center;
+
+}
+
+#footer div {
+    text-align: center;
+    margin: auto;
+    font-weight: bolder;
 }
