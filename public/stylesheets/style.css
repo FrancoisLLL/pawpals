@@ -4,15 +4,12 @@
 ========================
 */
 
-<<<<<<< HEAD
 :root {
   --main-color1: #b9f18c;
   --main-color2: brown;
   --background-color: #fff;
 }
 
-=======
->>>>>>> origin/main
 *,
 *:before,
 *:after {
@@ -27,7 +24,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  background-color: var(--background-color);
+  background-color: #fff;
 }
 
 @import "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap";
@@ -430,16 +427,6 @@ div[class*="box"] {
   border-radius: 10px;
 }
 
-<<<<<<< HEAD
-
-=======
-.edittextinput {
-  padding: 15px;
-  margin: 5px 0;
-  border: 2px solid var(--main-color1);
-  border-radius: 10px;
-}
->>>>>>> origin/main
 
 .editaccount-btn {
   padding: 10px;
@@ -454,20 +441,6 @@ div[class*="box"] {
   margin-top: 10%;
 }
 
-<<<<<<< HEAD
-=======
-.editaccount-btn {
-  padding: 15px;
-  margin: 5px 0;
-  border: 2px solid var(--main-color1);
-  fill: var(--main-color1);
-  color: white;
-  border-radius: 10px;
-  background-color: var(--main-color1);
-  font-weight: bolder;
-  font-size: 25px;
-}
->>>>>>> origin/main
 
 .editaccount-text {
   text-align: center;
