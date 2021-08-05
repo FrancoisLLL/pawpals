@@ -3,13 +3,15 @@
 :root {
   --main-color1: #b9f18c;
   --main-color2: brown;
-  --main-color3: ;
 }
 
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
+ 
   background-color: #f1f1f1;
+border-radius: 15px;
+margin-top: 1%;
+
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -21,6 +23,7 @@
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 /* Change background color of buttons on hover */
@@ -97,6 +100,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+
 }
 
 #invitePlay {
@@ -112,7 +117,52 @@
   font-size: large;
   font-weight: bolder;
 }
+
 #invitePlay a {
+  text-decoration: none;
+  background-color: var(--main-color1);
+  color: black;
+}
+
+
+.playdates-container {
+  margin-top: 4%;
+  
+}
+
+.playdates-card-container {
+ 
+  border: 5px solid #b9f18c !important;
+  margin: 40px 40px 40px 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: 90vh;
+}
+
+.horizontalgrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 800px;
+  padding: 20px;
+}
+
+
+#addPet {
+  text-decoration: none;
+  background-color: var(--main-color1);
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: large;
+  font-weight: bolder;
+}
+
+#addPet a {
   text-decoration: none;
   background-color: var(--main-color1);
   color: black;

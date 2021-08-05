@@ -8,6 +8,8 @@
   height: auto;
   align-items: center;
   padding: 2em;
+  margin-top: 7%;
+  
 }
 
 input,
@@ -17,8 +19,9 @@ textarea {
   border: none;
 }
 
-.edit-pet-form {
+.edit-pet-form { 
   margin: 10px auto;
+  
 }
 .edit-pet-form input {
   border: none;
@@ -62,9 +65,24 @@ textarea {
   border: none;
   margin-top: 2em;
   align-self: center;
+   border-radius: 10px;
+   margin-left: 33%
+  
 }
 
 .form-pet-btn a {
   text-decoration: none;
   color: black;
+ 
+
+}
+
+
+.page-container {
+  border: 5px solid #b9f18c !important;
+  margin: 40px 40px 40px 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: auto;
+
 }

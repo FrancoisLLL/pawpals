@@ -1,10 +1,15 @@
+
+
+<div class="playdates-container"></div>
 <h1>Playdates</h1>
 <div id="invitePlay">
-    <a href="/{{user._id}}/search/">{{user.name}}
+    <a href="/{{user._id}}/search/">
         &#128062; Invite a friend to play &#128062;
     </a>
 </div>
 
+
+<div class="playdates-card-container">
 <div class="tab">
     <button id="default" class="tablinks" onclick="openStatus(event, 'Received')">Received
         ({{playdatesPendingLength}})</button>
@@ -16,7 +21,7 @@
 <div id="Received" class="tabcontent gridContainer">
     {{#each playdatesPending}}
     <div class="inviteContainer">
-        <img src={{this.senderId.picture}} class="invitePhoto">
+        <img src="{{this.senderId.picture}} "alt = "Cat" class="invitePhoto">
 
         <p class="inviteText"><span class="bold">From: </span>{{this.senderId.name}}</p>
         <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
@@ -59,7 +64,7 @@
 <div id="Sent" class="tabcontent gridContainer">
     {{#each playdatesSent}}
     <div class="inviteContainer">
-        <img src={{this.receiverId.picture}} class="invitePhoto">
+        <img src="{{this.receiverId.picture}}" alt="Cat" class="invitePhoto">
         <p class="inviteText"><span class="bold">To: </span>{{this.receiverId.name}}</p>
         <p class="inviteText"><span class="bold">Description: </span>{{this.description}}</p>
         <p class="inviteText"><span class="bold">Date: </span>{{this.proposedDate}}</p>
@@ -77,6 +82,6 @@
     {{/each}}
 
 </div>
-
+</div>
 
 <script type="text/javascript" src="/javascripts/tabs.js"></script>

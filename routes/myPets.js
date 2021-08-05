@@ -24,8 +24,8 @@ router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
     let pet = req.body
     pet.owner = req.session.currentUser._id
 
-    if (req.file) { pet.picture = req.file.path }
-    
+    pet.picture = req.file.path;
+
     Pet.create(pet)
     .then((petData) => { res.redirect("/home") })
     .catch((error) => { next(error) })
