@@ -1,11 +1,16 @@
 <div class="playdates-container"></div>
-<h1>Playdates</h1>
-<div id="invitePlay">
-    <a href="/{{user._id}}/search/">
-        &#128062; Invite a friend to play &#128062;
-    </a>
-</div>
+<div id ="invitegridheader">
 
+    <div id="invitePlay">
+        <a href="/{{currentPet._id}}/search/">
+            &#128062; Invite a friend to play &#128062;
+        </a>
+    </div>
+
+
+    <h2 id="playdate-hi">Hi ! Here are <span class="green">{{currentPet.name}} </span> playdates</h2>
+
+</div>
 
 <div class="playdates-card-container">
     <div class="tab">

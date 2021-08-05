@@ -65,7 +65,7 @@ margin-top: 1%;
   border-radius: 50%;
   height: 200px;
   width: 200px;
-
+  border: 5px solid var(--main-color1)
 }
 
 .inviteText {
@@ -122,9 +122,19 @@ display: flex;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: large;
   font-weight: bolder;
+}
+
+#playdate-hi{
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: xx-large;
+  font-weight:bolder;
 }
 
 #invitePlay a {
@@ -135,7 +145,7 @@ display: flex;
 
 
 .playdates-container {
-  margin-top: 4%;
+  margin-top: 6%;
   
 }
 
@@ -147,6 +157,7 @@ display: flex;
   flex-shrink: 0;
   height: 90vh;
 }
+
 
 .horizontalgrid {
   display: flex;
@@ -175,4 +186,16 @@ display: flex;
   text-decoration: none;
   background-color: var(--main-color1);
   color: black;
+}
+
+
+.green {
+  color : var(--main-color1);
+}
+
+#map {
+  height: 250px;
+  width: 500px;
+  border-radius: 20px;
+  border: 1px solid var(--main-color1);
 }

@@ -22,10 +22,19 @@
         </div>
     </div>
 
+    <p id="lat" hidden >{{invite.lat}}</p>
+    <p id="lng" hidden >{{invite.lng}}</p>
+
     <p class="inviteText"><span class="bold">Description: </span>{{invite.description}}</p>
     <p class="inviteText"><span class="bold">Date: </span>{{invite.proposedDate}}</p>
-    <p class="inviteText"><span class="bold">Location: </span>{{invite.location}}</p>
+    <p id = "address" class="inviteText"><span class="bold">Location: </span>{{invite.location}}</p>
+    
+    {{#if invite.lat}}
+    <div id="map"></div>
+    {{/if}}
+
 </div>
+
 <div class="inviteButtons">
     {{#unless isOwner}}
     {{#if isPending}}
@@ -40,3 +49,9 @@
     {{/isOwner}}
 </div>
 </div>
+
+
+<script type="text/javascript" src="/javascripts/initMap.js"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXBx1QSomWYTxckWJlZEQGshBv4VDzYK0&callback=initMap&libraries=&v=weekly"
+    async></script>

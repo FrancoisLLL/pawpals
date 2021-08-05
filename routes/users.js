@@ -7,7 +7,9 @@ const Pet = require("../models/Pet")
 
 router.get('/home', requireAuth, (req, res, next) => {
 
-  if(req.session.currentPet) { delete req.session.currentPet}
+  if (req.session.currentPet) {
+    delete req.session.currentPet
+  }
 
   console.log("req.session.currentPet has ended", req.session)
 
@@ -23,35 +25,35 @@ router.get('/home', requireAuth, (req, res, next) => {
     .catch(error => next(error))
 });
 
-    
-      router.post("/account/:id/edit", (req, res, next) => {
-        User.findByIdAndUpdate(req.params.id, req.body)
-          .then((userDetails) => {(console.log("redirect"))
-            res.redirect("/home");
-          })
 
-          .catch(e => console.log(e))
-        
+router.post("/account/:id/edit", (req, res, next) => {
+  User.findByIdAndUpdate(req.params.id, req.body)
+    .then((userDetails) => {
+      (console.log("redirect"))
+      res.redirect("/home");
+    })
+
+    .catch(e => console.log(e))
+
+});
+
+
+router.get("/account/:id/edit", (req, res, next) => {
+  User.findById(req.params.id)
+    .then((oneUser) => {
+      res.render("auth/editAccount", {
+        user: oneUser,
       });
+    })
+    .catch(e => console.log(e))
+
+});
 
 
-        router.get("/account/:id/edit", (req, res, next) => {
-        User.findById(req.params.id)
-        .then((oneUser) => {
-            res.render("auth/editAccount", {
-              user: oneUser,
-            });
-        })
-        .catch(e => console.log(e))
-        
-      });
 
+router.get("/account/edit", (req, res, next) => {
+  res.render("auth/editAccount");
 
- 
-    router.get("/account/edit", (req, res, next) => {
-    res.render("auth/editAccount");
-    
-    });
+});
 
-      module.exports = router;
-      
+module.exports = router;
