@@ -78,3 +78,11 @@ textarea {
 }
 
 
+.page-container {
+  border: 5px solid #b9f18c !important;
+  margin: 40px 40px 40px 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: auto;
+
+}
