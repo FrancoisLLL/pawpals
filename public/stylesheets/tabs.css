@@ -7,10 +7,11 @@
 
 .tab {
   overflow: hidden;
- 
   background-color: #f1f1f1;
-border-radius: 15px;
-margin-top: 1%;
+  border-radius: 20px;
+  margin-top: 1px;
+  padding-left: 5px;
+  
 
 }
 
@@ -122,10 +123,17 @@ display: flex;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: large;
   font-weight: bolder;
+  color: white;
 }
+
+
+
+
+
+
 
 #invitePlay a {
   text-decoration: none;
@@ -135,17 +143,20 @@ display: flex;
 
 
 .playdates-container {
-  margin-top: 4%;
+  margin-top: 5%;
   
 }
 
 .playdates-card-container {
  
   border: 5px solid #b9f18c !important;
-  margin: 40px 40px 40px 40px;
-  border-radius: 25px;
+  margin: 50px 40px 40px 40px;
+  border-radius: 20px;
   flex-shrink: 0;
   height: 90vh;
+  padding-left: -25px;
+  padding-top: -1px;
+padding-right: -4px;
 }
 
 .horizontalgrid {
@@ -175,4 +186,9 @@ display: flex;
   text-decoration: none;
   background-color: var(--main-color1);
   color: black;
+}
+
+
+#tabcontent {
+  border: white;
 }

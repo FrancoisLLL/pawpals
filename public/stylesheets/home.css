@@ -157,11 +157,9 @@ h2 {
 }
 */
 
-<<<<<<< HEAD
 
 
 
-=======
 /* div.pet-list-card {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
@@ -202,22 +200,32 @@ h2 {
   padding-top: 15px;
 } 
 
-.add-pet-btn {
+}*/
+
+
+#addPet {
   display: inline-block;
   font-weight: bold;
   text-decoration: none;
-  background: #fff;
+  background: #b9f18c;
   text-align: center;
-  color: #b9f18c;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 3px solid #fff;
   padding: 12px 12px 12px 12px;
   border-radius: 10px;
   align-items: center;
+  : 50%;
 /*position: fixed;
   left: 50%;
   bottom: -15px;
-  margin: 0 auto;
-}*/
->>>>>>> origin/main
+  margin: 0 auto;*/
+}
+
+
+.page-container {
+  margin-top: 4%;
+
+ 
+}
