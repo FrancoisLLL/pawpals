@@ -1,15 +1,16 @@
 <div class="pet-card">
     
-    <div class="pet-card-photo-container">
+    {{!-- <div class="pet-card-photo-container">
         <a href='/{{this._id}}'><div class="pet-card-photo-content" style="background-image: url('{{this.picture}}')"></div></a>
+    </div> --}}
+    <div class="pet-card-photo-container">
+    <img src="{{this.picture}}" alt="photo {{this.name}}">
     </div>
 
     <div class="empty-container"> </div>
     
     <div class="pet-card-content">
         <h3>{{this.name}}</h3>
-
-        <a href="{{this._id}}/edit" class="small-link">Edit profile</a>
 
         <p>Next playdate</p>
         <!-- ADD NEXT PLAYDATE INFO-->

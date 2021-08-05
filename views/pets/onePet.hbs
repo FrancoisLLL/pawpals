@@ -1,29 +1,51 @@
-<div class="one-pet-container">
-    <img src="{{pet.picture}}" alt="photo {{pet.name}}">
-    <h2>{{pet.name}}</h2>
-    <p>{{pet.type}}<p>
+<section class="one-pet-container">
+    <div class="photo-container">
+        <img src="{{pet.picture}}" alt="photo {{pet.name}}">
+        <h2>{{pet.name}}</h2>
+    </div>
 
-        <p>{{pet.breef}}</p>
-        <p>{{pet.gender}}</p>
-        <p>{{pet.size}}</p>
-        <p>{{pet.dateOfBirth}}</p>
-        <p>{{pet.physicalCondition}}</p>
+    <div class="info-container">
 
-        <ul>
-            {{#each pet.preferredEnvironment}}
-            <li>{{this}}</li>
-            {{/each}}
-        </ul>
+        <div>
+            <p>Type : <span class="info">{{pet.type}}</span></p>
+            <p>{{pet.breed}}</p>
+        </div>
+        
+        <div>
+            <p>Gender : <span class="info">{{pet.gender}}</span></p>
+        </div>
 
-        <p>{{pet.location}}</p>
+        <div>
+            <p>Size : <span class="info">{{pet.size}}</span></p>
+        </div>
+        
+        <div>
+            <p>Date of birth : <span class="info">{{pet.dateOfBirth}}</span></p>
+        </div>
 
-        <p>
-            {{#each pet.tags}}<span>{{pet}} </span>{{/each}}
+        <div>
+            <p>Prefers to play at :</p>
+            <ul>
+                {{#each pet.preferredEnvironment}}
+                <li class="info">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
 
-        </p>
-        <p>{{pet.owner}}</p>
+        <div>
+            <p>Additional details on the physical conditions</p>
+            <p class="info">{{pet.physicalCondition}}</p>
+        </div>
 
-        <a class="invite-link" href="/playdates/{{this._id}}/invite/">
+        <div>
+            <p>Location : <span class="info">{{pet.location}}</span></p>
+        </div>
+
+    </div>
+
+        {{!-- <p>Owner : <span>{{pet.owner}}</span></p> --}}
+
+        <a class="action-btn" href="/playdates/{{this._id}}/invite/">INVITE FOR A PLAYDATE</a>
         
     </ul>
-</div>
+</section>

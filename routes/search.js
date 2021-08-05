@@ -14,12 +14,14 @@ router.get("/:id/session", (req, res, next) => {
 router.get("/:id/search", requireAuth, async (req, res, next) => {
     
     await Pet.findById(req.params.id)
-    .then((foundPet) => {
+    .then((response) => {
+        const foundPet = response;
         req.session.currentPet = {_id: foundPet._id};
         console.log("CURRENT PET SESSION HAS STARTED", req.session);
     })
     .catch(error => next(error))
     
+    const foundPet = req.session.currentPet
     
     Pet.find({ owner: { $ne: new ObjectId(req.session.currentUser._id) } })
     .then((response) => {
@@ -30,6 +32,7 @@ router.get("/:id/search", requireAuth, async (req, res, next) => {
             size: Pet.schema.path('size').enumValues,
             css: ["style", "search"],
             scripts: ["search"],
+            currentPet : foundPet
         });
     })
     .catch((error) => {
@@ -58,7 +61,8 @@ router.get("/search/:id", requireAuth, (req, res, next) => {
     Pet.findById(req.params.id)
     .then((response) => {
         res.render("pets/onePet.hbs", {
-            pet: response
+            pet: response,
+            css: ["petProfile"]
         });
     })
     .catch((error) => {
