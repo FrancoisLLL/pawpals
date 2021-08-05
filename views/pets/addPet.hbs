@@ -33,6 +33,11 @@
         </select>
     </div>
 
+    <div class="edit-pet-form date">
+        <label for="dateOfBirth">Date of birth</label>
+        <input type="date"  name="dateOfBirth">
+    </div>
+
     <div class="edit-pet-form select">
         <label for="size">Size</label>
         <select name="size">
@@ -44,23 +49,9 @@
     </div>
 
     <div class="edit-pet-form textarea">
-        <label for="size">Physical condition</label><span>See more</span>
-        <textarea name="physicalCondition" ></textarea>
-
-        <div>
-            <p>You may provide any details on your pet's physical condition that might be relevant on playdates.</p>
-            <p>Example : gets easily tired, cannot run fast, deaf, etc...</p>
-        </div>
-    </div>
-
-    <div class="edit-pet-form textarea">
-        <label for="dateOfBirth">Date of birth</label>
-        <input type="date"  name="dateOfBirth">
-    </div>
-
-    <div class="edit-pet-form">
-        <label for="size">Information</label>
-        <textarea name="description" placeholder="Please provide a short introduction of the pet, or a description of the playdates you would like to find."></textarea>
+        <label for="size">Physical condition</label>
+        <textarea name="physicalCondition" >You may provide any details on your pet's physical condition that might be relevant on playdates.
+Example : gets easily tired, cannot run fast, deaf, etc...</textarea>
     </div>
 
     <div class="edit-pet-form checkbox">
@@ -73,7 +64,7 @@
         {{/each}}
     </div>
 
-    <div class="edit-pet-form-checkbox">
+    <div class="edit-pet-form checkbox">
         <legend>Preferred time(s) to play</legend>
         {{#each time}}
         <div class="select-option">
@@ -83,12 +74,17 @@
         {{/each}}
     </div>
 
-    <div>
+    <div class="edit-pet-form textarea">
+        <label for="size">Information</label>
+        <textarea name="description">Please provide a short introduction of the pet, or a description of the playdates you would like to find.</textarea>
+    </div>
+
+    <div class="edit-pet-form">
         <label for="size">Upload a picture</label>
         <input name="picture" type="file">
     </div>
 
-    <button type='submit' id="add-pet-btn">ADD MY PET !</button>
+    <button type='submit' class="form-pet-btn">Add my pet !</button>
 </form>
 
 </div>
