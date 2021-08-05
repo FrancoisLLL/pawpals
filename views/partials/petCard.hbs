@@ -1,14 +1,10 @@
 <div class="pet-search-card">
-    <a href="/search/{{this._id}}">
-    <div>
-    <img src="{{this.picture}}" alt="photo {{this.name}}">
-    <h2>{{this.name}}</h2>
-    </div>
-    </a>
-    <p>{{this.type}}<p>
-    {{!-- <p>{{../owner.username}}</p> --}}
 
-    <a href="/playdates/{{this._id}}/invite/">Play</a>
+    <div class="photo-container" style="background-image: url('{{this.picture}}')">
     </div>
-    </a>
+    <div>
+        <a href="/search/{{this._id}}"><h2>{{this.name}}</h2></a>
+        <p>{{this.type}}<p>
+        <button class="invite-btn"><a href="/playdates/{{this._id}}/invite/">SEND INVITATION</a></button>
+    </div>
 </div>

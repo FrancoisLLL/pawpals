@@ -4,6 +4,12 @@
 ========================
 */
 
+:root {
+  --main-color1: #b9f18c;
+  --main-color2: grey;
+  --background-color: #fafafa;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -13,6 +19,7 @@ body {
 .search-section {
   display: flex;
   flex-direction: column;
+  padding: 1em;
 }
 
 h1 {
@@ -30,22 +37,14 @@ a {
 }
 
 .pet-search-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pet-search-container img {
   width: 30%;
-}
-
-.pet-search-card {
-  margin: 1em;
-  background-color: white;
-  width: 200px;
-  padding: 1em;
-  border: 1px solid var(--main-color1);
-  border-radius: 5px;
 }
 
 a.invite-link {
@@ -123,5 +122,76 @@ form div {
 }
 
 .reset-filter-btn:hover {
+  transform: scale(1.1);
+}
+
+.pet-search-card {
+  margin: 2em;
+  background-color: white;
+  width: 300px;
+  padding: 2em;
+  border: 3px solid var(--main-color1);
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.pet-search-card .photo-container {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  box-shadow: 1px 1px 5px grey;
+  align-self: center;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.pet-search-card div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-search-card a:nth-of-type(1) {
+  color: var(--main-color2);
+}
+
+.pet-search-card a:nth-of-type(1):hover {
+  color: var(--main-color1);
+}
+
+.pet-search-card div:nth-child(2) p {
+  align-self: center;
+}
+
+.pet-search-card button {
+  margin-top: 3em;
+}
+
+.invite-btn {
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: var(--main-color1);
+  padding: 1em 1.5em;
+  font-size: small;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+}
+
+.pet-search-card a:nth-of-type(2) {
+  color: black;
+}
+
+.invite-btn:hover {
   transform: scale(1.1);
 }

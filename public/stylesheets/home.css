@@ -82,7 +82,7 @@ h2 {
 }
 
 .pet-card-content {
-  border: 2px solid var(--main-color1);
+  border: 3px solid var(--main-color1);
   padding: 2em;
   border-radius: 25px;
   padding-top: 125px;
@@ -91,7 +91,7 @@ h2 {
 }
 
 .pet-card h3 {
-  color: var(--main-color1);
+  color: var(--main-color2);
   text-transform: uppercase;
   text-align: center;
 }
