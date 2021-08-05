@@ -124,7 +124,6 @@ margin-top: 1%;
   color: black;
 }
 
-<<<<<<< HEAD
 
 .playdates-container {
   margin-top: 4%;
@@ -138,8 +137,8 @@ margin-top: 1%;
   border-radius: 25px;
   flex-shrink: 0;
   height: 90vh;
+}
 
-=======
 .horizontalgrid {
   display: flex;
   flex-direction: row;
@@ -167,5 +166,4 @@ margin-top: 1%;
   text-decoration: none;
   background-color: var(--main-color1);
   color: black;
->>>>>>> origin/main
 }

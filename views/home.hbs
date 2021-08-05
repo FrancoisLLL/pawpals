@@ -1,34 +1,27 @@
-<<<<<<< HEAD
 <div class="page-container">
 
-<section>
-<h1>Woof, welcome back <span>{{currentUser.name}}</span> !</h1>
-=======
-<h1>Woof, welcome {{currentUser.name}} !</h1>
->>>>>>> origin/main
+	<section>
+		<h1>Woof, welcome <span>{{currentUser.name}}</span> !</h1>
 
-<h2>CHOOSE A PET TO START LOOKING FOR A PLAYMATE !</h2>
+		<h2>CHOOSE A PET TO START LOOKING FOR A PLAYMATE !</h2>
 
-<p>You have {{pet.length}} pets listed in pawpals </p>
+		<p>You have {{pet.length}} pets listed in pawpals </p>
 
-<body>
-
-
-	<div class="container-home">
+			<div class="container-home">
 
 
 
-		<div class="user-homepage">
+				<div class="user-homepage">
 
-			<p>You have {{pet.length}} pets listed in pawpals </p>
-			<div id="addPet">
-				<a href="/add-pet/">
-					&#128062; Add a pet &#128062;
-				</a>
-			</div>
-			<div class="user-pets-container">
-				{{#each pet}}
-				{{> myPetCard}}
-				{{/each}}
+					{{!-- <p>You have {{pet.length}} pets listed in pawpals </p> --}}
+					<div id="addPet">
+						<a href="/add-pet/">
+							&#128062; Add a pet &#128062;
+						</a>
+					</div>
+					<div class="user-pets-container">
+						{{#each pet}}
+						{{> myPetCard}}
+						{{/each}}
 
-			</div>
+					</div>

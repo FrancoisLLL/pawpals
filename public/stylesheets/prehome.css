@@ -37,6 +37,7 @@
     padding: 40px;
     font-weight: bolder;
     border-radius: 10%;
+    margin: 40px;
 }
 
 #commentsGrid {
@@ -45,13 +46,40 @@
     width: 100%;
 }
 
-#hoverComment {
+.hoverComment {
     background-color: var(--main-color1-transparent);
-    width: 25%;
+    width: 30%;
     padding: 20px;
     border-radius:5%;
     font-size: small;
     font-style: italic;
+    margin: 40px;
+    position: relative;
+}
+.commentPic {
+    position: absolute;
+    top:  calc( 90% - 40px);
+    left: calc( 90% - 40px);
+    width: 80px;
+    height: 80px;
+    border-radius:50%;
+    font-size: small;
+    font-style: italic;
+    background-size: cover;
+    border: 2px solid var(--main-color1);
+}
+
+#cutesy {
+    background-image: url("https://res.cloudinary.com/francoiscloudinary/image/upload/v1628003708/pawpals-profile-pics/ae50f6b5-8900-4e2b-b496-5a3416f113a7_z0wltl.jpg");
+}
+
+#batcat {
+    background-image: url("https://res.cloudinary.com/francoiscloudinary/image/upload/v1628149297/pawpals-profile-pics/d51jwc4wmygjjphecjkk.jpg");
+}
+
+
+#archibald {
+    background-image: url("https://res.cloudinary.com/francoiscloudinary/image/upload/v1628149129/pawpals-profile-pics/ao1dfijivb6qw1fxcftf.jpg");
 }
 
 #signinButton {
