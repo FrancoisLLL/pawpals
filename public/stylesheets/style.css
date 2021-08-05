@@ -5,7 +5,9 @@
 */
 
 :root {
-  --color-scheme-2: #b9f18c;
+  --main-color1: #b9f18c;
+  --main-color2: brown;
+  --background-color: #fafafa;
 }
 
 *,
@@ -22,7 +24,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  background-color: #fafafa;
+  background-color: var(--background-color);
 }
 
 @import "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap";
@@ -52,12 +54,12 @@ nav ul li {
 }
 
 nav ul a {
-  color: var(--color-scheme-2);
+  color: var(--main-color1);
   text-decoration: none;
 }
 
 nav ul a:hover {
-  border-bottom: 2px solid var(--color-scheme-1);
+  border-bottom: 2px solid var(--main-color1);
 }
 
 nav ul img {
