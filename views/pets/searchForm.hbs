@@ -1,8 +1,10 @@
 <section class="search-section">
 
-<h1>Find a playmate</h1>
+<div>
+    <h1>Find a playmate</h1>
 
-<p>I want to find a playmate according to ...</p>
+    <p>I want to find a playmate according to ...</p>
+</div>
     
 <div>
     <form id="search-filter-form" method="GET" action="/search/filter">
@@ -13,7 +15,7 @@
             <ul class="dropdown-content">
                 {{#each type}}
                 <li>
-                <input {{isChecked }}type="checkbox" name="type" value="{{this}}">
+                <input {{isChecked}} type="checkbox" name="type" value="{{this}}">
                 <label>{{this}}</label>
                 </li>
                 {{/each}}
@@ -27,7 +29,7 @@
             <ul>
                 {{#each size}}
                 <li>
-                <input type="checkbox" name="time" value="{{this}}">
+                <input {{isChecked}} type="checkbox" name="time" value="{{this}}">
                 <label>{{this}}</label>
                 </li>
                 {{/each}}
@@ -41,7 +43,7 @@
             <ul>
                 {{#each time}}
                 <li>
-                <input type="checkbox" name="time" value="{{this}}">
+                <input {{isChecked}} type="checkbox" name="time" value="{{this}}">
                 <label>{{this}}</label>
                 </li>
                 {{/each}}
@@ -50,32 +52,19 @@
         </div>
 
         <div>
-        <button type="submit">SEARCH</button>
+        <button type="submit" class="search-btn btn">SEARCH</button>
+        <button class="reset-filter-btn btn"><a href="{{currentPetId}}/search-playmate">RESET FILTERS</button>
         </div>
 
-    </form>
-
-    <a href="{{currentPetId}}/search-playmate">RESET FILTERS</a>
+    </form> 
 </div>
-
 </section>
 
 
+<section class="pet-search-container">
 
-<div class="pet-search-container">
-{{#each pet}}
-{{> petCard}}
-{{/each}}
-</div>
+    {{#each pet}}
+    {{> petCard}}
+    {{/each}}
 
-
-
-
-
-        {{!-- <select id='type-filter-form'class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Search here.." name="time">
-            <option>Choose your type of playdate</option>
-            {{#each time}}
-            <option value="{{this}}">{{this}}</option>
-            {{/each}}
-            <input type='hidden'>
-        </select> --}}
+</section>

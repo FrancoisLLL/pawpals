@@ -4,17 +4,19 @@
         <a href='/{{this._id}}'><div class="pet-card-photo-content" style="background-image: url('{{this.picture}}')"></div></a>
     </div>
 
-    <div class="empty-container">
-        </div>
+    <div class="empty-container"> </div>
+    
     <div class="pet-card-content">
         <h3>{{this.name}}</h3>
+
+        <a href="{{this._id}}/edit" class="small-link">Edit profile</a>
 
         <p>Next playdate</p>
         <!-- ADD NEXT PLAYDATE INFO-->
 
         <p>Following playdates : <span></span></p>
 
-        <a href='/{{this._id}}/playdates'>See more...</a>
+        <a href='/{{this._id}}/playdates' class="small-link">See more...</a>
 
         <p>New invitation received : <span></span></p>
 
