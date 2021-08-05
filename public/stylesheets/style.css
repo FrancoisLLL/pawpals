@@ -115,7 +115,7 @@ body {
 :root {
   --main-color1: #b9f18c;
   --main-color2: grey;
-  --background-color: white;
+  --background-color: #fafafa;
 }
 
 div[class*="box"] {
@@ -136,7 +136,7 @@ div[class*="box"] {
   background-color: #66a182;
 }
 
-button {
+.btn {
   cursor: pointer;
 }
 
@@ -154,7 +154,7 @@ button {
 }
 
 .page-container {
-  border: 5px solid var(--main-color1) !important;
+  border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
@@ -166,7 +166,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 50vh;
+  height: 90vh;
+
 }
 
 /* 
@@ -333,6 +334,8 @@ button {
   border-radius: 5px;
   padding-left: 3px;
   background: #fff;
+  height: 90vh;
+
 
 }
 
@@ -452,3 +455,4 @@ button {
   margin-top: 7%;
   height: 88vh;
 }
+
