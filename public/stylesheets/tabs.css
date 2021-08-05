@@ -8,8 +8,11 @@
 
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
+ 
   background-color: #f1f1f1;
+border-radius: 15px;
+margin-top: 1%;
+
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -21,6 +24,7 @@
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 /* Change background color of buttons on hover */
@@ -116,4 +120,20 @@
   text-decoration: none;
   background-color: var(--main-color1);
   color: black;
+}
+
+
+.playdates-container {
+  margin-top: 4%;
+  
+}
+
+.playdates-card-container {
+ 
+  border: 5px solid #b9f18c !important;
+  margin: 40px 40px 40px 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: 90vh;
+
 }

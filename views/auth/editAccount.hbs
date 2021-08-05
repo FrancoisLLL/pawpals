@@ -1,4 +1,4 @@
-
+<div class="page-container">
 <form method="POST" action="/account/{{currentUser._id}}/edit">
 
 <div>
@@ -10,21 +10,21 @@
 	<div>
 
 	
-		<input type="text" class="edittextinput" id="username" name="username" value="{{currentUser.username}}" />
+		<input type="text" class="edittextinput" id="username" name="username" placeholder="{{currentUser.username}}" value="{{currentUser.username}}"/>
 
 	</div>
 
 	<div>
 
 	
-		<input type="email" class="edittextinput" id="email" name="email" value="{{currentUser.email}}" />
+		<input type="email" class="edittextinput" id="email" name="email" value="{{currentUser.email}}" placeholder="{{currentUser.email}}" />
 
 	</div>
 
 	<div>
 
 		
-		<input type="text" class="edittextinput" id="name" name="name" value="{{currentUser.name}}" />
+		<input type="text" class="edittextinput" id="name" name="name" value="{{currentUser.name}}" placeholder="{{currentUser.name}}" />
 
 	</div>
 
@@ -62,6 +62,14 @@ document.getElementById('date-field').value = new Date().toISOString().slice(0, 
 	<button class="editaccount-btn"> Submit Changes!</button>
 	</div>
 
+
 	</form>
+
+<div class="cat-bottom-pic">
+	<img src="https://i.imgur.com/kx8FmUa.jpg" alt="catpic">
+</div>
+	</div>
+
+
 
 	</div>
