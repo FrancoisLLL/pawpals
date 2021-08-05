@@ -22,15 +22,3 @@ function openStatus(evt, status) {
 
 document.getElementById("default").click()
 
-function findMissingLetter(array) {
-    const hexArray = array.map((item) => {
-        return item.charCodeAt(0).toString(16);
-    })
-
-    for (let i = 1; i < hexArray.length; i++) {
-        if (hexArray[i] > (hexArray[i - 1] + 1)) {
-            console.log(parseint(Number(hexArray[i - 1])+1, 16));
-            return hexArray[i - 1] + 1;
-        }
-    }
-}
