@@ -39,7 +39,8 @@ router.get("/:id", async (req,res,next) => {
         if(!req.session.currentPet) req.session.currentPet = { _id : foundPet._id};
         console.log("CURRENT PET SESSION HAS STARTED", req.session)
         res.render("pets/myPet.hbs", {
-            pet: foundPet
+            pet: foundPet, 
+            css: ["petProfile"]
         })
     })
     .catch(error => next(error))  

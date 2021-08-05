@@ -96,6 +96,7 @@ form div {
   border: 13px solid var(--main-color1);
   transition: transform 0.2s;
   border-radius: 10px;
+  font-size: 1.5em;
 }
 
 .search-btn:hover {
@@ -115,9 +116,10 @@ form div {
   margin-bottom: 5px;
   transition: transform 0.2s; /* Animation */
   border-radius: 10px;
+  font-size: 0.8em;
 }
 
-.reset-filter-btn a {
+a.reset-filter-btn {
   color: var(--main-color1);
 }
 
@@ -129,9 +131,10 @@ form div {
   margin: 2em;
   background-color: white;
   width: 300px;
+  height: 500px;
   padding: 2em;
   border: 3px solid var(--main-color1);
-  border-radius: 10%;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -160,11 +163,11 @@ h2 {
   flex-direction: column;
 }
 
-.pet-search-card a:nth-of-type(1) {
+.pet-search-card a.title {
   color: var(--main-color2);
 }
 
-.pet-search-card a:nth-of-type(1):hover {
+.pet-search-card a.title:hover {
   color: var(--main-color1);
 }
 
@@ -174,6 +177,10 @@ h2 {
 
 .pet-search-card button {
   margin-top: 3em;
+}
+
+.pet-search-card a.button {
+  color: black;
 }
 
 .invite-btn {
@@ -186,10 +193,6 @@ h2 {
   border-radius: 10px;
   font-weight: bold;
   border: none;
-}
-
-.pet-search-card a:nth-of-type(2) {
-  color: black;
 }
 
 .invite-btn:hover {

@@ -70,16 +70,21 @@ h2 {
   top: 0;
 }
 
-.pet-card-photo-content {
+.pet-card img {
+  object-fit: cover;
   width: 200px;
+  height: 200px;
+  box-shadow: 1px 1px 5px grey;
   padding-top: 200px;
+  border-radius: 50%;
+}
+
+/* .pet-card-photo-content {
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
-  border-radius: 50%;
   background-color: white;
-  box-shadow: 1px 1px 5px grey;
-}
+} */
 
 .pet-card-content {
   border: 3px solid var(--main-color1);

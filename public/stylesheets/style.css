@@ -94,7 +94,7 @@ body {
 :root {
   --main-color1: #b9f18c;
   --main-color2: grey;
-  --background-color: #fafafa;
+  --background-color: white;
 }
 
 div[class*="box"] {
@@ -115,7 +115,7 @@ div[class*="box"] {
   background-color: #66a182;
 }
 
-.btn {
+button {
   cursor: pointer;
 }
 
