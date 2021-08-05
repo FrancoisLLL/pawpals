@@ -6,14 +6,19 @@
         <div>
             <p><img src="{{invite.senderId.picture}}" alt="Cat" class="invitePhoto"></p>
             <p class="inviteText"><span class="bold">From: </span>{{invite.senderId.name}}</p>
+            {{#if isConfirmed}}
             <p class="inviteText"><span class="bold">Email: </span>{{senderOwner.email}}</p>
             <p class="inviteText"><span class="bold">Phone: </span>{{senderOwner.phoneNumber}}</p>
+            {{/if}}
+
         </div>
         <div>
             <p><img src="{{invite.receiverId.picture}} " alt="Cat" class="invitePhoto"></p>
             <p class="inviteText"><span class="bold">To: </span>{{invite.receiverId.name}}</p>
+            {{#if isConfirmed}}
             <p class="inviteText"><span class="bold">Email: </span>{{receiverOwner.email}}</p>
             <p class="inviteText"><span class="bold">Phone: </span>{{receiverOwner.phoneNumber}}</p>
+            {{/if}}
         </div>
     </div>
 

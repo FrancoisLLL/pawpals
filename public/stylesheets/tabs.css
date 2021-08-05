@@ -57,13 +57,15 @@ margin-top: 1%;
 }
 
 .invitePhoto {
-  width: 100%;
-  border-radius: 50%;
-  max-width: 300px;
+
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  object-fit: cover;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+
 }
 
 .inviteText {
@@ -97,10 +99,17 @@ margin-top: 1%;
 }
 
 .inviteDetailsGrid {
-  display: flex;
+
+margin :0 auto;
+display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  border: 5px solid var(--main-color1);
+  width: 80%;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 
 }
 

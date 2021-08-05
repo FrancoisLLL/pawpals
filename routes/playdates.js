@@ -54,6 +54,7 @@ router.get('/:id/playdates', requireAuth, async function (req, res, next) {
     if(!req.session.currentPet) {
         req.session.currentPet = { _id: foundPet._id }
     }
+    
     const playDates = await getPlayDates(req.session.currentPet._id);
 
     // console.log(playDates.confirmed.length, playDates.pending.length, playDates.sent.length)
@@ -112,6 +113,7 @@ router.get('/playdates/invite/:id', checkPet, async function (req, res, next) {
         isPending: playdate.status === "pending",
         senderOwner: senderOwner,
         receiverOwner:receiverOwner, 
+        isConfirmed: playdate.status ==="confirmed",
         css: ["tabs"]
     })
 
