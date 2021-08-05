@@ -7,19 +7,6 @@ const User = require("../models/User");
 const fileUploader = require('../config/cloudinary');
 const petSelected = require("../middlewares/petSelected")
 
-router.get("/pet/:id", async (req, res, next) => {
-    try {
-        const foundPet = await Pet.findById(req.params.id);
-
-        req.session.currentPet = { _id : foundPet._id}
-
-        console.log(req.session)
-
-        res.render("pets/myPet.hbs", { pet : foundPet })
-    }
-    catch (error) { next(error) }
-})
-
 
 router.get("/add-pet", (req, res, next) => {
     res.render("pets/addPet.hbs", {
@@ -28,7 +15,21 @@ router.get("/add-pet", (req, res, next) => {
         environment : Pet.schema.path('preferredEnvironment.0').enumValues, 
         time : Pet.schema.path('time.0').enumValues,
         size: Pet.schema.path('size').enumValues,
+        css: ["editpet"]
     })
+})
+
+router.get("/:id", async (req,res,next) => {
+    await Pet.findById(req.params.id)
+    .then((response) => {
+        const foundPet = response;
+        if(!req.session.currentPet) req.session.currentPet = { _id : foundPet._id};
+        console.log("CURRENT PET SESSION HAS STARTED", req.session)
+        res.render("pets/myPet.hbs", {
+            pet: foundPet
+        })
+    })
+    .catch(error => next(error))  
 })
 
 
@@ -54,15 +55,23 @@ router.get("/pet/:id/edit", (req, res, next) => {
             environment : Pet.schema.path('preferredEnvironment.0').enumValues,
             time : Pet.schema.path('time.0').enumValues,
             size: Pet.schema.path('size').enumValues,
-            pet : petData
+            pet : petData,
+            css: ["editpet"]
         })
     })
     .catch((error) => next (error))
 })
 
-router.post("/pet/:id/edit", (req, res, next) => {
+router.post("/pet/:id/edit", fileUploader.single("picture"), (req, res, next) => {
+
+    let pet = req.body
+    pet.owner = req.session.currentUser._id
+
+    if (req.file)
+    {pet.picture = req.file.path;}
+
     Pet.findByIdAndUpdate(req.session.currentPet._id, req.body)
-    .then((petData) => { res.redirect("/playdates") })
+    .then((petData) => { res.redirect("/pet/:id") })
     .catch((error) => next (error))
 })
 

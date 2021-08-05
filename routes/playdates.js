@@ -41,34 +41,32 @@ function renderPlaydates(res, playDates, user) {
         playdatesPendingLength: playDates.pending.length,
         playdatesSent: playDates.sent,
         playdatesSentLength: playDates.sent.length,
-        user: user
+        user: user,
+        css: ["tabs"]
     })
 }
 
 router.get('/:id/playdates', requireAuth, async function (req, res, next) {
     //to be updated with receiver ID cookie and stuff
 
-
     const foundPet = await Pet.findById(req.params.id);
 
-    req.session.currentPet = {
-        _id: foundPet._id
+    if(!req.session.currentPet) {
+        req.session.currentPet = { _id: foundPet._id }
     }
-
     const playDates = await getPlayDates(req.session.currentPet._id);
-
 
     // console.log(playDates.confirmed.length, playDates.pending.length, playDates.sent.length)
     renderPlaydates(res, playDates, req.session.currentPet)
 });
 
 router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
-
     console.log("req params " + req.params.id)
     res.render("./playdates/invite.hbs", {
         guestId: req.params.id,
         date: '2021-08-01T00:00',
-        key: process.env.GOOGLEMAPS_KEY
+        key: process.env.GOOGLEMAPS_KEY,
+        css: ["tabs"]
     });
 });
 

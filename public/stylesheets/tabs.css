@@ -1,9 +1,9 @@
 /* Style the tab */
 
 :root {
-  --main-color1: #B9F18C;
+  --main-color1: #b9f18c;
   --main-color2: brown;
-  --main-color3:
+  --main-color3: ;
 }
 
 .tab {
@@ -38,7 +38,6 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
-
 }
 
 .gridContainer {
@@ -80,7 +79,7 @@
   width: 60px;
   padding: 10px;
   font-size: small;
-  margin: 3Opx;
+  margin: 3px;
   color: black;
   border-radius: 5%;
 }
@@ -150,4 +149,3 @@
   background-color: var(--main-color1);
   color: black;
 }
-

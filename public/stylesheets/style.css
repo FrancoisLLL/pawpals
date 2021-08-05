@@ -5,7 +5,9 @@
 */
 
 :root {
-  --color-scheme-2: #b9f18c;
+  --main-color1: #b9f18c;
+  --main-color2: brown;
+  --background-color: #fafafa;
 }
 
 *,
@@ -22,7 +24,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  background-color: white;
+  background-color: var(--background-color);
 }
 
 @import "https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap";
@@ -34,11 +36,8 @@ nav {
   flex-direction: row;
   align-items: flex-start;
   padding: auto 0;
-<<<<<<< HEAD
   margin-top: 5px;
-=======
   width: 100%;
->>>>>>> c2c3d1321a5c6fbb0240b82b12b3d8a64a30243a
 }
 
 nav ul {
@@ -55,12 +54,12 @@ nav ul li {
 }
 
 nav ul a {
-  color: var(--color-scheme-2);
+  color: var(--main-color1);
   text-decoration: none;
 }
 
 nav ul a:hover {
-  border-bottom: 2px solid var(--color-scheme-1);
+  border-bottom: 2px solid var(--main-color1);
 }
 
 nav ul img {
@@ -84,26 +83,6 @@ h1 {
 }
 */
 
-.pet-list-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
-
-.pet-list-card {
-  background-color: white;
-  width: 200px;
-  padding: 1em;
-  border: 1px solid rgba(128, 128, 128, 0.509);
-  border-radius: 5px;
-}
-
-.pet-list-card a {
-  text-decoration: none;
-  color: black;
-}
-
 @import "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300";
 
 /* html,
@@ -117,6 +96,12 @@ body {
   flex-wrap: wrap;
   font-family: "Open Sans Condensed", sans-serif;
 } */
+
+:root {
+  --main-color1: #b9f18c;
+  --main-color2: grey;
+  --main-color3: ;
+}
 
 div[class*="box"] {
   height: 33.33%;
@@ -144,7 +129,6 @@ div[class*="box"] {
   cursor: pointer;
 }
 
-
 /* 
 ========================
       INDEX
@@ -167,11 +151,11 @@ div[class*="box"] {
 }
 
 .welcome-container {
- display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   height: 50vh;
-} 
+}
 
 /* 
 ========================
@@ -245,34 +229,17 @@ div[class*="box"] {
   flex-direction: column;
 }
 
-
 .signup-page-container {
   border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
- display: flex;
- flex-direction: column;
-}
-
-/* USER HOMEPAGE */
-
-.user-pets-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-/* USER'S PET CARD DUSPLAYED ON HOMEPAGE*/
-
-.pet-list-card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 70vh;
+  height: 65vh;
   margin: auto 2em;
 }
 
@@ -284,6 +251,7 @@ div[class*="box"] {
   background-repeat: no-repeat;
   margin: 1em auto;
   border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .container {
@@ -300,55 +268,51 @@ div[class*="box"] {
 .signup-text {
   margin-top: 5%;
   padding: 5px 5px 5px 5px;
-   -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding-left: 3px;
-    background: #B9F18C;
-    margin-bottom: 20px;
-    
- }
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-left: 3px;
+  background: #b9f18c;
+  margin-bottom: 20px;
+}
 
- .signup-text::selection {
-     background: #B9F18C;
- }
+.signup-text::selection {
+  background: #b9f18c;
+}
 
- .signup-text::-moz-selection {
-   background: #B9F18C;
- }
+.signup-text::-moz-selection {
+  background: #b9f18c;
+}
 
- .signuptextinput {
-   padding: 15px;
-   margin: 5px 0;
-   border: 2px solid #B9F18C;
-   border-radius: 10px;
- }
+.signuptextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+}
 
- .signup-btn {
-    padding: 15px;
-   margin: 5px 0;
-   border: 2px solid #B9F18C;
-   fill: #B9F18C;
-   color: white;
-   border-radius: 10px;
-   background-color: #B9F18C;
-   font-weight: bolder;
-   font-size: 25px;
-  
- }
+.signup-btn {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  fill: #b9f18c;
+  color: white;
+  border-radius: 10px;
+  background-color: #b9f18c;
+  font-weight: bolder;
+  font-size: 25px;
+}
 
+.signintextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+  align-items: center;
+}
 
- .signintextinput {
-    padding: 15px;
-   margin: 5px 0;
-   border: 2px solid #B9F18C;
-   border-radius: 10px;
-   align-items: center;
- }
-
-
- .signin-page-container {
-  border: 5px solid #B9F18C !important;
+.signin-page-container {
+  border: 5px solid #b9f18c !important;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -405,7 +369,6 @@ div[class*="box"] {
   justify-content: center;
   height: 60vh;
   flex-direction: column;
-
 }
 
 .signin-img {
@@ -421,18 +384,11 @@ div[class*="box"] {
   margin-top: 50px;
 }
 
-
-
-
 /* 
 ========================
       HOME
 ========================
 */
-
-.container-home {
-  color: blue;
-}
 
 /* 
 ========================
@@ -446,31 +402,47 @@ div[class*="box"] {
   flex-wrap: wrap;
   flex-direction: column;
   margin-top: 50px;
-
 }
 
- .edittextinput {
-   padding: 15px;
-   margin: 5px 0;
-   border: 2px solid #B9F18C;
-   border-radius: 10px;
- }
+.edittextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+}
 
- .editaccount-btn {
-    padding: 15px;
-   margin: 5px 0;
-   border: 2px solid #B9F18C;
-   fill: #B9F18C;
-   color: white;
-   border-radius: 10px;
-   background-color: #B9F18C;
-   font-weight: bolder;
-   font-size: 25px;
- }
+.edittextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  border-radius: 10px;
+}
 
+.editaccount-btn {
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  fill: #b9f18c;
+  color: white;
+  border-radius: 10px;
+  background-color: #b9f18c;
+  font-weight: bolder;
+  font-size: 25px;
+}
 
- .editaccount-text {
-   text-align: center;
-   margin-top: 5%;
- }
+.editaccount-btn {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid #b9f18c;
+  fill: #b9f18c;
+  color: white;
+  border-radius: 10px;
+  background-color: #b9f18c;
+  font-weight: bolder;
+  font-size: 25px;
+}
 
+.editaccount-text {
+  text-align: center;
+  margin-top: 5%;
+}

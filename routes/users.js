@@ -5,30 +5,29 @@ const User = require("../models/User");
 const Pet = require("../models/Pet")
 
 
-      router.get('/home', (req, res, next) => {
-        Pet.find({
-            owner: req.session.currentUser._id
-            
-          })
-          .then((myPetsData) => {
-            console.log(myPetsData);
-            res.render('home', {
-              pet: myPetsData
-            })
-          })
-          .catch(error => next(error))
-      });
+router.get('/home', (req, res, next) => {
+
+  if(req.session.currentPet) { delete req.session.currentPet}
+
+  console.log("req.session.currentPet has ended", req.session)
+
+  Pet.find({
+      owner: req.session.currentUser._id
+    })
+    .then((myPetsData) => {
+      res.render('home', {
+        pet: myPetsData,
+        css: ["home", "style"]
+      })
+    })
+    .catch(error => next(error))
+});
 
     
-
-
-
-  
-
       router.post("/account/:id/edit", (req, res, next) => {
         User.findByIdAndUpdate(req.params.id, req.body)
-          .then((userDetails) => {
-            res.redirect("/account/" + userDetails._id);
+          .then((userDetails) => {(console.log("redirect"))
+            res.redirect("/home");
           })
 
           .catch(e => console.log(e))

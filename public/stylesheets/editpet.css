@@ -1,0 +1,70 @@
+.edit-pet-info-container {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #b9f18c !important;
+  margin: 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: auto;
+  align-items: center;
+  padding: 2em;
+}
+
+input,
+select,
+textarea {
+  background-color: var(--background-color);
+  border: none;
+}
+
+.edit-pet-form {
+  margin: 10px auto;
+}
+.edit-pet-form.input input {
+  border: none;
+  border-bottom: 2px solid #b9f18c;
+  padding: 5px 5px;
+}
+
+.edit-pet-form.textarea textarea {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid #b9f18c;
+  padding: 5px 5px;
+}
+
+.edit-pet-form.textarea {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-pet-form.select select {
+  appearance: none;
+  padding: 15px;
+  border: none;
+  border-bottom: 2px solid #b9f18c;
+  padding: 5px 5px;
+}
+
+.edit-pet-form.checkbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-pet-btn {
+  text-transform: uppercase;
+  background-color: var(--main-color1);
+  padding: 10px;
+  border-radius: 5%;
+  font-weight: bold;
+  border: none;
+  margin-top: 2em;
+  align-self: center;
+}
+
+.form-pet-btn a {
+  text-decoration: none;
+  color: black;
+}
