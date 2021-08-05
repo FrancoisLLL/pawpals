@@ -1,7 +1,7 @@
 <div class="edit-pet-info-container">
 <h2>EDIT {{pet.name}}'S INFO</h2>
 
-<form id="add-pet-form" method="POST" action="/pet/{{pet._id}}/edit" enctype="multipart/form-data"> 
+<form id="add-pet-form" method="POST" action="/{{pet._id}}/edit" enctype="multipart/form-data"> 
 
     <div class="edit-pet-form">
         <label for="name">Name</label>
@@ -83,7 +83,7 @@ Example : gets easily tired, cannot run fast, deaf, etc...">{{pet.physicalCondit
         <input name="picture" type="file">
     </div>
 
-    <button type='submit' class="form-pet-btn"><a href="/{{pet._id}}">Edit my pet's info</a></button>
+    <button type='submit' class="form-pet-btn">Edit my pet's info</button>
 </form>
 
 </div>

@@ -32,6 +32,7 @@ h2 {
 }
 
 .add-pet {
+  display: inline-block;
   text-decoration: none;
   background-color: var(--main-color1);
   font-weight: bold;
@@ -41,12 +42,13 @@ h2 {
   margin-top: 3em;
   box-shadow: 5px 5px 5px grey;
   border-radius: 5%;
+  transition: transform 0.2s;
 }
 
 .user-pets-container {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 
@@ -91,7 +93,7 @@ h2 {
 }
 
 .pet-card h3 {
-  color: var(--main-color1);
+  color: var(--main-color2);
   text-transform: uppercase;
   text-align: center;
 }
@@ -103,11 +105,15 @@ h2 {
 .pet-card-content p:nth-of-type(2) {
   margin-bottom: 0;
 }
-.pet-card-content a:nth-of-type(1) {
+
+.pet-card-content .small-link {
   color: var(--main-color2);
   font-size: 0.8em;
   margin-top: 0;
-  text-align: right;
+}
+
+.small-link:first-child {
+  text-align: center;
 }
 
 .green-btn {
@@ -131,7 +137,8 @@ h2 {
 .empty-container {
   height: 100px;
 }
-.container-home {
+
+/* .container-home {
   background-color: #b9f18c;
   height: 90vh;
   align-items: center;
@@ -143,6 +150,67 @@ h2 {
 }
 */
 
+<<<<<<< HEAD
 
 
 
+=======
+/* div.pet-list-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  border: 2px solid white;
+  margin-top: 30px;
+  box-shadow: 2px 2px whitesmoke, -0.2em 0 0.4em olive;
+  margin-bottom: 40px;
+}
+
+.my-pet-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 200px;
+  padding: 1em;
+  border: 5px solid #b9f18c;
+  border-radius: 15px;
+  text-decoration: none;
+  margin: auto;
+  margin-top: 2%;
+  height: 70vh;
+  box-shadow: 2px 2px whitesmoke, -0.2em 0 0.4em olive;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding-top: 80px;
+  margin-bottom: 3%;
+}
+
+.my-pet-container-container {
+  display: flex;
+  flex-direction: column;
+
+  border: 5px solid #b9f18c !important;
+  margin: 40px 40px 40px 40px;
+  border-radius: 25px;
+  flex-shrink: 0;
+  height: auto;
+  align-items: center;
+  padding-top: 15px;
+} 
+
+.add-pet-btn {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: #fff;
+  text-align: center;
+  color: #b9f18c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #fff;
+  padding: 12px 12px 12px 12px;
+  border-radius: 10px;
+  align-items: center;
+/*position: fixed;
+  left: 50%;
+  bottom: -15px;
+  margin: 0 auto;
+}*/
+>>>>>>> origin/main

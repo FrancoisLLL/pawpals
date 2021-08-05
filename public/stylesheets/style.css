@@ -4,12 +4,15 @@
 ========================
 */
 
+<<<<<<< HEAD
 :root {
   --main-color1: #b9f18c;
   --main-color2: brown;
   --background-color: #fff;
 }
 
+=======
+>>>>>>> origin/main
 *,
 *:before,
 *:after {
@@ -115,7 +118,7 @@ body {
 :root {
   --main-color1: #b9f18c;
   --main-color2: grey;
-  --main-color3: ;
+  --background-color: #fafafa;
 }
 
 div[class*="box"] {
@@ -137,10 +140,6 @@ div[class*="box"] {
 }
 
 .btn {
-  line-height: 50px;
-  height: 50px;
-  text-align: center;
-  width: 250px;
   cursor: pointer;
 }
 
@@ -158,7 +157,7 @@ div[class*="box"] {
 }
 
 .page-container {
-  border: 5px solid #b9f18c !important;
+  border: 5px solid var(--main-color1) !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
@@ -183,12 +182,12 @@ div[class*="box"] {
   display: inline-block;
   font-weight: bold;
   text-decoration: none;
-  background: #b9f18c;
+  background: var(--main-color1);
   text-align: center;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 13px solid #b9f18c;
+  border: 13px solid var(--main-color1);
   transition: transform 0.2s;
   border-radius: 10px;
  margin-bottom: 90%;
@@ -200,10 +199,10 @@ div[class*="box"] {
   text-decoration: none;
   background: #fff;
   text-align: center;
-  color: #b9f18c;
+  color: var(--main-color1);
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 3px solid #b9f18c;
+  border: 3px solid var(--main-color1);
   padding: 12px 12px 12px 12px;
   margin-bottom: 5px;
   transition: transform 0.2s; /* Animation */
@@ -247,7 +246,7 @@ div[class*="box"] {
 }
 
 .signup-page-container {
-  border: 5px solid #b9f18c !important;
+  border: 5px solid var(--main-color1) !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
@@ -290,33 +289,33 @@ div[class*="box"] {
   -moz-border-radius: 5px;
   border-radius: 5px;
   padding-left: 3px;
-  background: #b9f18c;
+  background: var(--main-color1);
   margin-bottom: 20px;
 }
 
 .signup-text::selection {
-  background: #b9f18c;
+  background: var(--main-color1);
 }
 
 .signup-text::-moz-selection {
-  background: #b9f18c;
+  background: var(--main-color1);
 }
 
 .signuptextinput {
   padding: 15px;
   margin: 5px 0;
-  border: 2px solid #b9f18c;
+  border: 2px solid var(--main-color1);
   border-radius: 10px;
 }
 
 .signup-btn {
   padding: 15px;
   margin: 5px 0;
-  border: 2px solid #b9f18c;
-  fill: #b9f18c;
+  border: 2px solid var(--main-color1);
+  fill: var(--main-color1);
   color: white;
   border-radius: 10px;
-  background-color: #b9f18c;
+  background-color: var(--main-color1);
   font-weight: bolder;
   font-size: 25px;
   
@@ -325,13 +324,13 @@ div[class*="box"] {
 .signintextinput {
   padding: 15px;
   margin: 5px 0;
-  border: 2px solid #b9f18c;
+  border: 2px solid var(--main-color1);
   border-radius: 10px;
   align-items: center;
 }
 
 .signin-page-container {
-  border: 5px solid #b9f18c !important;
+  border: 5px solid var(--main-color1) !important;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -341,28 +340,28 @@ div[class*="box"] {
 }
 
 .signup-text::selection {
-  background: #b9f18c;
+  background: var(--main-color1);
 }
 
 .signup-text::-moz-selection {
-  background: #b9f18c;
+  background: var(--main-color1);
 }
 
 .signuptextinput {
   padding: 15px;
   margin: 5px 0;
-  border: 2px solid #b9f18c;
+  border: 2px solid var(--main-color1);
   border-radius: 10px;
 }
 
 .signup-btn {
   padding: 15px;
   margin: 5px 0;
-  border: 2px solid #b9f18c;
-  fill: #b9f18c;
+  border: 2px solid var(--main-color1);
+  fill: var(--main-color1);
   color: white;
   border-radius: 10px;
-  background-color: #b9f18c;
+  background-color: var(--main-color1);
   font-weight: bolder;
   font-size: 25px;
 }
@@ -370,13 +369,13 @@ div[class*="box"] {
 .signintextinput {
   padding: 15px;
   margin: 5px 0;
-  border: 2px solid #b9f18c;
+  border: 2px solid var(--main-color1);
   border-radius: 10px;
   align-items: center;
 }
 
 .signin-page-container {
-  border: 5px solid #b9f18c !important;
+  border: 5px solid var(--main-color1) !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
@@ -427,25 +426,48 @@ div[class*="box"] {
 .edittextinput {
   padding: 15px;
   margin: 5px 0;
-  border: 2px solid #b9f18c;
+  border: 2px solid var(--main-color1);
   border-radius: 10px;
 }
 
+<<<<<<< HEAD
 
+=======
+.edittextinput {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid var(--main-color1);
+  border-radius: 10px;
+}
+>>>>>>> origin/main
 
 .editaccount-btn {
   padding: 10px;
   margin: 5px 0;
-  border: 2px solid #b9f18c;
-  fill: #b9f18c;
+  border: 2px solid var(--main-color1);
+  fill: var(--main-color1);
   color: white;
   border-radius: 10px;
-  background-color: #b9f18c;
+  background-color: var(--main-color1);
   font-weight: bolder;
   font-size: 25px;
   margin-top: 10%;
 }
 
+<<<<<<< HEAD
+=======
+.editaccount-btn {
+  padding: 15px;
+  margin: 5px 0;
+  border: 2px solid var(--main-color1);
+  fill: var(--main-color1);
+  color: white;
+  border-radius: 10px;
+  background-color: var(--main-color1);
+  font-weight: bolder;
+  font-size: 25px;
+}
+>>>>>>> origin/main
 
 .editaccount-text {
   text-align: center;
