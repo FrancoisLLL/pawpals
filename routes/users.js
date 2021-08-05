@@ -5,51 +5,72 @@ const User = require("../models/User");
 const Pet = require("../models/Pet")
 const Playdate = require("../models/Playdate")
 const ObjectId = require('mongoose').Types.ObjectId;
+const { LoopDetected } = require('http-errors');
 require("../routes/playdates")
 
 
-router.get('/home', requireAuth, (req, res, next) => {
+router.get('/home', requireAuth, async (req, res, next) => {
 
   if(req.session.currentPet) { 
     delete req.session.currentPet;
     console.log("req.session.currentPet has ended")
   }
 
-  try {
     const userPets = await Pet.find({
       owner: req.session.currentUser._id
     })
 
-    async function getPlayDates(currentPetId) {
-      const confirmed = await Playdate.find({
-          status: "confirmed",
-          $or: [{
-              receiverId: currentPetId
-          }, {
-              senderId: currentPetId
-          }]
-      }).populate("senderId").populate("receiverId").exec();
-      const pending = await Playdate.find({
-          status: "pending",
-          receiverId: currentPetId
-      }).populate("senderId").populate("receiverId").exec();
-  
-      const sent = await Playdate.find({
-          senderId: currentPetId,
-          status: "pending"
-      }).populate("senderId").populate("receiverId").exec();
-  
-      return {
-          confirmed,
-          pending,
-          sent
-      }
-    }
+    // let petsConfirmedPlaydates = [];
 
-     userPets.forEach(pet => {
-      const result = Playdate.find({_id: pet._id});
-      console.log("result", result)
+    // for (let i = 0; i < userPets.length; i++) {
+    //  const response =  Playdate.find({
+    //     status: "confirmed",
+    //     $or: [{
+    //         receiverId: userPets[i]._id
+    //     }, {
+    //         senderId: userPets[i]._id
+    //     }]
+    //   })
+
+    //   await petsConfirmedPlaydates.push(response);
+    //   console.log(petsConfirmedPlaydates)
+    // }
+
+    res.render('home', {
+      pet: userPets,
+      css: ["home", "style"],
     })
+
+    // Pet.find({receiverId: userPets[0]._id})
+    // .then((response) => console.log("response", response))
+    // .catch((error) => console.log(error))
+    
+
+    // async function getPlayDates(currentPetId) {
+    //   const confirmed = await Playdate.find({
+    //       status: "confirmed",
+    //       $or: [{
+    //           receiverId: currentPetId
+    //       }, {
+    //           senderId: currentPetId
+    //       }]
+    //   }).populate("senderId").populate("receiverId").exec();
+    //   const pending = await Playdate.find({
+    //       status: "pending",
+    //       receiverId: currentPetId
+    //   }).populate("senderId").populate("receiverId").exec();
+  
+    //   const sent = await Playdate.find({
+    //       senderId: currentPetId,
+    //       status: "pending"
+    //   }).populate("senderId").populate("receiverId").exec();
+  
+    //   return {
+    //       confirmed,
+    //       pending,
+    //       sent
+    //   }
+    // }
 
 
     // const confirmedPlaydates = await Playdate.find({
@@ -59,12 +80,9 @@ router.get('/home', requireAuth, (req, res, next) => {
 
     // console.log(confirmedPlaydates)
 
-    res.render('home', {
-      pet: userPets,
-      css: ["home", "style"],
-    })
 
-  } catch (error) {next(error)}
+
+  // } catch (error) {next(error)}
 
 });
 
