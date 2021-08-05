@@ -19,20 +19,6 @@ router.get("/add-pet", (req, res, next) => {
     })
 })
 
-router.get("/:id", async (req,res,next) => {
-    await Pet.findById(req.params.id)
-    .then((response) => {
-        const foundPet = response;
-        if(!req.session.currentPet) req.session.currentPet = { _id : foundPet._id};
-        console.log("CURRENT PET SESSION HAS STARTED", req.session)
-        res.render("pets/myPet.hbs", {
-            pet: foundPet
-        })
-    })
-    .catch(error => next(error))  
-})
-
-
 
 router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
     let pet = req.body
@@ -46,8 +32,21 @@ router.post("/add-pet", fileUploader.single("picture"), (req, res, next) => {
 }) 
 
 
-router.get("/pet/:id/edit", (req, res, next) => {
-    Pet.findById(req.session.currentPet)
+router.get("/:id", async (req,res,next) => {
+    await Pet.findById(req.params.id)
+    .then((response) => {
+        const foundPet = response;
+        if(!req.session.currentPet) req.session.currentPet = { _id : foundPet._id};
+        console.log("CURRENT PET SESSION HAS STARTED", req.session)
+        res.render("pets/myPet.hbs", {
+            pet: foundPet
+        })
+    })
+    .catch(error => next(error))  
+})
+
+router.get("/:id/edit", (req, res, next) => {
+    Pet.findById(req.params.id)
     .then((petData) => {
         res.render("pets/editPet.hbs", {
             type: Pet.schema.path('type').enumValues,
@@ -62,21 +61,22 @@ router.get("/pet/:id/edit", (req, res, next) => {
     .catch((error) => next (error))
 })
 
-router.post("/pet/:id/edit", fileUploader.single("picture"), (req, res, next) => {
-
+router.post("/:id/edit", fileUploader.single("picture"), (req, res, next) => {
     let pet = req.body
     pet.owner = req.session.currentUser._id
 
-    if (req.file)
+    if (req.file && req.file.path)
     {pet.picture = req.file.path;}
 
-    Pet.findByIdAndUpdate(req.session.currentPet._id, req.body)
-    .then((petData) => { res.redirect("/pet/:id") })
+    console.log("update form works", req.body)
+
+    Pet.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then((petData) => { console.log("UPDATED PET", petData); res.redirect("/home")  })
     .catch((error) => next (error))
 })
 
 
-router.get("/pet/:id/delete", (req, res, next) => {
+router.get("/:id/delete", (req, res, next) => {
     if('currentPet' in req.session)
         {delete req.session.currentPet}
 

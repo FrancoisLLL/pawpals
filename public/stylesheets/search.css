@@ -19,7 +19,11 @@ h1 {
   color: black;
 }
 
-.search-filter-form {
+a {
+  text-decoration: none;
+}
+
+#search-filter-form {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -33,11 +37,6 @@ h1 {
 
 .pet-search-container img {
   width: 30%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }
 
 .pet-search-card {
@@ -84,4 +83,45 @@ form div {
 
 .search-form-option ul li {
   list-style-type: none;
+}
+
+.search-btn {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: var(--main-color1);
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 13px solid var(--main-color1);
+  transition: transform 0.2s;
+  border-radius: 10px;
+}
+
+.search-btn:hover {
+  transform: scale(1.1); /* (150% zoom)*/
+}
+
+.reset-filter-btn {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  background: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid var(--main-color1);
+  padding: 12px 12px 12px 12px;
+  margin-bottom: 5px;
+  transition: transform 0.2s; /* Animation */
+  border-radius: 10px;
+}
+
+.reset-filter-btn a {
+  color: var(--main-color1);
+}
+
+.reset-filter-btn:hover {
+  transform: scale(1.1);
 }
