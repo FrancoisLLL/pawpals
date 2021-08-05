@@ -8,7 +8,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 require("../routes/playdates")
 
 
-router.get('/home', async (req, res, next) => {
+router.get('/home', requireAuth, (req, res, next) => {
 
   if(req.session.currentPet) { 
     delete req.session.currentPet;
