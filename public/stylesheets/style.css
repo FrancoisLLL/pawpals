@@ -153,12 +153,15 @@ div[class*="box"] {
   width: 100%;
 }
 
+
+/*pls don't touch*/
 .page-container-index {
   border: 5px solid #b9f18c !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
   height: auto;
+  margin-top: 7%;
 
 }
 
@@ -243,20 +246,23 @@ div[class*="box"] {
   flex-direction: column;
 }
 
+
+/*final*/
 .signup-page-container {
   border: 5px solid var(--main-color1) !important;
   margin: 40px 40px 40px 40px;
   border-radius: 25px;
   flex-shrink: 0;
-  height: auto;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 90vh;
   margin: auto 2em;
-  margin-top: 3%;
+  margin-top: 7%;
 }
+
+
 
 .pet-list-card-img {
   width: 150px;
@@ -336,8 +342,9 @@ div[class*="box"] {
   background: #fff;
   height: 90vh;
 
-
 }
+
+
 
 .signup-text::selection {
   background: var(--main-color1);
@@ -451,10 +458,7 @@ div[class*="box"] {
 }
 
 
-.page-container {
-  margin-top: 7%;
-  height: 88vh;
-}
+
 
 .cat-bottom-pic {
   text-align: center;
