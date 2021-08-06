@@ -13,7 +13,6 @@ router.get('/home', requireAuth, async (req, res, next) => {
 
   if(req.session.currentPet) { 
     delete req.session.currentPet;
-    console.log("req.session.currentPet has ended")
   }
 
     const userPets = await Pet.find({
@@ -51,6 +50,38 @@ router.get('/home', requireAuth, async (req, res, next) => {
       pet: userPets,
       css: ["home", "style"],
     })
+
+
+router.post("/account/:id/edit", (req, res, next) => {
+  User.findByIdAndUpdate(req.params.id, req.body)
+    .then((userDetails) => {
+      (console.log("redirect"))
+      res.redirect("/home");
+    })
+
+    .catch(e => console.log(e))
+
+});
+
+
+router.get("/account/:id/edit", (req, res, next) => {
+  User.findById(req.params.id)
+    .then((oneUser) => {
+      res.render("auth/editAccount", {
+        user: oneUser,
+      });
+    })
+    .catch(e => console.log(e))
+
+});
+
+
+    // console.log(confirmedPlaydates)
+
+
+
+  // } catch (error) {next(error)}
+
 });
 
     

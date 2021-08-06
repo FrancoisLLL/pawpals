@@ -20,6 +20,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1em;
+  margin-top: 4%;
+  background-color: white;
 }
 
 h1 {
@@ -34,6 +36,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+ 
 }
 
 .pet-search-container {
@@ -64,6 +67,11 @@ form div {
 .search-form-option {
   position: relative;
   display: inline-block;
+  
+}
+
+.one {
+  border: 1px solid black;
 }
 
 .dropdown-content {
