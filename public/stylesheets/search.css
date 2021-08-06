@@ -149,11 +149,15 @@ a.reset-filter-btn {
   border-radius: 50%;
   height: 200px;
   width: 200px;
-  background-position: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
   box-shadow: 1px 1px 5px grey;
   align-self: center;
+  background-color: white;
+}
+.pet-search-card img {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 h2 {
