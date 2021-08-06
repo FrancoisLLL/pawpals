@@ -20,70 +20,37 @@ router.get('/home', requireAuth, async (req, res, next) => {
       owner: req.session.currentUser._id
     })
 
-    // let petsConfirmedPlaydates = [];
+    let nextPlaydate = 0
 
-    // for (let i = 0; i < userPets.length; i++) {
-    //  const response =  Playdate.find({
-    //     status: "confirmed",
-    //     $or: [{
-    //         receiverId: userPets[i]._id
-    //     }, {
-    //         senderId: userPets[i]._id
-    //     }]
-    //   })
+    for (let i = 0; i < userPets.length; i++) {
+     const confirmed =  await Playdate.find({
+        status: "confirmed",
+        $or: [{
+            receiverId: userPets[i]._id
+        }, {
+            senderId: userPets[i]._id
+        }]
+      }).sort("proposedDate")
 
-    //   await petsConfirmedPlaydates.push(response);
-    //   console.log(petsConfirmedPlaydates)
-    // }
+      const pending = await Playdate.find({
+        status: "pending",
+        receiverId: userPets[i]._id
+        })
+
+        if(confirmed[0]) {
+          nextPlaydate = confirmed[0].proposedDate
+        }
+
+      userPets[i] = userPets[i].toObject()
+      userPets[i].confirmedPlaydates = confirmed.length
+      userPets[i].pendingInvites = pending.length
+      userPets[i].next = nextPlaydate
+    }
 
     res.render('home', {
       pet: userPets,
       css: ["home", "style"],
     })
-
-    // Pet.find({receiverId: userPets[0]._id})
-    // .then((response) => console.log("response", response))
-    // .catch((error) => console.log(error))
-    
-
-    // async function getPlayDates(currentPetId) {
-    //   const confirmed = await Playdate.find({
-    //       status: "confirmed",
-    //       $or: [{
-    //           receiverId: currentPetId
-    //       }, {
-    //           senderId: currentPetId
-    //       }]
-    //   }).populate("senderId").populate("receiverId").exec();
-    //   const pending = await Playdate.find({
-    //       status: "pending",
-    //       receiverId: currentPetId
-    //   }).populate("senderId").populate("receiverId").exec();
-  
-    //   const sent = await Playdate.find({
-    //       senderId: currentPetId,
-    //       status: "pending"
-    //   }).populate("senderId").populate("receiverId").exec();
-  
-    //   return {
-    //       confirmed,
-    //       pending,
-    //       sent
-    //   }
-    // }
-
-
-    // const confirmedPlaydates = await Playdate.find({
-    //     // $and: [{status: "confirmed"} , {$or: [{senderId : new ObjectId(req.session.currentUser._id)}, {receiverId : new ObjectId(req.session.currentUser._id)}]}]
-    //     senderId : new ObjectId(req.session.currentPet._id)
-    // })
-
-    // console.log(confirmedPlaydates)
-
-
-
-  // } catch (error) {next(error)}
-
 });
 
     
