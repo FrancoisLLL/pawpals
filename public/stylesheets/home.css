@@ -54,9 +54,8 @@ h2 {
 }
 
 .pet-card {
-  width: fit-content;
+  width: 25%;
   margin: 2em 2em;
-  width: fit-content;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -145,6 +144,11 @@ h2 {
   height: 100px;
 }
 
+#addPet a{
+  text-decoration: none;
+  color: black;
+}
+
 /* .container-home {
   background-color: #b9f18c;
   height: 90vh;
@@ -216,6 +220,8 @@ h2 {
   padding: 12px 12px 12px 12px;
   border-radius: 15px;
   align-items: center;
+  margin: 20px;
+
  
 /*position: fixed;
   left: 50%;

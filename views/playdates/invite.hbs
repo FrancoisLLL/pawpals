@@ -9,7 +9,7 @@
         <div class="update-form-container">
             <form method="post" action="/playdates/invite/{{guest._id}}">
                 <div>
-                    <input type="text" name="inviteDesc" placeholder="Describe your invitation" class="edittextinput">
+                    <textarea name="inviteDesc" placeholder="Describe your invitation" class="edittextinput"></textarea>
                 </div>
                 <div>
                     <input type="datetime-local" name="inviteDate" value={{date}} class="edittextinput">
