@@ -206,4 +206,6 @@ h2 {
 
 .description {
   margin-top: 1em;
+  height: 60px;
+  overflow: hidden;
 }
