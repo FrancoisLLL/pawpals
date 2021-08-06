@@ -11,7 +11,7 @@
   border-radius: 20px;
   margin-top: 1px;
   padding-left: 5px;
-  
+
 
 }
 
@@ -40,14 +40,16 @@
 /* Style the tab content */
 .tabcontent {
   padding: 6px 12px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-top: none;
 }
 
 .gridContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
+  display: flex;
+  /* grid-template-columns: repeat(3, 1fr);  */
+  /* grid-gap: 30px; */
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .inviteContainer {
@@ -55,6 +57,8 @@
   box-sizing: border-box;
   border-radius: 5%;
   padding: 20px;
+  width: 30%;
+  margin: 20px;
 }
 
 .invitePhoto {
@@ -95,14 +99,14 @@
   justify-content: space-around;
   font-weight: bold;
   padding: 10px;
-  width: 300px;
+  /* width: 300px; */
   margin: 0 auto;
 }
 
 .inviteDetailsGrid {
 
-margin :0 auto;
-display: flex;
+  margin: 0 auto;
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
@@ -129,14 +133,14 @@ display: flex;
   color: white;
 }
 
-#playdate-hi{
+#playdate-hi {
   height: 50px;
   padding: 10px;
   text-align: center;
   margin-bottom: 20px;
   border-radius: 5px;
   font-size: xx-large;
-  font-weight:bolder;
+  font-weight: bolder;
 }
 
 #invitePlay a {
@@ -147,25 +151,27 @@ display: flex;
 }
 
 #invitePlay a:hover {
-    transform: scale(1.5); /* (150% zoom)*/
+  transform: scale(1.5);
+  /* (150% zoom)*/
 }
 
 
 .playdates-container {
   margin-top: 6%;
-  
+
 }
 
 .playdates-card-container {
- 
+
   border: 5px solid #b9f18c !important;
   margin: 50px 40px 40px 40px;
   border-radius: 20px;
   flex-shrink: 0;
-  height: 90vh;
+  /* height: 90vh; */
+  min-height: 50vh;
   padding-left: -25px;
   padding-top: -1px;
-padding-right: -4px;
+  padding-right: -4px;
 }
 
 
@@ -201,7 +207,7 @@ padding-right: -4px;
 
 
 .green {
-  color : var(--main-color1);
+  color: var(--main-color1);
 }
 
 #map {
@@ -210,6 +216,7 @@ padding-right: -4px;
   border-radius: 20px;
   border: 1px solid var(--main-color1);
 }
+
 #tabcontent {
   border: white;
 }
