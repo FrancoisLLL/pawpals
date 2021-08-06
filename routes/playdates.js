@@ -54,7 +54,6 @@ router.get('/:id/playdates', requireAuth, async function (req, res, next) {
     if(!req.session.currentPet) {
         req.session.currentPet = { _id: foundPet._id }
     }
-
     const playDates = await getPlayDates(req.session.currentPet._id);
 
     // console.log(playDates.confirmed.length, playDates.pending.length, playDates.sent.length)

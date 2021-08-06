@@ -6,10 +6,6 @@ const requireAuth = require("../middlewares/auth")
 
 const ObjectId = require('mongoose').Types.ObjectId;
 
-router.get("/:id/session", (req, res, next) => {
-
-})
-
 
 router.get("/:id/search", requireAuth, async (req, res, next) => {
     
