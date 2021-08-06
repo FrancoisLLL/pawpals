@@ -39,6 +39,9 @@ router.get("/:id/search", requireAuth, async (req, res, next) => {
 
 
 router.get("/search/filter", (req, res, next) => {
+    // console.log(req.query.owner = { $ne: new ObjectId(req.session.currentUser._id) });
+    // console.log(req.query);
+    req.query.owner = { $ne: new ObjectId(req.session.currentUser._id) };
     Pet.find(req.query)
     .then((response) => {
         res.render("pets/searchForm.hbs", {
