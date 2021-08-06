@@ -37,7 +37,9 @@ const playdateSchema = new Schema({
         require: true
     },
     senderRating: Number,
-    receiverRating: Number
+    receiverRating: Number,
+    lat: Number,
+    lng: Number
 })
 
 const Playdate = mongoose.model("Playdate", playdateSchema);

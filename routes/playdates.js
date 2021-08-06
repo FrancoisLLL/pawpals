@@ -33,7 +33,7 @@ async function getPlayDates(currentPetId) {
     }
 }
 
-function renderPlaydates(res, playDates, user) {
+function renderPlaydates(res, playDates, currentPet) {
     res.render("./playdates/index.hbs", {
         playdatesConfirmed: playDates.confirmed,
         playdatesConfirmedLength: playDates.confirmed.length,
@@ -41,7 +41,7 @@ function renderPlaydates(res, playDates, user) {
         playdatesPendingLength: playDates.pending.length,
         playdatesSent: playDates.sent,
         playdatesSentLength: playDates.sent.length,
-        user: user,
+        currentPet: currentPet,
         css: ["tabs"]
     })
 }
@@ -57,13 +57,14 @@ router.get('/:id/playdates', requireAuth, async function (req, res, next) {
     const playDates = await getPlayDates(req.session.currentPet._id);
 
     // console.log(playDates.confirmed.length, playDates.pending.length, playDates.sent.length)
-    renderPlaydates(res, playDates, req.session.currentPet)
+    renderPlaydates(res, playDates, foundPet)
 });
 
-router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
-    console.log("req params " + req.params.id)
+router.get('/playdates/:id/invite/', checkPet, async function (req, res, next) {
+    const foundPet = await Pet.findById(req.params.id);
+
     res.render("./playdates/invite.hbs", {
-        guestId: req.params.id,
+        guest: foundPet,
         date: '2021-08-01T00:00',
         key: process.env.GOOGLEMAPS_KEY,
         css: ["tabs"]
@@ -71,22 +72,27 @@ router.get('/playdates/:id/invite/', checkPet, function (req, res, next) {
 });
 
 
-router.post('/playdates/invite/:guestId', checkPet, function (req, res, next) {
+router.post('/playdates/invite/:guestId', checkPet, async function (req, res, next) {
 
+    const foundPet = await Pet.findById(req.session.currentPet);
+
+    console.log(req.body.lat);
+    console.log(req.body.lng);
     Playdate.create({
             proposedDate: req.body.inviteDate,
             receiverId: req.params.guestId,
             senderId: req.session.currentPet._id,
             description: req.body.inviteDesc,
             status: "pending",
-            location: req.body.address
+            location: req.body.address,
+            lat: req.body.lat,
+            lng: req.body.lng
         })
         .then(async (data) => {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            renderPlaydates(res, playDates, req.session.currentPet)
-
+            renderPlaydates(res, playDates, foundPet)
 
         })
         .catch(e => console.log(e))
@@ -94,6 +100,8 @@ router.post('/playdates/invite/:guestId', checkPet, function (req, res, next) {
 
 router.get('/playdates/invite/:id', checkPet, async function (req, res, next) {
     // console.log(req.params.id);
+
+    const foundPet = await Pet.findById(req.session.currentPet);
 
     const playdate = await Playdate.findById(req.params.id)
         .populate("senderId")
@@ -112,14 +120,20 @@ router.get('/playdates/invite/:id', checkPet, async function (req, res, next) {
         isPending: playdate.status === "pending",
         senderOwner: senderOwner,
         receiverOwner:receiverOwner, 
-        css: ["tabs"]
+        isConfirmed: playdate.status ==="confirmed",
+        css: ["tabs"],
+        key: process.env.GOOGLEMAPS_KEY,
     })
+
+
 
 })
 
 
-router.get('/playdates/invite/:id/accept', checkPet, function (req, res, next) {
+router.get('/playdates/invite/:id/accept', checkPet, async function (req, res, next) {
     // console.log("accept playdate id" + req.params.id);
+    const foundPet = await Pet.findById(req.session.currentPet);
+
     Playdate.findOneAndUpdate({
             _id: req.params.id
         }, {
@@ -129,13 +143,15 @@ router.get('/playdates/invite/:id/accept', checkPet, function (req, res, next) {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            renderPlaydates(res, playDates, req.session.currentPet)
+            renderPlaydates(res, playDates, foundPet)
 
         })
         .catch(e => console.log(e))
 });
 
-router.get('/playdates/invite/:id/reject', checkPet, function (req, res, next) {
+router.get('/playdates/invite/:id/reject', checkPet, async function (req, res, next) {
+    const foundPet = await Pet.findById(req.session.currentPet);
+
     Playdate.findOneAndUpdate({
             _id: req.params.id
         }, {
@@ -145,13 +161,15 @@ router.get('/playdates/invite/:id/reject', checkPet, function (req, res, next) {
             // console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            renderPlaydates(res, playDates, req.session.currentPet)
+            renderPlaydates(res, playDates, foundPet)
 
         })
         .catch(e => console.log(e))
 });
 
-router.get('/playdates/invite/:id/cancel', checkPet, function (req, res, next) {
+router.get('/playdates/invite/:id/cancel', checkPet, async function (req, res, next) {
+    const foundPet = await Pet.findById(req.session.currentPet);
+
     Playdate.findOneAndUpdate({
             _id: req.params.id
         }, {
@@ -161,7 +179,7 @@ router.get('/playdates/invite/:id/cancel', checkPet, function (req, res, next) {
             console.log(data);
             const playDates = await getPlayDates(req.session.currentPet._id);
 
-            renderPlaydates(res, playDates, req.session.currentPet)
+            renderPlaydates(res, playDates, foundPet)
 
         })
         .catch(e => console.log(e))

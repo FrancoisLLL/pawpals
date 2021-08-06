@@ -1,21 +1,30 @@
+<div class="playdates-container"></div>
+
 <div id="invite">
-    <h1>Invite {{guest}}</h1>
-    <div class="update-form-container">
-        <form method="post" action="/playdates/invite/{{guestId}}">
-            <div>
-                <input type="text" name="inviteDesc" placeholder="Describe your invitation" class="edittextinput">
-            </div>
-            <div>
-                <input type="datetime-local" name="inviteDate" value={{date}} class="edittextinput">
-            </div>
-            <div>
-                <input id="address" name="address" placeholder="Enter address" class="form-control edittextinput">
-            </div>
-            <button class="editaccount-btn">Send invite</buttonnpm>
-        </form>
-        <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key={{key}}"></script>
-        <script type="text/javascript" src="/javascripts/googlemaps.config.js"></script>
-    </div>
+    {{!-- <h1>Invite {{guest}}</h1> --}}
+    <h1 id="playdate-hi">Invite <span class="green">{{guest.name}} </span>to play</h2>
+
+        <img src="{{guest.picture}}" alt="cat" class="invitePhoto">
+
+        <div class="update-form-container">
+            <form method="post" action="/playdates/invite/{{guest._id}}">
+                <div>
+                    <input type="text" name="inviteDesc" placeholder="Describe your invitation" class="edittextinput">
+                </div>
+                <div>
+                    <input type="datetime-local" name="inviteDate" value={{date}} class="edittextinput">
+                </div>
+                <div>
+                    <input id="address" name="address" placeholder="Enter address" class="form-control edittextinput">
+                </div>
+                <input id="lat" name="lat" type="hidden">
+                <input id="lng" name="lng" type="hidden">
+
+                <button class="editaccount-btn">Send invite</button>
+            </form>
+            <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key={{key}}"></script>
+            <script type="text/javascript" src="/javascripts/googlemaps.config.js"></script>
+        </div>
 
 </div>
