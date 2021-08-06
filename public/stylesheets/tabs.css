@@ -7,10 +7,11 @@
 
 .tab {
   overflow: hidden;
- 
   background-color: #f1f1f1;
-border-radius: 15px;
-margin-top: 1%;
+  border-radius: 20px;
+  margin-top: 1px;
+  padding-left: 5px;
+  
 
 }
 
@@ -125,6 +126,7 @@ display: flex;
   border-radius: 10px;
   font-size: large;
   font-weight: bolder;
+  color: white;
 }
 
 #playdate-hi{
@@ -152,10 +154,13 @@ display: flex;
 .playdates-card-container {
  
   border: 5px solid #b9f18c !important;
-  margin: 40px 40px 40px 40px;
-  border-radius: 25px;
+  margin: 50px 40px 40px 40px;
+  border-radius: 20px;
   flex-shrink: 0;
   height: 90vh;
+  padding-left: -25px;
+  padding-top: -1px;
+padding-right: -4px;
 }
 
 
@@ -198,4 +203,7 @@ display: flex;
   width: 500px;
   border-radius: 20px;
   border: 1px solid var(--main-color1);
+}
+#tabcontent {
+  border: white;
 }
