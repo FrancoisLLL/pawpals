@@ -19,9 +19,15 @@ body {
 .search-section {
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  margin-top: 4%;
-  background-color: white;
+  padding: 1em 1em 1em 1em;
+  margin-top: 7%;
+  background-color: #fafafa;
+  border: 5px solid var( --main-color1);
+  border-radius: 15px;
+  box-shadow: 10px 10px 4px -.4em grey;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 h1 {
@@ -64,15 +70,8 @@ form div {
   margin: 1em;
 }
 
-.search-form-option {
-  position: relative;
-  display: inline-block;
-  
-}
 
-.one {
-  border: 1px solid black;
-}
+
 
 .dropdown-content {
   display: none;
@@ -125,6 +124,7 @@ form div {
   transition: transform 0.2s; /* Animation */
   border-radius: 10px;
   font-size: 0.8em;
+  font-size: larger;
 }
 
 a.reset-filter-btn {
@@ -146,6 +146,7 @@ a.reset-filter-btn {
   display: flex;
   flex-direction: column;
   align-content: center;
+  box-shadow: 10px 10px 4px -.4em grey;
 }
 
 .pet-search-card .photo-container {
@@ -206,3 +207,4 @@ h2 {
 .invite-btn:hover {
   transform: scale(1.1);
 }
+
