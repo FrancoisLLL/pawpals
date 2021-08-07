@@ -215,6 +215,7 @@
   width: 500px;
   border-radius: 20px;
   border: 1px solid var(--main-color1);
+  margin: 20px;
 }
 
 #tabcontent {

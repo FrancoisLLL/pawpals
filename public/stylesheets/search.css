@@ -153,7 +153,6 @@ a.reset-filter-btn {
   align-self: center;
   background-color: white;
 }
-
 .pet-search-card img {
   object-fit: cover;
   width: 200px;
@@ -211,6 +210,6 @@ h2 {
 
 .description {
   margin-top: 1em;
-  font-style: italic;
+  height: 60px;
   overflow: hidden;
 }

@@ -35,9 +35,7 @@
     <div id="map"></div>
     {{/if}}
 
-</div>
-
-<div class="inviteButtons">
+    <div class="inviteButtons">
     {{#unless isOwner}}
     {{#if isPending}}
 
@@ -55,6 +53,6 @@
 
 <script type="text/javascript" src="/javascripts/initMap.js"></script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXBx1QSomWYTxckWJlZEQGshBv4VDzYK0&callback=initMap&libraries=&v=weekly"
+    src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"
     async></script>
 </div>

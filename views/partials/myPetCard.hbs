@@ -18,9 +18,11 @@
 
         <p>Following playdates : <span>{{this.confirmedPlaydates}}</span></p>
 
-        <a href='/{{this._id}}/playdates' class="small-link">See more...</a>
+        {{!-- <a href='/{{this._id}}/playdates' class="small-link">See more...</a> --}}
 
         <p>New invitation received : <span>{{this.pendingInvites}}</span></p>
+
+        <a class="green-btn" href="/{{this._id}}/playdates">PLAYDATES</a>
 
         <a class="green-btn" href="/{{this._id}}/search">SEARCH</a>
     </div>
